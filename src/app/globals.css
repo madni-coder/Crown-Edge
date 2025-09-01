@@ -1,26 +1,306 @@
-@import "tailwindcss";
+/* Import additional stylesheets */
+@import "../styles/animations.css";
+@import "../styles/responsive.css";
 
+/* Reset and base styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* CSS Custom Properties for theming */
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+    /* Colors */
+    --primary-bg: #1a1a1a;
+    --primary-gradient: linear-gradient(120deg, #84fab0 0%, #8fd3f4 100%);
+    --text-primary: #ffffff;
+    --text-secondary: #cccccc;
+    --accent: #84fab0;
+    --success: #4ade80;
+    --warning: #fbbf24;
+
+    /* Typography */
+    --font-primary: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI",
+        Roboto, sans-serif;
+    --font-size-xs: 0.75rem; /* 12px */
+    --font-size-sm: 0.875rem; /* 14px */
+    --font-size-base: 1rem; /* 16px */
+    --font-size-lg: 1.125rem; /* 18px */
+    --font-size-xl: 1.25rem; /* 20px */
+    --font-size-2xl: 1.5rem; /* 24px */
+    --font-size-3xl: 1.875rem; /* 30px */
+    --font-size-4xl: 2.25rem; /* 36px */
+    --font-size-5xl: 3rem; /* 48px */
+
+    /* Spacing */
+    --space-1: 0.5rem; /* 8px */
+    --space-2: 1rem; /* 16px */
+    --space-3: 1.5rem; /* 24px */
+    --space-4: 2rem; /* 32px */
+    --space-6: 3rem; /* 48px */
+    --space-8: 4rem; /* 64px */
+    --space-12: 6rem; /* 96px */
+
+    /* Breakpoints */
+    --breakpoint-sm: 768px;
+    --breakpoint-md: 1024px;
+    --breakpoint-lg: 1200px;
+
+    /* Container */
+    --container-max-width: 1200px;
+    --container-padding: var(--space-2);
+
+    /* Transitions */
+    --transition-fast: 0.15s ease-in-out;
+    --transition-normal: 0.3s ease-in-out;
+    --transition-slow: 0.5s ease-in-out;
+
+    /* Shadows */
+    --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+    --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+    --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+
+    /* Border radius */
+    --radius-sm: 0.25rem;
+    --radius-md: 0.5rem;
+    --radius-lg: 1rem;
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+/* Base HTML elements */
+html {
+    scroll-behavior: smooth;
+    font-size: 16px;
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+    background-color: var(--primary-bg);
+    color: var(--text-primary);
+    font-family: var(--font-primary);
+    font-size: var(--font-size-base);
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+/* Typography */
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font-weight: 600;
+    line-height: 1.2;
+    margin-bottom: var(--space-2);
+}
+
+h1 {
+    font-size: var(--font-size-5xl);
+}
+h2 {
+    font-size: var(--font-size-4xl);
+}
+h3 {
+    font-size: var(--font-size-3xl);
+}
+h4 {
+    font-size: var(--font-size-2xl);
+}
+h5 {
+    font-size: var(--font-size-xl);
+}
+h6 {
+    font-size: var(--font-size-lg);
+}
+
+p {
+    margin-bottom: var(--space-2);
+    color: var(--text-secondary);
+}
+
+a {
+    color: var(--accent);
+    text-decoration: none;
+    transition: color var(--transition-fast);
+}
+
+a:hover {
+    color: var(--text-primary);
+}
+
+/* Container utility */
+.container {
+    max-width: var(--container-max-width);
+    margin: 0 auto;
+    padding: 0 var(--container-padding);
+}
+
+/* Section spacing */
+.section {
+    padding: var(--space-8) 0;
+}
+
+/* Gradient utilities */
+.gradient-bg {
+    background: var(--primary-gradient);
+}
+
+.gradient-text {
+    background: var(--primary-gradient);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+/* Button base styles */
+.btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: var(--space-2) var(--space-4);
+    border: none;
+    border-radius: var(--radius-md);
+    font-size: var(--font-size-base);
+    font-weight: 500;
+    text-decoration: none;
+    cursor: pointer;
+    transition: all var(--transition-normal);
+    min-height: 44px; /* Touch-friendly */
+}
+
+.btn-primary {
+    background: var(--primary-gradient);
+    color: var(--text-primary);
+}
+
+.btn-primary:hover {
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-lg);
+}
+
+/* Responsive typography */
+@media (max-width: 767px) {
+    :root {
+        --font-size-5xl: 2.25rem; /* 36px */
+        --font-size-4xl: 1.875rem; /* 30px */
+        --font-size-3xl: 1.5rem; /* 24px */
+        --container-padding: var(--space-2);
+    }
+
+    .section {
+        padding: var(--space-4) 0;
+    }
+}
+
+@media (min-width: 768px) {
+    :root {
+        --container-padding: var(--space-3);
+    }
+}
+
+@media (min-width: 1024px) {
+    :root {
+        --container-padding: var(--space-4);
+    }
+}
+
+/* Accessibility */
+@media (prefers-reduced-motion: reduce) {
+    * {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+    }
+
+    html {
+        scroll-behavior: auto;
+    }
+}
+
+/* Focus styles */
+*:focus {
+    outline: 2px solid var(--accent);
+    outline-offset: 2px;
+}
+
+/* Screen reader only utility */
+.sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border: 0;
+}
+/* Additional utility classes */
+.bg-gray-800 {
+    background-color: rgba(31, 41, 55, 0.8);
+}
+
+.rounded-lg {
+    border-radius: var(--radius-lg);
+}
+
+.text-secondary {
+    color: var(--text-secondary);
+}
+/* Performance Optimizations */
+.reduce-animations * {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+}
+
+.touch-device {
+    /* Optimize for touch devices */
+    -webkit-tap-highlight-color: transparent;
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    user-select: none;
+}
+
+.touch-device button,
+.touch-device a,
+.touch-device [role="button"] {
+    -webkit-user-select: none;
+    user-select: none;
+}
+
+/* Lazy loading styles */
+[data-lazy] {
+    opacity: 0;
+    transition: opacity 0.3s ease-in-out;
+}
+
+.lazy-loaded {
+    opacity: 1;
+}
+
+/* GPU acceleration for animations */
+.animate-on-scroll,
+.service-card,
+.team-card,
+.portfolio-item {
+    will-change: transform, opacity;
+}
+
+/* Optimize for 60fps animations */
+@media (max-width: 767px) {
+    .service-card:hover,
+    .team-card:hover,
+    .portfolio-item:hover {
+        transform: translateY(-2px) scale(1.01);
+    }
+}
+
+/* Battery optimization */
+@media (prefers-reduced-motion: reduce) {
+    .reduce-animations * {
+        animation: none !important;
+        transition: none !important;
+    }
 }

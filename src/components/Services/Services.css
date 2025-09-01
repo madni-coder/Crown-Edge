@@ -1,0 +1,346 @@
+/* Services Section Styles */
+.services-header {
+    text-align: center;
+    margin-bottom: var(--space-8);
+}
+
+.services-title {
+    font-size: var(--font-size-4xl);
+    font-weight: 700;
+    margin-bottom: var(--space-3);
+    background: var(--primary-gradient);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.services-subtitle {
+    font-size: var(--font-size-lg);
+    color: var(--text-secondary);
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+/* Services Grid Layout */
+.services-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: var(--space-6);
+    margin-top: var(--space-8);
+}
+
+/* Service Card Styles */
+.service-card {
+    position: relative;
+    background: rgba(31, 41, 55, 0.6);
+    border: 1px solid rgba(132, 250, 176, 0.2);
+    border-radius: var(--radius-lg);
+    padding: var(--space-6);
+    transition: all var(--transition-normal);
+    cursor: pointer;
+    overflow: hidden;
+    min-height: 320px;
+    display: flex;
+    flex-direction: column;
+    backdrop-filter: blur(10px);
+}
+
+.service-card::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: var(--primary-gradient);
+    opacity: 0;
+    transition: opacity var(--transition-normal);
+    z-index: 1;
+}
+
+/* Service Icon */
+.service-icon {
+    position: relative;
+    z-index: 2;
+    margin-bottom: var(--space-4);
+}
+
+.icon-emoji {
+    font-size: 3rem;
+    display: inline-block;
+    transition: transform var(--transition-normal);
+    filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.3));
+}
+
+/* Service Content */
+.service-content {
+    position: relative;
+    z-index: 2;
+    flex-grow: 1;
+}
+
+.service-title {
+    font-size: var(--font-size-2xl);
+    font-weight: 600;
+    margin-bottom: var(--space-2);
+    color: var(--text-primary);
+    transition: color var(--transition-normal);
+}
+
+.service-description {
+    color: var(--text-secondary);
+    margin-bottom: var(--space-4);
+    line-height: 1.6;
+    transition: color var(--transition-normal);
+}
+
+/* Service Features */
+.service-features {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.service-feature {
+    display: flex;
+    align-items: center;
+    margin-bottom: var(--space-2);
+    color: var(--text-secondary);
+    font-size: var(--font-size-sm);
+    transition: color var(--transition-normal);
+}
+
+.feature-bullet {
+    color: var(--accent);
+    margin-right: var(--space-2);
+    font-weight: bold;
+    transition: color var(--transition-normal);
+}
+
+/* Service Overlay */
+.service-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba(0, 0, 0, 0.8);
+    opacity: 0;
+    transition: opacity var(--transition-normal);
+    z-index: 3;
+}
+
+.service-cta {
+    background: var(--primary-gradient);
+    color: var(--text-primary);
+    border: none;
+    padding: var(--space-3) var(--space-6);
+    border-radius: var(--radius-md);
+    font-size: var(--font-size-base);
+    font-weight: 600;
+    cursor: pointer;
+    transition: all var(--transition-normal);
+    transform: translateY(20px);
+    min-height: 44px; /* Touch-friendly */
+    min-width: 120px;
+}
+
+/* Hover Effects */
+.service-card:hover {
+    transform: translateY(-8px) scale(1.02);
+    box-shadow: 0 20px 40px rgba(132, 250, 176, 0.3);
+    border-color: rgba(132, 250, 176, 0.5);
+}
+
+.service-card:hover::before {
+    opacity: 0.1;
+}
+
+.service-card:hover .icon-emoji {
+    transform: scale(1.2) rotate(5deg);
+}
+
+.service-card:hover .service-title {
+    color: var(--text-primary);
+}
+
+.service-card:hover .service-description,
+.service-card:hover .service-feature {
+    color: var(--text-primary);
+}
+
+.service-card:hover .feature-bullet {
+    color: #8fd3f4;
+}
+
+.service-card:hover .service-overlay {
+    opacity: 1;
+}
+
+.service-card:hover .service-cta {
+    transform: translateY(0);
+}
+
+.service-cta:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 16px rgba(132, 250, 176, 0.4);
+}
+
+/* Active/Focus States for Touch Devices */
+.service-card:active,
+.service-card:focus-within {
+    transform: translateY(-4px) scale(1.01);
+}
+
+.service-cta:active {
+    transform: translateY(0) scale(0.98);
+}
+
+/* Responsive Design */
+@media (min-width: 768px) {
+    .services-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: var(--space-6);
+    }
+
+    .service-card {
+        min-height: 350px;
+    }
+}
+
+@media (min-width: 1024px) {
+    .services-grid {
+        grid-template-columns: repeat(3, 1fr);
+        gap: var(--space-8);
+    }
+
+    .service-card {
+        min-height: 380px;
+    }
+
+    .services-title {
+        font-size: var(--font-size-5xl);
+    }
+}
+
+/* Animation Keyframes */
+@keyframes iconBounce {
+    0%,
+    100% {
+        transform: scale(1) rotate(0deg);
+    }
+    50% {
+        transform: scale(1.1) rotate(2deg);
+    }
+}
+
+@keyframes cardGlow {
+    0%,
+    100% {
+        box-shadow: 0 4px 8px rgba(161, 140, 209, 0.2);
+    }
+    50% {
+        box-shadow: 0 8px 16px rgba(161, 140, 209, 0.4);
+    }
+}
+
+/* Icon Animation on Card Hover */
+.service-card:hover .icon-emoji {
+    animation: iconBounce 0.6s ease-in-out;
+}
+
+/* Staggered Animation Classes */
+.animate-delay-100 {
+    animation-delay: 0.1s;
+}
+.animate-delay-200 {
+    animation-delay: 0.2s;
+}
+.animate-delay-300 {
+    animation-delay: 0.3s;
+}
+.animate-delay-400 {
+    animation-delay: 0.4s;
+}
+.animate-delay-500 {
+    animation-delay: 0.5s;
+}
+.animate-delay-600 {
+    animation-delay: 0.6s;
+}
+
+/* Mobile-specific optimizations */
+@media (max-width: 767px) {
+    .services-grid {
+        gap: var(--space-4);
+    }
+
+    .service-card {
+        min-height: 280px;
+        padding: var(--space-4);
+    }
+
+    .services-title {
+        font-size: var(--font-size-3xl);
+    }
+
+    .services-subtitle {
+        font-size: var(--font-size-base);
+    }
+
+    .icon-emoji {
+        font-size: 2.5rem;
+    }
+
+    .service-title {
+        font-size: var(--font-size-xl);
+    }
+
+    /* Simplified hover effects for mobile */
+    .service-card:hover {
+        transform: translateY(-4px);
+    }
+
+    /* Touch-friendly overlay behavior */
+    .service-card:active .service-overlay {
+        opacity: 1;
+    }
+
+    .service-card:active .service-cta {
+        transform: translateY(0);
+    }
+}
+
+/* Accessibility improvements */
+@media (prefers-reduced-motion: reduce) {
+    .service-card,
+    .icon-emoji,
+    .service-cta,
+    .service-overlay {
+        transition: none !important;
+        animation: none !important;
+    }
+
+    .service-card:hover {
+        transform: none;
+    }
+
+    .service-card:hover .icon-emoji {
+        transform: none;
+        animation: none;
+    }
+}
+
+/* Focus styles for keyboard navigation */
+.service-card:focus {
+    outline: 2px solid var(--accent);
+    outline-offset: 4px;
+}
+
+.service-cta:focus {
+    outline: 2px solid var(--text-primary);
+    outline-offset: 2px;
+}
