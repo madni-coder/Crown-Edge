@@ -1,6 +1,7 @@
 "use client";
 
 import { useState, useEffect } from "react";
+import Image from "next/image";
 import { smoothScrollTo } from "../../utils/animations";
 import "./Header.css";
 
@@ -66,21 +67,31 @@ const Header = () => {
     }, [isMenuOpen]);
 
     return (
+        
         <header className={`header ${isScrolled ? "header--scrolled" : ""}`}>
+            
             <div className="container">
-                <div className="header__content">
-                    {/* Logo */}
-                    <div className="header__logo">
-                        <button
-                            onClick={() => handleNavClick("#home")}
-                            className="header__logo-link"
-                            aria-label="Nexa Agency Home"
-                        >
-                            <span className="header__logo-text gradient-text">
-                                RAZA INFOTECH
-                            </span>
-                        </button>
-                    </div>
+                
+                <div className="header__content ">
+                    {/* Logo on the left (size unchanged) */}
+                    {/* <div className="header__logo-container ">
+                            <Image
+                                src="/companyLogo.png"
+                                alt="Nexa Agency Logo"
+                                fill
+                                sizes="(max-width: 768px) 40px, 50px"
+                                style={{ objectFit: "contain" }}
+                                priority
+                            />
+                        </div> */}
+                    <button
+                        onClick={() => handleNavClick("#home")}
+                        className="header__logo-link"
+                        style={{ marginRight: "auto" }} // keep logo pinned to the left in flex
+                        aria-label="Nexa Agency Home"
+                    >
+                       
+                    </button>
 
                     {/* Desktop Navigation */}
                     <nav
@@ -88,6 +99,7 @@ const Header = () => {
                         aria-label="Main navigation"
                     >
                         <ul className="header__nav-list">
+                            
                             {navItems.map((item) => (
                                 <li key={item.id} className="header__nav-item">
                                     <button

@@ -61,12 +61,23 @@ const Hero = () => {
                             }`}
                         >
                             <span className="hero__title-line hero__title-line--1">
-                                Digital Solutions
+                                CROWN EDGE{" "}
                             </span>
                             <span className="hero__title-line hero__title-line--2 gradient-text">
-                                That Drive Results
+                                TECHNOLOGIES
                             </span>
                         </h1>
+
+                        <div
+                            className={`hero__slogan ${
+                                isLoaded ? "hero__slogan--animate" : ""
+                            }`}
+                        >
+                            <span className="hero__slogan-text">
+                                Empowering You with a Royal Edge
+                            </span>
+                            <div className="hero__slogan-accent"></div>
+                        </div>
 
                         <p
                             className={`hero__subtitle ${

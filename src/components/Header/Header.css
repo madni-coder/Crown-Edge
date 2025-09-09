@@ -11,7 +11,12 @@
     transition: all var(--transition-normal);
     border-bottom: 1px solid transparent;
 }
-
+.header__logo-container {
+    display: flex;
+    align-items: center; /* fixed: 'left' is invalid */
+    justify-content: flex-start; /* ensure content starts from the left */
+    gap: 1em; /* Space between image and text */
+}
 .header--scrolled {
     background-color: rgba(26, 26, 26, 0.98);
     border-bottom-color: rgba(161, 140, 209, 0.2);
@@ -38,6 +43,11 @@
     padding: var(--space-1);
     border-radius: var(--radius-sm);
     transition: transform var(--transition-fast);
+    display: inline-flex;
+    align-items: center;
+    margin-left: 0 !important;
+    margin-right: auto !important; /* push next items to the right */
+    position: static; /* avoid accidental absolute centering */
 }
 
 .header__logo-link:hover {
