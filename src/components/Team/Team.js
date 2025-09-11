@@ -10,76 +10,26 @@ import "./Team.css";
 const teamData = [
     {
         id: 1,
-        name: "Sarah Johnson",
-        position: "CEO & Founder",
-        image: "👩‍💼",
-        bio: "Visionary leader with 10+ years in digital innovation, driving strategic growth and client success.",
-        social: {
-            linkedin: "#",
-            twitter: "#",
-            github: "#",
-        },
+        name: "Sayyed Amaan Hussain",
+        position: "Founder & CEO",
+        image: "👨‍💻",
+       
     },
     {
         id: 2,
-        name: "Michael Chen",
-        position: "Lead Developer",
+        name: "Asad Madni",
+        position: "CO FOUNDER",
         image: "👨‍💻",
-        bio: "Full-stack expert specializing in modern web technologies and scalable architecture solutions.",
-        social: {
-            linkedin: "#",
-            twitter: "#",
-            github: "#",
-        },
+       
     },
     {
         id: 3,
-        name: "Emily Rodriguez",
-        position: "UX/UI Designer",
+        name: "Syed Aaqib Ali",
+        position: "Chief Technology Office (CTO)",
         image: "👩‍🎨",
-        bio: "Creative designer focused on user-centered design and creating intuitive digital experiences.",
-        social: {
-            linkedin: "#",
-            twitter: "#",
-            github: "#",
-        },
+        
     },
-    {
-        id: 4,
-        name: "David Kim",
-        position: "Marketing Director",
-        image: "👨‍📊",
-        bio: "Strategic marketer with expertise in digital campaigns and data-driven growth strategies.",
-        social: {
-            linkedin: "#",
-            twitter: "#",
-            github: "#",
-        },
-    },
-    {
-        id: 5,
-        name: "Lisa Thompson",
-        position: "Project Manager",
-        image: "👩‍💼",
-        bio: "Agile project management expert ensuring seamless delivery and client satisfaction.",
-        social: {
-            linkedin: "#",
-            twitter: "#",
-            github: "#",
-        },
-    },
-    {
-        id: 6,
-        name: "Alex Rivera",
-        position: "DevOps Engineer",
-        image: "👨‍🔧",
-        bio: "Infrastructure specialist focused on automation, scalability, and reliable deployment solutions.",
-        social: {
-            linkedin: "#",
-            twitter: "#",
-            github: "#",
-        },
-    },
+   
 ];
 
 export default function Team() {
@@ -133,44 +83,7 @@ export default function Team() {
 
                                     <div className="team-overlay">
                                         <p className="team-bio">{member.bio}</p>
-                                        <div className="team-social">
-                                            <a
-                                                href={member.social.linkedin}
-                                                className="social-link"
-                                                aria-label={`${member.name} LinkedIn profile`}
-                                                onClick={(e) =>
-                                                    e.preventDefault()
-                                                }
-                                            >
-                                                <span className="social-icon">
-                                                    💼
-                                                </span>
-                                            </a>
-                                            <a
-                                                href={member.social.twitter}
-                                                className="social-link"
-                                                aria-label={`${member.name} Twitter profile`}
-                                                onClick={(e) =>
-                                                    e.preventDefault()
-                                                }
-                                            >
-                                                <span className="social-icon">
-                                                    🐦
-                                                </span>
-                                            </a>
-                                            <a
-                                                href={member.social.github}
-                                                className="social-link"
-                                                aria-label={`${member.name} GitHub profile`}
-                                                onClick={(e) =>
-                                                    e.preventDefault()
-                                                }
-                                            >
-                                                <span className="social-icon">
-                                                    💻
-                                                </span>
-                                            </a>
-                                        </div>
+                                       
                                     </div>
                                 </div>
                             </div>
@@ -179,30 +92,7 @@ export default function Team() {
                 </div>
 
                 {/* Team Stats */}
-                <div className="team-stats animate-on-scroll">
-                    <div className="team-stats-grid">
-                        <div className="team-stat">
-                            <div className="stat-number gradient-text">15+</div>
-                            <div className="stat-label">Team Members</div>
-                        </div>
-                        <div className="team-stat">
-                            <div className="stat-number gradient-text">8+</div>
-                            <div className="stat-label">Years Experience</div>
-                        </div>
-                        <div className="team-stat">
-                            <div className="stat-number gradient-text">
-                                200+
-                            </div>
-                            <div className="stat-label">Projects Delivered</div>
-                        </div>
-                        <div className="team-stat">
-                            <div className="stat-number gradient-text">
-                                24/7
-                            </div>
-                            <div className="stat-label">Support Available</div>
-                        </div>
-                    </div>
-                </div>
+               
             </div>
         </section>
     );

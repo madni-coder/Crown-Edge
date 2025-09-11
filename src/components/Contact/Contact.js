@@ -104,199 +104,10 @@ export default function Contact() {
                 </div>
 
                 <div className="contact-content">
-                    {/* Contact Form */}
-                    <div className="contact-form-container animate-on-scroll animate-delay-300">
-                        <form
-                            className="contact-form"
-                            onSubmit={handleSubmit}
-                            noValidate
-                        >
-                            <div className="form-row">
-                                <div className="form-group">
-                                    <label
-                                        htmlFor="name"
-                                        className="form-label"
-                                    >
-                                        Name *
-                                    </label>
-                                    <input
-                                        type="text"
-                                        id="name"
-                                        name="name"
-                                        value={formData.name}
-                                        onChange={handleInputChange}
-                                        onBlur={handleInputBlur}
-                                        className={`form-input ${
-                                            errors.name ? "error" : ""
-                                        }`}
-                                        placeholder="Your full name"
-                                        required
-                                        aria-describedby={
-                                            errors.name
-                                                ? "name-error"
-                                                : undefined
-                                        }
-                                    />
-                                    {errors.name && (
-                                        <span
-                                            id="name-error"
-                                            className="form-error"
-                                            role="alert"
-                                        >
-                                            {errors.name}
-                                        </span>
-                                    )}
-                                </div>
-
-                                <div className="form-group">
-                                    <label
-                                        htmlFor="email"
-                                        className="form-label"
-                                    >
-                                        Email *
-                                    </label>
-                                    <input
-                                        type="email"
-                                        id="email"
-                                        name="email"
-                                        value={formData.email}
-                                        onChange={handleInputChange}
-                                        onBlur={handleInputBlur}
-                                        className={`form-input ${
-                                            errors.email ? "error" : ""
-                                        }`}
-                                        placeholder="your.email@example.com"
-                                        required
-                                        aria-describedby={
-                                            errors.email
-                                                ? "email-error"
-                                                : undefined
-                                        }
-                                    />
-                                    {errors.email && (
-                                        <span
-                                            id="email-error"
-                                            className="form-error"
-                                            role="alert"
-                                        >
-                                            {errors.email}
-                                        </span>
-                                    )}
-                                </div>
-                            </div>
-
-                            <div className="form-group">
-                                <label htmlFor="subject" className="form-label">
-                                    Subject *
-                                </label>
-                                <input
-                                    type="text"
-                                    id="subject"
-                                    name="subject"
-                                    value={formData.subject}
-                                    onChange={handleInputChange}
-                                    onBlur={handleInputBlur}
-                                    className={`form-input ${
-                                        errors.subject ? "error" : ""
-                                    }`}
-                                    placeholder="Project inquiry, consultation, etc."
-                                    required
-                                    aria-describedby={
-                                        errors.subject
-                                            ? "subject-error"
-                                            : undefined
-                                    }
-                                />
-                                {errors.subject && (
-                                    <span
-                                        id="subject-error"
-                                        className="form-error"
-                                        role="alert"
-                                    >
-                                        {errors.subject}
-                                    </span>
-                                )}
-                            </div>
-
-                            <div className="form-group">
-                                <label htmlFor="message" className="form-label">
-                                    Message *
-                                </label>
-                                <textarea
-                                    id="message"
-                                    name="message"
-                                    value={formData.message}
-                                    onChange={handleInputChange}
-                                    onBlur={handleInputBlur}
-                                    className={`form-textarea ${
-                                        errors.message ? "error" : ""
-                                    }`}
-                                    placeholder="Tell us about your project, goals, and how we can help..."
-                                    rows="6"
-                                    required
-                                    aria-describedby={
-                                        errors.message
-                                            ? "message-error"
-                                            : undefined
-                                    }
-                                />
-                                {errors.message && (
-                                    <span
-                                        id="message-error"
-                                        className="form-error"
-                                        role="alert"
-                                    >
-                                        {errors.message}
-                                    </span>
-                                )}
-                            </div>
-
-                            <button
-                                type="submit"
-                                className={`form-submit ${
-                                    isSubmitting ? "submitting" : ""
-                                }`}
-                                disabled={isSubmitting}
-                            >
-                                {isSubmitting ? (
-                                    <>
-                                        <span className="submit-spinner"></span>
-                                        Sending...
-                                    </>
-                                ) : (
-                                    "Send Message"
-                                )}
-                            </button>
-
-                            {submitStatus && (
-                                <div
-                                    className={`submit-feedback ${submitStatus}`}
-                                    role="alert"
-                                >
-                                    {submitStatus === "success" ? (
-                                        <>
-                                            <span className="feedback-icon">
-                                                ✓
-                                            </span>
-                                            Thank you! Your message has been
-                                            sent successfully.
-                                        </>
-                                    ) : (
-                                        <>
-                                            <span className="feedback-icon">
-                                                ✗
-                                            </span>
-                                            Sorry, there was an error sending
-                                            your message. Please try again.
-                                        </>
-                                    )}
-                                </div>
-                            )}
-                        </form>
-                    </div>
+                    
 
                     {/* Contact Information */}
-                    <div className="contact-info animate-on-scroll animate-delay-400">
+                    <div className="contact-info animate-on-scroll animate-delay-400 ">
                         <h3 className="contact-info-title">Get in Touch</h3>
                         <p className="contact-info-text">
                             Ready to bring your vision to life? We&apos;d love
@@ -330,24 +141,13 @@ export default function Contact() {
                                 <div className="detail-content">
                                     <h4 className="detail-title">Office</h4>
                                     <p className="detail-text">
-                                        123 Innovation Street
+                                       Sanjay Nagar
                                         <br />
-                                        Tech District, CA 90210
-                                    </p>
+Raipur                                    </p>
                                 </div>
                             </div>
 
-                            <div className="contact-detail">
-                                <div className="detail-icon">⏰</div>
-                                <div className="detail-content">
-                                    <h4 className="detail-title">Hours</h4>
-                                    <p className="detail-text">
-                                        Mon - Fri: 9:00 AM - 6:00 PM
-                                        <br />
-                                        Weekend: By appointment
-                                    </p>
-                                </div>
-                            </div>
+                           
                         </div>
 
                         <div className="contact-social">
