@@ -40,6 +40,7 @@ const About = () => {
     ];
 
     // Features/Services data
+
     const features = [
         {
             id: 1,
@@ -77,7 +78,7 @@ const About = () => {
                 {/* Section Header */}
                 <div className="about__header">
                     <div className="about__header-content animate-on-scroll">
-                        <span className="about__label">About Nexa Agency</span>
+                        <span className="about__label">About Our Company</span>
                         <h2 className="about__title">
                             We Create Digital Experiences
                             <span className="gradient-text">
@@ -94,17 +95,28 @@ const About = () => {
                 </div>
 
                 {/* Main Content */}
-                <div className="about__content">
+                <div
+                    className="about__content"
+                    style={{
+                        maxWidth: "1200px",
+                        margin: "0 auto",
+                        display: "flex",
+                        gap: "60px",
+                    }}
+                >
                     {/* Left Column - Story & Mission */}
-                    <div className="about__story animate-on-scroll animate-slide-in-left">
+                    <div
+                        className="about__story animate-on-scroll animate-slide-in-left"
+                        style={{ flex: 1.2 }}
+                    >
                         <div className="about__story-content">
                             <h3 className="about__story-title">Our Story</h3>
                             <p className="about__story-text">
                                 Founded with a vision to bridge the gap between
-                                technology and business success, Nexa Agency has
+                                technology and business success, Our Company has
                                 grown from a small team of passionate developers
-                                to a full-service digital agency trusted by
-                                companies worldwide.
+                                to a full-service digital service provider, trusted by
+                                various companies .
                             </p>
                             <p className="about__story-text">
                                 We specialize in creating custom web
@@ -128,110 +140,48 @@ const About = () => {
                                     landscape.
                                 </p>
                             </div>
-
-                            {/* Features Grid */}
-                            <div className="about__features">
-                                {features.map((feature, index) => (
-                                    <div
-                                        key={feature.id}
-                                        className="about__feature animate-on-scroll"
-                                        style={{
-                                            animationDelay: `${index * 0.1}s`,
-                                        }}
-                                    >
-                                        <div className="about__feature-icon">
-                                            {feature.icon}
-                                        </div>
-                                        <div className="about__feature-content">
-                                            <h5 className="about__feature-title">
-                                                {feature.title}
-                                            </h5>
-                                            <p className="about__feature-description">
-                                                {feature.description}
-                                            </p>
-                                        </div>
-                                    </div>
-                                ))}
-                            </div>
                         </div>
                     </div>
-
-                    {/* Right Column - Statistics */}
-                    <div className="about__stats animate-on-scroll animate-slide-in-right">
-                        <div className="about__stats-content">
-                            <h3 className="about__stats-title">
-                                By the Numbers
-                            </h3>
-                            <p className="about__stats-subtitle">
-                                Our track record speaks for itself. Here&apos;s
-                                what we&apos;ve achieved together with our
-                                clients.
-                            </p>
-
-                            <div className="about__stats-grid">
-                                {stats.map((stat, index) => (
-                                    <div
-                                        key={stat.id}
-                                        className="about__stat animate-on-scroll"
-                                        style={{
-                                            animationDelay: `${index * 0.2}s`,
-                                        }}
-                                    >
-                                        <div className="about__stat-number">
-                                            <span
-                                                className="about__stat-value gradient-text"
-                                                data-counter={stat.number}
-                                                data-duration="2000"
-                                            >
-                                                0
-                                            </span>
-                                            <span className="about__stat-suffix">
-                                                {stat.suffix}
-                                            </span>
-                                        </div>
-                                        <h4 className="about__stat-label">
-                                            {stat.label}
-                                        </h4>
-                                        <p className="about__stat-description">
-                                            {stat.description}
-                                        </p>
-                                    </div>
-                                ))}
+                    {/* Right Column - Features Grid */}
+                    
+                    <div
+                        className="about__features"
+                        style={{
+                            flex: 1.2,
+                            display: "flex",
+                            flexDirection: "column",
+                            gap: "40px",
+                            justifyContent: "center",
+                        }}
+                    >
+                        {features.map((feature, index) => (
+                            <div
+                                key={feature.id}
+                                className="about__feature animate-on-scroll"
+                                style={{
+                                    animationDelay: `${index * 0.1}s`,
+                                }}
+                            >
+                                <div className="about__feature-icon">
+                                    {feature.icon}
+                                </div>
+                                <div className="about__feature-content">
+                                    <h5 className="about__feature-title">
+                                        {feature.title}
+                                    </h5>
+                                    <p className="about__feature-description">
+                                        {feature.description}
+                                    </p>
+                                </div>
                             </div>
-
-                            {/* Call to Action */}
-                            <div className="about__cta animate-on-scroll">
-                                <h4 className="about__cta-title">
-                                    Ready to Start Your Project?
-                                </h4>
-                                <p className="about__cta-text">
-                                    Let&apos;s discuss how we can help bring
-                                    your vision to life with our expertise and
-                                    passion.
-                                </p>
-                                <button
-                                    className="about__cta-button btn btn-primary"
-                                    onClick={() => {
-                                        const contactSection =
-                                            document.getElementById("contact");
-                                        if (contactSection) {
-                                            contactSection.scrollIntoView({
-                                                behavior: "smooth",
-                                            });
-                                        }
-                                    }}
-                                >
-                                    Get In Touch
-                                </button>
-                            </div>
-                        </div>
+                        ))}
                     </div>
                 </div>
 
                 {/* Bottom Section - Values */}
-                <div className="about__values animate-on-scroll">
+                <div className="about__values animate-on-scroll mt-4">
                     <h3 className="about__values-title">Our Core Values</h3>
-                    <div className="about__values-grid">
+                    <div className="about__values-grid ">
                         <div className="about__value animate-on-scroll">
                             <div className="about__value-icon">💡</div>
                             <h4 className="about__value-title">Innovation</h4>

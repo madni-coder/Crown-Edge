@@ -22,10 +22,10 @@ export default function Footer() {
                     <div className="footer-section animate-on-scroll">
                         <div className="footer-logo">
                             <h3 className="logo-text gradient-text">
-                                Nexa Agency
+                                Crown Edge Technologies
                             </h3>
                             <p className="logo-tagline">
-                                Digital Innovation Partners
+                            Empowering You with a Royal Edge
                             </p>
                         </div>
                         <p className="footer-description">

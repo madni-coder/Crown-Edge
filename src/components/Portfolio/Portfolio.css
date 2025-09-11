@@ -77,102 +77,111 @@
 /* Portfolio Item */
 .portfolio-item {
     position: relative;
-    border-radius: var(--radius-lg);
+    border-radius: 16px;
     overflow: hidden;
     cursor: pointer;
-    transition: all var(--transition-normal);
-    background: rgba(31, 41, 55, 0.6);
-    backdrop-filter: blur(10px);
-    border: 1px solid rgba(132, 250, 176, 0.1);
+    transition: all 0.3s ease;
+    height: 420px; /* unified height */
+    background: #1a1a1a;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    display: flex;
+    flex-direction: column;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.35);
 }
 
 .portfolio-item:hover {
-    transform: translateY(-8px) scale(1.02);
-    box-shadow: 0 20px 40px rgba(132, 250, 176, 0.2);
-    border-color: rgba(132, 250, 176, 0.3);
+    transform: translateY(-8px);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
 }
 
 .portfolio-image-container {
     position: relative;
     width: 100%;
-    height: 250px;
+    height: auto !important; /* override fixed height */
+    aspect-ratio: 16 / 9; /* maintain consistent ratio */
     overflow: hidden;
+    flex-shrink: 0;
 }
 
 .portfolio-image {
     width: 100%;
     height: 100%;
     object-fit: cover;
-    transition: transform var(--transition-slow);
+    object-position: top;
+    background-size: cover !important;
+    background-position: top center !important;
+    background-repeat: no-repeat !important;
+    background-color: transparent; /* remove black background */
+    transition: transform 0.3s ease;
 }
 
 .portfolio-item:hover .portfolio-image {
-    transform: scale(1.1);
+    transform: scale(1.03);
 }
 
 /* Portfolio Overlay */
 .portfolio-overlay {
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background: linear-gradient(
-        135deg,
-        rgba(0, 0, 0, 0.7) 0%,
-        rgba(132, 250, 176, 0.3) 100%
-    );
+    position: relative; /* remove absolute overlay */
+    bottom: auto;
+    left: auto;
+    right: auto;
+    height: auto; /* auto height based on content */
+    background: #000; /* solid background for readability */
     display: flex;
-    align-items: center;
+    flex-direction: column;
     justify-content: center;
-    opacity: 0;
-    transition: opacity var(--transition-normal);
-}
-
-.portfolio-item:hover .portfolio-overlay {
+    padding: 16px;
     opacity: 1;
+    flex: 1;
 }
 
 .portfolio-overlay-content {
-    text-align: center;
-    color: var(--text-primary);
-    transform: translateY(20px);
-    transition: transform var(--transition-normal);
-}
-
-.portfolio-item:hover .portfolio-overlay-content {
-    transform: translateY(0);
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    align-items: flex-start;
+    width: 100%; /* ensure content stretches full height to push button down */
 }
 
 .portfolio-item-title {
-    font-size: var(--font-size-xl);
+    font-size: 1.25rem;
     font-weight: 600;
-    margin-bottom: var(--space-1);
+    margin: 0;
+    color: white;
+    line-height: 1.2;
 }
 
 .portfolio-item-category {
-    font-size: var(--font-size-sm);
-    color: var(--accent);
+    font-size: 0.75rem;
+    color: rgba(255, 255, 255, 0.9);
     text-transform: uppercase;
-    letter-spacing: 0.5px;
-    margin-bottom: var(--space-3);
+    letter-spacing: 1px;
+    margin: 0 0 12px 0;
+    font-weight: 600;
+    background: rgba(255, 255, 255, 0.2);
+    padding: 4px 12px;
+    border-radius: 12px;
+    display: inline-block;
+    width: fit-content;
 }
 
 .portfolio-view-btn {
     display: inline-flex;
     align-items: center;
-    gap: var(--space-1);
-    padding: var(--space-2) var(--space-4);
-    background: var(--primary-gradient);
-    border-radius: var(--radius-md);
-    font-size: var(--font-size-sm);
-    font-weight: 500;
-    transition: all var(--transition-normal);
-}
-
-.portfolio-view-btn:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 8px 16px rgba(132, 250, 176, 0.4);
+    justify-content: center;
+    gap: 8px;
+    padding: 10px 20px;
+    background: linear-gradient(135deg, #84fab0 0%, #8fd3f4 100%);
+    border-radius: 8px;
+    font-size: 0.875rem;
+    font-weight: 600;
+    transition: all 0.3s ease;
+    width: fit-content;
+    color: #1a1a1a;
+    text-decoration: none;
+    border: none;
+    cursor: pointer;
+    margin-top: auto; /* Keep button pinned to bottom inside overlay */
 }
 
 /* Lightbox Styles */
@@ -365,17 +374,11 @@
         height: auto;
     }
 
-    /* Masonry effect for larger screens */
-    .portfolio-item:nth-child(3n + 1) .portfolio-image-container {
-        height: 280px;
-    }
-
-    .portfolio-item:nth-child(3n + 2) .portfolio-image-container {
-        height: 220px;
-    }
-
+    /* Remove varying masonry heights for consistent layout */
+    .portfolio-item:nth-child(3n + 1) .portfolio-image-container,
+    .portfolio-item:nth-child(3n + 2) .portfolio-image-container,
     .portfolio-item:nth-child(3n + 3) .portfolio-image-container {
-        height: 300px;
+        height: 240px;
     }
 }
 
@@ -393,6 +396,14 @@
     .portfolio-grid {
         grid-template-columns: 1fr;
         gap: var(--space-4);
+    }
+
+    .portfolio-item {
+        height: 380px;
+    }
+
+    .portfolio-image-container {
+        height: 200px;
     }
 
     .portfolio-item-title {

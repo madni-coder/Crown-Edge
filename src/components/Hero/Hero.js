@@ -84,9 +84,7 @@ const Hero = () => {
                                 isLoaded ? "hero__subtitle--animate" : ""
                             }`}
                         >
-                            We create modern, responsive websites and digital
-                            experiences that help your business grow and succeed
-                            in the digital world.
+                           At Crown Edge Technologies, we are a passionate team of web developers, designers, and digital strategists dedicated to creating impactful online experiences. With a blend of creativity, technology, and strategy, we help businesses establish a strong online presence and achieve measurable results.
                         </p>
 
                         {/* Call-to-Action Buttons */}
@@ -182,38 +180,7 @@ const Hero = () => {
                     </div>
                 </div>
 
-                {/* Scroll Indicator */}
-                <div
-                    className={`hero__scroll-indicator ${
-                        isLoaded ? "hero__scroll-indicator--animate" : ""
-                    }`}
-                >
-                    <button
-                        onClick={handleLearnMoreClick}
-                        className="hero__scroll-btn"
-                        aria-label="Scroll to learn more"
-                    >
-                        <span className="hero__scroll-text">
-                            Scroll to explore
-                        </span>
-                        <div className="hero__scroll-arrow">
-                            <svg
-                                width="24"
-                                height="24"
-                                viewBox="0 0 24 24"
-                                fill="none"
-                            >
-                                <path
-                                    d="M7 13l5 5 5-5M7 6l5 5 5-5"
-                                    stroke="currentColor"
-                                    strokeWidth="2"
-                                    strokeLinecap="round"
-                                    strokeLinejoin="round"
-                                />
-                            </svg>
-                        </div>
-                    </button>
-                </div>
+               
             </div>
         </section>
     );
