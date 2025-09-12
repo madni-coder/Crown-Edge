@@ -191,6 +191,10 @@ a:hover {
     .section {
         padding: var(--space-4) 0;
     }
+
+    .main-content {
+        padding-top: 0;
+    }
 }
 
 @media (min-width: 768px) {
@@ -202,6 +206,76 @@ a:hover {
 @media (min-width: 1024px) {
     :root {
         --container-padding: var(--space-4);
+    }
+}
+
+/* Responsive wrapper styles */
+.responsive-wrapper {
+    min-height: 100vh;
+    overflow-x: hidden;
+}
+
+.responsive-loading {
+    opacity: 0.9;
+}
+
+/* Breakpoint-specific styles */
+.breakpoint-xs {
+    --current-breakpoint: "mobile";
+}
+
+.breakpoint-sm {
+    --current-breakpoint: "tablet";
+}
+
+.breakpoint-md {
+    --current-breakpoint: "desktop";
+}
+
+.breakpoint-lg {
+    --current-breakpoint: "large-desktop";
+}
+
+/* Mobile-first responsive utilities */
+@media (max-width: 767px) {
+    .mobile-hidden {
+        display: none !important;
+    }
+
+    .mobile-full-width {
+        width: 100% !important;
+    }
+
+    .mobile-text-center {
+        text-align: center !important;
+    }
+
+    .mobile-stack {
+        flex-direction: column !important;
+    }
+
+    .mobile-no-gap {
+        gap: 0 !important;
+    }
+}
+
+@media (min-width: 768px) {
+    .tablet-hidden {
+        display: none !important;
+    }
+
+    .tablet-show {
+        display: block !important;
+    }
+}
+
+@media (min-width: 1024px) {
+    .desktop-hidden {
+        display: none !important;
+    }
+
+    .desktop-show {
+        display: block !important;
     }
 }
 
@@ -268,6 +342,49 @@ a:hover {
 .touch-device [role="button"] {
     -webkit-user-select: none;
     user-select: none;
+    min-height: 44px;
+    min-width: 44px;
+}
+
+/* Mobile-specific optimizations */
+@media (max-width: 767px) {
+    /* Improve touch targets */
+    button,
+    a,
+    [role="button"],
+    input,
+    textarea,
+    select {
+        min-height: 44px;
+    }
+
+    /* Prevent zoom on input focus */
+    input,
+    textarea,
+    select {
+        font-size: 16px;
+    }
+
+    /* Optimize scrolling */
+    body {
+        -webkit-overflow-scrolling: touch;
+    }
+
+    /* Reduce motion for better performance */
+    * {
+        will-change: auto;
+    }
+}
+
+/* Tablet optimizations */
+@media (min-width: 768px) and (max-width: 1023px) {
+    /* Optimize for tablet touch targets */
+    button,
+    a,
+    [role="button"] {
+        min-height: 48px;
+        min-width: 48px;
+    }
 }
 
 /* Lazy loading styles */

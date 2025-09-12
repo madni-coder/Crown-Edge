@@ -76,10 +76,10 @@ const servicesData = [
     },
     {
         id: 6,
-        title: "Cloud Solutions",
-        description: "Scalable cloud infrastructure and deployment solutions.",
-        icon: "☁️",
-        features: ["AWS/Azure Setup", "DevOps", "Scalability", "Security"],
+        title: "Social Media Ads",
+        description:"Boost your brand's visibility and engagement with our expert social media strategies.",
+        icon: "📢",
+        features: ["Google Ads", "Facebook Ads", "Instagram Ads"],
     },
 ];
 

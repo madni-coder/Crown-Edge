@@ -3,11 +3,13 @@
 import { useState, useEffect } from "react";
 import Image from "next/image";
 import { smoothScrollTo } from "../../utils/animations";
+import { useResponsive } from "../../hooks/useResponsive";
 import "./Header.css";
 
 const Header = () => {
     const [isMenuOpen, setIsMenuOpen] = useState(false);
     const [isScrolled, setIsScrolled] = useState(false);
+    const { isMobile, isTablet, isDesktop } = useResponsive();
 
     // Navigation items
     const navItems = [
@@ -67,11 +69,8 @@ const Header = () => {
     }, [isMenuOpen]);
 
     return (
-        
         <header className={`header ${isScrolled ? "header--scrolled" : ""}`}>
-            
             <div className="container">
-                
                 <div className="header__content ">
                     {/* Logo on the left (size unchanged) */}
                     {/* <div className="header__logo-container ">
@@ -89,9 +88,7 @@ const Header = () => {
                         className="header__logo-link"
                         style={{ marginRight: "auto" }} // keep logo pinned to the left in flex
                         aria-label="Nexa Agency Home"
-                    >
-                       
-                    </button>
+                    ></button>
 
                     {/* Desktop Navigation */}
                     <nav
@@ -99,7 +96,6 @@ const Header = () => {
                         aria-label="Main navigation"
                     >
                         <ul className="header__nav-list">
-                            
                             {navItems.map((item) => (
                                 <li key={item.id} className="header__nav-item">
                                     <button
