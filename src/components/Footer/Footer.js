@@ -21,11 +21,11 @@ export default function Footer() {
                     {/* Company Info */}
                     <div className="footer-section animate-on-scroll">
                         <div className="footer-logo">
-                            <h3 className="logo-text gradient-text">
+                            <h3 className="logo-text gradient-text ">
                                 Crown Edge Technologies
                             </h3>
                             <p className="logo-tagline">
-                            Empowering You with a Royal Edge
+                                Empowering You with a Royal Edge
                             </p>
                         </div>
                         <p className="footer-description">
@@ -143,10 +143,13 @@ export default function Footer() {
                                 <a href="#services">E-commerce Solutions</a>
                             </li>
                             <li>
-                                <a href="#services">Mobile Development</a>
+                                <a href="#services">Mobile App Development</a>
                             </li>
                             <li>
-                                <a href="#services">Cloud Solutions</a>
+                                <a href="#services">
+                                    <span className="service-icon">📱</span>
+                                    Social Media Marketing
+                                </a>
                             </li>
                         </ul>
                     </div>

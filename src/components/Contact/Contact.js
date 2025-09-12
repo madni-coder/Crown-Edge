@@ -104,8 +104,6 @@ export default function Contact() {
                 </div>
 
                 <div className="contact-content">
-                    
-
                     {/* Contact Information */}
                     <div className="contact-info animate-on-scroll animate-delay-400 ">
                         <h3 className="contact-info-title">Get in Touch</h3>
@@ -141,13 +139,12 @@ export default function Contact() {
                                 <div className="detail-content">
                                     <h4 className="detail-title">Office</h4>
                                     <p className="detail-text">
-                                       Sanjay Nagar
+                                        Sanjay Nagar
                                         <br />
-Raipur                                    </p>
+                                        Raipur{" "}
+                                    </p>
                                 </div>
                             </div>
-
-                           
                         </div>
 
                         <div className="contact-social">

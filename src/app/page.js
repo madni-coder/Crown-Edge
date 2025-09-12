@@ -6,13 +6,14 @@ import Portfolio from "../components/Portfolio";
 import Team from "../components/Team";
 import Contact from "../components/Contact";
 import Footer from "../components/Footer";
+import ResponsiveWrapper from "../components/ResponsiveWrapper";
 
 export default function Home() {
     return (
-        <>
+        <ResponsiveWrapper>
             <Header />
             <Hero />
-            <main>
+            <main className="main-content">
                 <About />
                 <Services />
                 <Portfolio />
@@ -20,6 +21,6 @@ export default function Home() {
                 <Contact />
             </main>
             <Footer />
-        </>
+        </ResponsiveWrapper>
     );
 }

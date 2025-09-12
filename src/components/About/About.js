@@ -1,43 +1,10 @@
 "use client";
 
-import { useEffect, useRef } from "react";
+import { useRef } from "react";
 import "./About.css";
 
 const About = () => {
     const aboutRef = useRef(null);
-
-    // Statistics data
-    const stats = [
-        {
-            id: 1,
-            number: 150,
-            suffix: "+",
-            label: "Projects Completed",
-            description:
-                "Successfully delivered projects across various industries",
-        },
-        {
-            id: 2,
-            number: 50,
-            suffix: "+",
-            label: "Happy Clients",
-            description: "Satisfied clients who trust our expertise",
-        },
-        {
-            id: 3,
-            number: 5,
-            suffix: "+",
-            label: "Years Experience",
-            description: "Years of excellence in digital solutions",
-        },
-        {
-            id: 4,
-            number: 98,
-            suffix: "%",
-            label: "Success Rate",
-            description: "Project completion rate with client satisfaction",
-        },
-    ];
 
     // Features/Services data
 
@@ -95,28 +62,17 @@ const About = () => {
                 </div>
 
                 {/* Main Content */}
-                <div
-                    className="about__content"
-                    style={{
-                        maxWidth: "1200px",
-                        margin: "0 auto",
-                        display: "flex",
-                        gap: "60px",
-                    }}
-                >
+                <div className="about__content">
                     {/* Left Column - Story & Mission */}
-                    <div
-                        className="about__story animate-on-scroll animate-slide-in-left"
-                        style={{ flex: 1.2 }}
-                    >
+                    <div className="about__story animate-on-scroll animate-slide-in-left">
                         <div className="about__story-content">
                             <h3 className="about__story-title">Our Story</h3>
                             <p className="about__story-text">
                                 Founded with a vision to bridge the gap between
                                 technology and business success, Our Company has
                                 grown from a small team of passionate developers
-                                to a full-service digital service provider, trusted by
-                                various companies .
+                                to a full-service digital service provider,
+                                trusted by various companies.
                             </p>
                             <p className="about__story-text">
                                 We specialize in creating custom web
@@ -143,17 +99,8 @@ const About = () => {
                         </div>
                     </div>
                     {/* Right Column - Features Grid */}
-                    
-                    <div
-                        className="about__features"
-                        style={{
-                            flex: 1.2,
-                            display: "flex",
-                            flexDirection: "column",
-                            gap: "40px",
-                            justifyContent: "center",
-                        }}
-                    >
+
+                    <div className="about__features animate-on-scroll animate-slide-in-right">
                         {features.map((feature, index) => (
                             <div
                                 key={feature.id}
