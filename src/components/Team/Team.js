@@ -25,7 +25,7 @@ const teamData = [
     {
         id: 3,
         name: "Syed Aaqib Ali",
-        position: "Chief Technology Office (CTO)",
+        position: "Chief Technology Officer (CTO)",
         image: "👩‍🎨",
         
     },

@@ -84,7 +84,12 @@ const Hero = () => {
                                 isLoaded ? "hero__subtitle--animate" : ""
                             }`}
                         >
-                           At Crown Edge Technologies, we are a passionate team of web developers, designers, and digital strategists dedicated to creating impactful online experiences. With a blend of creativity, technology, and strategy, we help businesses establish a strong online presence and achieve measurable results.
+                            At Crown Edge Technologies, we are a passionate team
+                            of web developers, designers, and digital
+                            strategists dedicated to creating impactful online
+                            experiences. With a blend of creativity, technology,
+                            and strategy, we help businesses establish a strong
+                            online presence and achieve measurable results.
                         </p>
 
                         {/* Call-to-Action Buttons */}
@@ -96,7 +101,7 @@ const Hero = () => {
                             <button
                                 onClick={handleCTAClick}
                                 className="hero__cta btn btn-primary"
-                                aria-label="Get started with Nexa Agency"
+                                aria-label="Get started with Crown Edge Technologies"
                             >
                                 <span className="hero__cta-text">
                                     Get Started
@@ -179,8 +184,6 @@ const Hero = () => {
                         </div>
                     </div>
                 </div>
-
-               
             </div>
         </section>
     );

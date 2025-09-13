@@ -76,7 +76,7 @@ const Header = () => {
                     {/* <div className="header__logo-container ">
                             <Image
                                 src="/companyLogo.png"
-                                alt="Nexa Agency Logo"
+                                alt="Crown Edge Technologies Logo"
                                 fill
                                 sizes="(max-width: 768px) 40px, 50px"
                                 style={{ objectFit: "contain" }}
@@ -87,7 +87,7 @@ const Header = () => {
                         onClick={() => handleNavClick("#home")}
                         className="header__logo-link"
                         style={{ marginRight: "auto" }} // keep logo pinned to the left in flex
-                        aria-label="Nexa Agency Home"
+                        aria-label="Crown Edge Technologies Home"
                     ></button>
 
                     {/* Desktop Navigation */}

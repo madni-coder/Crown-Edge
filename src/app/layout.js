@@ -9,9 +9,12 @@ const inter = Inter({
 });
 
 export const metadata = {
-    title: "Nexa Agency - Modern Digital Solutions",
+    title: "Crown Edge Technologies",
     description:
         "Professional agency website showcasing modern design and digital solutions",
+    icons: {
+        icon: "/c-favicon.gif",
+    },
 };
 
 export default function RootLayout({ children }) {

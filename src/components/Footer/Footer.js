@@ -186,7 +186,7 @@ export default function Footer() {
                 <div className="footer-bottom animate-on-scroll">
                     <div className="footer-bottom-content">
                         <p className="copyright">
-                            © 2024 Nexa Agency. All rights reserved.
+                            © 2024 Crown Edge Technologies. All rights reserved.
                         </p>
                         <div className="footer-bottom-links">
                             <a href="#" className="footer-link">
