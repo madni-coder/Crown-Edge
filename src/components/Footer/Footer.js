@@ -155,7 +155,7 @@ export default function Footer() {
                     </div>
 
                     {/* Contact Info */}
-                    <div className="footer-section animate-on-scroll animate-delay-400">
+                    <div className="footer-section animate-on-scroll animate-delay-400 ">
                         <h4 className="footer-title">Contact Info</h4>
                         <div className="footer-contact">
                             <div className="contact-item">
