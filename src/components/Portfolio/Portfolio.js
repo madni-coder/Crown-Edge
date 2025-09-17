@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useEffect, useCallback } from "react";
+import { useState, useEffect } from "react";
 import {
     initScrollAnimations,
     addStaggeredAnimation,
@@ -60,8 +60,6 @@ const categories = [
 export default function Portfolio() {
     const [activeFilter, setActiveFilter] = useState("all");
     const [filteredItems, setFilteredItems] = useState(portfolioData);
-    const [selectedItem, setSelectedItem] = useState(null);
-    const [isLightboxOpen, setIsLightboxOpen] = useState(false);
 
     useEffect(() => {
         // Initialize scroll animations
@@ -86,35 +84,10 @@ export default function Portfolio() {
         setActiveFilter(categoryId);
     };
 
-    const openLightbox = (item) => {
-        setSelectedItem(item);
-        setIsLightboxOpen(true);
-        document.body.style.overflow = "hidden";
-    };
-
     const openProjectLink = (e, link) => {
-        e.stopPropagation(); // Prevent opening lightbox
+        e.stopPropagation(); // Prevent event bubbling
         window.open(link, "_blank", "noopener,noreferrer");
     };
-
-    const closeLightbox = () => {
-        setIsLightboxOpen(false);
-        setSelectedItem(null);
-        document.body.style.overflow = "unset";
-    };
-
-    const handleKeyDown = useCallback((e) => {
-        if (e.key === "Escape") {
-            closeLightbox();
-        }
-    }, []);
-
-    useEffect(() => {
-        if (isLightboxOpen) {
-            document.addEventListener("keydown", handleKeyDown);
-            return () => document.removeEventListener("keydown", handleKeyDown);
-        }
-    }, [isLightboxOpen, handleKeyDown]);
 
     return (
         <section id="portfolio" className="section">
@@ -137,16 +110,6 @@ export default function Portfolio() {
                             className={`portfolio-item animate-on-scroll animate-delay-${
                                 (index + 1) * 100
                             }`}
-                            onClick={() => openLightbox(item)}
-                            role="button"
-                            tabIndex={0}
-                            onKeyDown={(e) => {
-                                if (e.key === "Enter" || e.key === " ") {
-                                    e.preventDefault();
-                                    openLightbox(item);
-                                }
-                            }}
-                            aria-label={`View details for ${item.title}`}
                         >
                             <div className="portfolio-image-container">
                                 <div

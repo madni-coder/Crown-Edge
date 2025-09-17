@@ -117,36 +117,6 @@
     transition: color var(--transition-normal);
 }
 
-/* Service Overlay */
-.service-overlay {
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    background: rgba(0, 0, 0, 0.8);
-    opacity: 0;
-    transition: opacity var(--transition-normal);
-    z-index: 3;
-}
-
-.service-cta {
-    background: var(--primary-gradient);
-    color: var(--text-primary);
-    border: none;
-    padding: var(--space-3) var(--space-6);
-    border-radius: var(--radius-md);
-    font-size: var(--font-size-base);
-    font-weight: 600;
-    cursor: pointer;
-    transition: all var(--transition-normal);
-    transform: translateY(20px);
-    min-height: 44px; /* Touch-friendly */
-    min-width: 120px;
-}
 
 
 /* Active/Focus States for Touch Devices */
@@ -294,13 +264,4 @@
     }
 }
 
-/* Focus styles for keyboard navigation */
-.service-card:focus {
-    outline: 2px solid var(--accent);
-    outline-offset: 4px;
-}
 
-.service-cta:focus {
-    outline: 2px solid var(--text-primary);
-    outline-offset: 2px;
-}

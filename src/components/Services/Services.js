@@ -150,14 +150,7 @@ export default function Services() {
                                 </ul>
                             </div>
 
-                            <div className="service-overlay">
-                                <button
-                                    className="service-cta"
-                                    aria-label={`Learn more about ${service.title}`}
-                                >
-                                    Learn More
-                                </button>
-                            </div>
+                           
                         </div>
                     ))}
                 </div>

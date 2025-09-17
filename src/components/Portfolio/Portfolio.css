@@ -74,7 +74,6 @@
     position: relative;
     border-radius: 16px;
     overflow: hidden;
-    cursor: pointer;
     transition: all 0.3s ease;
     height: 420px; /* unified height */
     background: #1a1a1a;
@@ -82,6 +81,11 @@
     display: flex;
     flex-direction: column;
     box-shadow: 0 4px 20px rgba(0, 0, 0, 0.35);
+}
+
+.portfolio-item:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.5);
 }
 
 /* Hover effect removed */
@@ -172,6 +176,11 @@
     border: none;
     cursor: pointer;
     margin-top: auto; /* Keep button pinned to bottom inside overlay */
+}
+
+.portfolio-view-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 15px rgba(132, 250, 176, 0.4);
 }
 
 /* Lightbox Styles */
@@ -419,18 +428,15 @@
 
 /* Focus styles for accessibility */
 .portfolio-item:focus {
-    outline: 2px solid var(--accent);
-    outline-offset: 4px;
+    outline: none;
 }
 
 .filter-btn:focus {
-    outline: 2px solid var(--accent);
-    outline-offset: 2px;
+    outline: none;
 }
 
 .lightbox-close:focus {
-    outline: 2px solid var(--accent);
-    outline-offset: 2px;
+    outline: none;
 }
 
 /* Reduced motion support */
