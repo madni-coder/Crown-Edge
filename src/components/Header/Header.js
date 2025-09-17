@@ -3,13 +3,11 @@
 import { useState, useEffect } from "react";
 import Image from "next/image";
 import { smoothScrollTo } from "../../utils/animations";
-import { useResponsive } from "../../hooks/useResponsive";
 import "./Header.css";
 
 const Header = () => {
     const [isMenuOpen, setIsMenuOpen] = useState(false);
     const [isScrolled, setIsScrolled] = useState(false);
-    const { isMobile, isTablet, isDesktop } = useResponsive();
 
     // Navigation items
     const navItems = [
@@ -72,23 +70,30 @@ const Header = () => {
         <header className={`header ${isScrolled ? "header--scrolled" : ""}`}>
             <div className="container">
                 <div className="header__content ">
-                    {/* Logo on the left (size unchanged) */}
-                    {/* <div className="header__logo-container ">
-                            <Image
-                                src="/companyLogo.png"
-                                alt="Crown Edge Technologies Logo"
-                                fill
-                                sizes="(max-width: 768px) 40px, 50px"
-                                style={{ objectFit: "contain" }}
-                                priority
-                            />
-                        </div> */}
+                    {/* Logo on the left */}
                     <button
                         onClick={() => handleNavClick("#home")}
                         className="header__logo-link"
-                        style={{ marginRight: "auto" }} // keep logo pinned to the left in flex
                         aria-label="Crown Edge Technologies Home"
-                    ></button>
+                    >
+                        <div className="header__logo-container">
+                            <Image
+                                src="/companyLogo.png"
+                                alt="Crown Edge Technologies Logo"
+                                width={40}
+                                height={40}
+                                style={{ objectFit: "contain" }}
+                                priority
+                            />
+
+                            <span
+                                className="header__logo-text"
+                                style={{ marginLeft: "8px" }}
+                            >
+                                Crown Edge Technologies
+                            </span>
+                        </div>
+                    </button>
 
                     {/* Desktop Navigation */}
                     <nav
