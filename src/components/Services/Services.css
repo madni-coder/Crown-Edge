@@ -43,6 +43,9 @@
     flex-direction: column;
     backdrop-filter: blur(10px);
     min-height: 320px;
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+    hyphens: auto;
 }
 
 .service-card::before {
@@ -85,6 +88,9 @@
     margin-bottom: var(--space-2);
     color: var(--text-primary);
     transition: color var(--transition-normal);
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+    hyphens: auto;
 }
 
 .service-description {
@@ -92,6 +98,9 @@
     margin-bottom: var(--space-4);
     line-height: 1.6;
     transition: color var(--transition-normal);
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+    hyphens: auto;
 }
 
 /* Service Features */
@@ -103,11 +112,14 @@
 
 .service-feature {
     display: flex;
-    align-items: center;
+    align-items: flex-start;
     margin-bottom: var(--space-2);
     color: var(--text-secondary);
     font-size: var(--font-size-sm);
     transition: color var(--transition-normal);
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+    hyphens: auto;
 }
 
 .feature-bullet {
