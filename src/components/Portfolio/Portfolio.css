@@ -47,12 +47,7 @@
     min-height: 44px; /* Touch-friendly */
 }
 
-.filter-btn:hover {
-    background: rgba(132, 250, 176, 0.1);
-    border-color: rgba(132, 250, 176, 0.4);
-    color: var(--text-primary);
-    transform: translateY(-2px);
-}
+/* Hover effect removed */
 
 .filter-btn.active {
     background: var(--primary-gradient);
@@ -89,10 +84,7 @@
     box-shadow: 0 4px 20px rgba(0, 0, 0, 0.35);
 }
 
-.portfolio-item:hover {
-    transform: translateY(-8px);
-    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
-}
+/* Hover effect removed */
 
 .portfolio-image-container {
     position: relative;
@@ -115,9 +107,7 @@
     transition: transform 0.3s ease;
 }
 
-.portfolio-item:hover .portfolio-image {
-    transform: scale(1.03);
-}
+/* Hover effect removed */
 
 /* Portfolio Overlay */
 .portfolio-overlay {
@@ -234,10 +224,7 @@
     z-index: 10;
 }
 
-.lightbox-close:hover {
-    background: rgba(132, 250, 176, 0.2);
-    transform: scale(1.1);
-}
+/* Hover effect removed */
 
 .lightbox-image-container {
     position: relative;
@@ -307,11 +294,7 @@
     min-height: 44px;
 }
 
-.lightbox-cta:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 8px 16px rgba(132, 250, 176, 0.4);
-    color: var(--text-primary);
-}
+/* Hover effect removed */
 
 /* Animations */
 @keyframes fadeIn {

@@ -125,9 +125,7 @@ a {
     transition: color var(--transition-fast);
 }
 
-a:hover {
-    color: var(--text-primary);
-}
+/* Hover effect removed */
 
 /* Container utility */
 .container {
@@ -174,10 +172,7 @@ a:hover {
     color: var(--text-primary);
 }
 
-.btn-primary:hover {
-    transform: translateY(-2px);
-    box-shadow: var(--shadow-lg);
-}
+/* Hover effect removed */
 
 /* Responsive typography */
 @media (max-width: 767px) {
@@ -405,14 +400,7 @@ a:hover {
     will-change: transform, opacity;
 }
 
-/* Optimize for 60fps animations */
-@media (max-width: 767px) {
-    .service-card:hover,
-    .team-card:hover,
-    .portfolio-item:hover {
-        transform: translateY(-2px) scale(1.01);
-    }
-}
+/* Hover effects removed */
 
 /* Battery optimization */
 @media (prefers-reduced-motion: reduce) {

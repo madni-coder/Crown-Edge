@@ -50,9 +50,7 @@
     position: static; /* avoid accidental absolute centering */
 }
 
-.header__logo-link:hover {
-    transform: scale(1.05);
-}
+/* Hover effect removed */
 
 .header__logo-link:focus {
     outline: 2px solid var(--accent);
@@ -109,14 +107,7 @@
     z-index: -1;
 }
 
-.header__nav-link:hover::before {
-    left: 0;
-}
-
-.header__nav-link:hover {
-    color: var(--text-primary);
-    transform: translateY(-2px);
-}
+/* Hover effects removed */
 
 .header__nav-link:focus {
     outline: 2px solid var(--accent);
@@ -140,9 +131,7 @@
     z-index: 60;
 }
 
-.header__menu-toggle:hover {
-    background-color: rgba(161, 140, 209, 0.1);
-}
+/* Hover effect removed */
 
 .header__menu-toggle:focus {
     outline: 2px solid var(--accent);
@@ -213,13 +202,7 @@
     border-radius: 0;
 }
 
-.header__nav-link--mobile:hover {
-    background: var(--primary-gradient);
-    background-size: 100% 2px;
-    background-repeat: no-repeat;
-    background-position: bottom;
-    transform: none;
-}
+/* Hover effect removed */
 
 /* Mobile Menu Overlay */
 .header__overlay {
@@ -319,7 +302,6 @@
         border: 1px solid transparent;
     }
 
-    .header__nav-link:hover,
     .header__nav-link:focus {
         border-color: var(--accent);
     }

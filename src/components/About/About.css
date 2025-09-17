@@ -175,7 +175,7 @@
 }
 
 .about__feature:hover {
-    background: rgba(161, 140, 209, 0.05);
+    background: rgba(255, 255, 255, 0.05);
     transform: translateY(-2px);
 }
 
@@ -269,7 +269,7 @@
 
 .about__stat:hover {
     transform: translateY(-5px);
-    box-shadow: 0 10px 25px rgba(161, 140, 209, 0.2);
+    box-shadow: 0 10px 25px rgba(250, 250, 250, 0.2);
 }
 
 .about__stat-number {
@@ -397,7 +397,7 @@
 
 .about__value:hover {
     transform: translateY(-5px);
-    box-shadow: 0 15px 35px rgba(161, 140, 209, 0.2);
+    box-shadow: 0 15px 35px rgba(254, 254, 254, 0.2);
 }
 
 .about__value-icon {
