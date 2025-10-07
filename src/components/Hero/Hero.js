@@ -79,20 +79,16 @@ const Hero = () => {
                             <div className="hero__slogan-accent"></div>
                         </div>
 
-                        <p
-                            className={`hero__subtitle ${
-                                isLoaded ? "hero__subtitle--animate" : ""
-                            }`}
-                        >
-                            At Crown Edge Technologies, we are a passionate team
-                            of web developers, designers, and digital
-                            strategists dedicated to creating impactful online
-                            experiences. With a blend of creativity, technology,
-                            and strategy, we help businesses establish a strong
-                            online presence and achieve measurable results.
-                        </p>
-
-                      
+                        <div className="hero__subtitle-container">
+                            <p
+                                className={`hero__subtitle hero__subtitle--animated ${
+                                    isLoaded ? "hero__subtitle--animate" : ""
+                                }`}
+                            >
+                                Turn Your Business Into a Brand
+                                <br />— Website Starts @ ₹9,999
+                            </p>
+                        </div>
                     </div>
 
                     {/* Hero Visual Element */}

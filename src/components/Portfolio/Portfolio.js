@@ -107,46 +107,90 @@ export default function Portfolio() {
                     {filteredItems.map((item, index) => (
                         <div
                             key={item.id}
-                            className={`portfolio-item animate-on-scroll animate-delay-${
-                                (index + 1) * 100
-                            }`}
+                            className="uiverse-parent animate-on-scroll animate-delay-100"
                         >
-                            <div className="portfolio-image-container">
-                                <div
-                                    className="portfolio-image"
-                                    style={{
-                                        backgroundImage: `url(${item.image})`,
-                                    }}
-                                    role="img"
-                                    aria-label={item.title}
-                                />
-                            </div>
-                            <div className="portfolio-overlay">
-                                <div className="portfolio-overlay-content">
-                                    <h3 className="portfolio-item-title">
-                                        {item.title}
-                                    </h3>
-                                    <p className="portfolio-item-category">
-                                        {item.category}
-                                    </p>
-                                    <button
-                                        className="portfolio-view-btn"
-                                        onClick={(e) =>
-                                            openProjectLink(e, item.link)
-                                        }
-                                    >
-                                        <span>View Project</span>
+                            <div className="uiverse-card">
+                                <div className="uiverse-logo">
+                                    <span className="uiverse-circle uiverse-circle1"></span>
+                                    <span className="uiverse-circle uiverse-circle2"></span>
+                                    <span className="uiverse-circle uiverse-circle3"></span>
+                                    <span className="uiverse-circle uiverse-circle4"></span>
+                                    <span className="uiverse-circle uiverse-circle5">
                                         <svg
-                                            width="16"
-                                            height="16"
+                                            width="24"
+                                            height="24"
                                             viewBox="0 0 24 24"
                                             fill="none"
                                             stroke="currentColor"
                                             strokeWidth="2"
+                                            strokeLinecap="round"
+                                            strokeLinejoin="round"
+                                            className="uiverse-svg"
                                         >
-                                            <path d="M7 17L17 7M17 7H7M17 7V17" />
+                                            <rect
+                                                width="20"
+                                                height="14"
+                                                x="2"
+                                                y="3"
+                                                rx="2"
+                                            />
+                                            <line
+                                                x1="8"
+                                                x2="16"
+                                                y1="21"
+                                                y2="21"
+                                            />
+                                            <line
+                                                x1="12"
+                                                x2="12"
+                                                y1="17"
+                                                y2="21"
+                                            />
                                         </svg>
-                                    </button>
+                                    </span>
+                                </div>
+                                <div className="uiverse-content">
+                                    <span className="uiverse-title">
+                                        {item.title}
+                                    </span>
+                                </div>
+                                <div className="uiverse-bottom">
+                                    <div className="uiverse-view-more">
+                                        <button
+                                            className="uiverse-view-more-button"
+                                            onClick={(e) =>
+                                                openProjectLink(e, item.link)
+                                            }
+                                        >
+                                            View Project
+                                        </button>
+                                    </div>
+                                </div>
+                                <div
+                                    style={{
+                                        position: "absolute",
+                                        top: 0,
+                                        left: 0,
+                                        width: "100%",
+                                        height: "50%",
+                                        borderTopLeftRadius: "50px",
+                                        borderTopRightRadius: "50px",
+                                        overflow: "hidden",
+                                        zIndex: 1,
+                                        padding: 0,
+                                        margin: 0,
+                                    }}
+                                >
+                                    <img
+                                        src={item.image}
+                                        alt={item.title}
+                                        style={{
+                                            width: "100%",
+                                            height: "100%",
+                                            objectFit: "cover",
+                                            display: "block",
+                                        }}
+                                    />
                                 </div>
                             </div>
                         </div>
