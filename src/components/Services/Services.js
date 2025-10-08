@@ -77,7 +77,8 @@ const servicesData = [
     {
         id: 6,
         title: "Social Media Ads",
-        description:"Boost your brand's visibility and engagement with our expert social media strategies.",
+        description:
+            "Boost your brand's visibility and engagement with our expert social media strategies.",
         icon: "📢",
         features: ["Google Ads", "Facebook Ads", "Instagram Ads"],
     },
@@ -111,46 +112,39 @@ export default function Services() {
                     {servicesData.map((service, index) => (
                         <div
                             key={service.id}
-                            className={`service-card animate-on-scroll animate-delay-${
+                            className={`card card-active animate-on-scroll animate-delay-${
                                 (index + 1) * 100
                             }`}
                         >
-                            <div className="service-icon">
-                                <span
-                                    className="icon-emoji"
-                                    role="img"
-                                    aria-label={service.title}
-                                >
-                                    {service.icon}
-                                </span>
+                            <div className="light-layer">
+                                <div className="slit"></div>
+                                <div className="lumen">
+                                    <div className="min"></div>
+                                    <div className="mid"></div>
+                                    <div className="hi"></div>
+                                </div>
+                                <div className="darken">
+                                    <div className="sl"></div>
+                                    <div className="ll"></div>
+                                    <div className="slt"></div>
+                                    <div className="srt"></div>
+                                </div>
                             </div>
-
-                            <div className="service-content">
-                                <h3 className="service-title">
-                                    {service.title}
-                                </h3>
-                                <p className="service-description">
-                                    {service.description}
-                                </p>
-
-                                <ul className="service-features">
-                                    {service.features.map(
-                                        (feature, featureIndex) => (
-                                            <li
-                                                key={featureIndex}
-                                                className="service-feature"
-                                            >
-                                                <span className="feature-bullet">
-                                                    ✓
-                                                </span>
-                                                {feature}
-                                            </li>
-                                        )
-                                    )}
-                                </ul>
+                            <div className="content">
+                                <div className="icon">
+                                    <span
+                                        className="icon-emoji"
+                                        role="img"
+                                        aria-label={service.title}
+                                    >
+                                        {service.icon}
+                                    </span>
+                                </div>
+                                <div className="bottom">
+                                    <h4>{service.title}</h4>
+                                    <p>{service.description}</p>
+                                </div>
                             </div>
-
-                           
                         </div>
                     ))}
                 </div>

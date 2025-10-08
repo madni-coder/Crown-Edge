@@ -202,15 +202,6 @@ export default function Footer() {
                     </div>
                 </div>
             </div>
-
-            {/* Back to Top Button */}
-            <button
-                className="back-to-top animate-on-scroll"
-                onClick={() => smoothScrollTo("home")}
-                aria-label="Back to top"
-            >
-                <span className="back-to-top-icon">↑</span>
-            </button>
         </footer>
     );
 }
