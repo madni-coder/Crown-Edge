@@ -1,11 +1,6 @@
-"use client";
-
-import { useEffect } from "react";
-import {
-    initScrollAnimations,
-    addStaggeredAnimation,
-} from "../../utils/animations";
-import "./Team.css";
+'use client'
+import React, { useState, useRef, useEffect } from 'react';
+import './Team.css';
 
 const teamData = [
     {
@@ -33,13 +28,7 @@ const teamData = [
 ];
 
 export default function Team() {
-    useEffect(() => {
-        // Initialize scroll animations
-        initScrollAnimations();
-
-        // Add staggered animation to team cards
-        addStaggeredAnimation(".team-card", 100, 150);
-    }, []);
+   
 
     return (
         <section id="team" className="section">
