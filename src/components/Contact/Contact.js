@@ -2,6 +2,7 @@
 
 import { useState, useEffect } from "react";
 import { initScrollAnimations } from "../../utils/animations";
+import { IoCopyOutline } from "react-icons/io5";
 import "./Contact.css";
 
 export default function Contact() {
@@ -14,10 +15,21 @@ export default function Contact() {
     const [errors, setErrors] = useState({});
     const [isSubmitting, setIsSubmitting] = useState(false);
     const [submitStatus, setSubmitStatus] = useState(null);
+    const [copiedItem, setCopiedItem] = useState(null);
 
     useEffect(() => {
         initScrollAnimations();
     }, []);
+
+    const handleCopy = async (text, type) => {
+        try {
+            await navigator.clipboard.writeText(text);
+            setCopiedItem(type);
+            setTimeout(() => setCopiedItem(null), 2000);
+        } catch (err) {
+            console.error("Failed to copy:", err);
+        }
+    };
 
     const validateField = (name, value) => {
         switch (name) {
@@ -104,80 +116,145 @@ export default function Contact() {
                 </div>
 
                 <div className="contact-content">
-                    {/* Contact Information */}
-                    <div className="contact-info animate-on-scroll animate-delay-400 ">
-                        <h3 className="contact-info-title">Get in Touch</h3>
-                        <p className="contact-info-text">
-                            Ready to bring your vision to life? We&apos;d love
-                            to hear about your project and discuss how we can
-                            help you achieve your goals.
-                        </p>
+                    {/* 3D Get in Touch Card */}
+                    <div className="contact-card-3d animate-on-scroll animate-delay-400">
+                        <div className="card-3d-inner">
+                            {/* Animated Background Layers */}
+                            <div className="card-bg-layer layer-1"></div>
+                            <div className="card-bg-layer layer-2"></div>
+                            <div className="card-bg-layer layer-3"></div>
 
-                        <div className="contact-details">
-                            <div className="contact-detail">
-                                <div className="detail-icon">📧</div>
-                                <div className="detail-content">
-                                    <h4 className="detail-title">Email</h4>
-                                    <p className="detail-text">
-                                        hello@nexaagency.com
+                            {/* Glass morphism overlay */}
+                            <div className="card-glass-overlay"></div>
+
+                            {/* Card Content */}
+                            <div className="card-3d-content">
+                                <div className="card-header-3d">
+                                    <div className="card-icon-wrapper">
+                                        <div className="card-icon-glow"></div>
+                                        <div className="card-icon">🤝</div>
+                                    </div>
+                                    <h3 className="card-title-3d">
+                                        Get in Touch
+                                    </h3>
+                                    <p className="card-subtitle-3d">
+                                        Ready to bring your vision to life?
+                                        Let&apos;s create something amazing
+                                        together.
                                     </p>
                                 </div>
-                            </div>
 
-                            <div className="contact-detail">
-                                <div className="detail-icon">📞</div>
-                                <div className="detail-content">
-                                    <h4 className="detail-title">Phone</h4>
-                                    <p className="detail-text">
-                                        +1 (555) 123-4567
-                                    </p>
+                                <div className="contact-details-3d">
+                                    <div className="contact-detail-3d">
+                                        <div className="detail-icon-3d">
+                                            <div className="icon-ring"></div>
+                                            <span>📧</span>
+                                        </div>
+                                        <div className="detail-content-3d">
+                                            <h4 className="detail-title-3d">
+                                                Email
+                                            </h4>
+                                            <p className="detail-text-3d">
+                                                asadrazvi33@gmail.com
+                                            </p>
+                                        </div>
+                                        <button
+                                            className="copy-button"
+                                            onClick={() =>
+                                                handleCopy(
+                                                    "asadrazvi33@gmail.com",
+                                                    "email"
+                                                )
+                                            }
+                                            aria-label="Copy email address"
+                                            title="Copy email"
+                                        >
+                                            <IoCopyOutline
+                                                className={`copy-icon ${
+                                                    copiedItem === "email"
+                                                        ? "copied"
+                                                        : ""
+                                                }`}
+                                            />
+                                            {copiedItem === "email" && (
+                                                <span className="copy-tooltip">
+                                                    Copied!
+                                                </span>
+                                            )}
+                                        </button>
+                                        <div className="detail-shine"></div>
+                                    </div>
+
+                                    <div className="contact-detail-3d">
+                                        <div className="detail-icon-3d">
+                                            <div className="icon-ring"></div>
+                                            <span>📞</span>
+                                        </div>
+                                        <div className="detail-content-3d">
+                                            <h4 className="detail-title-3d">
+                                                Phone
+                                            </h4>
+                                            <p className="detail-text-3d">
+                                                8287395807
+                                            </p>
+                                        </div>
+                                        <button
+                                            className="copy-button"
+                                            onClick={() =>
+                                                handleCopy(
+                                                    "8287395807",
+                                                    "phone"
+                                                )
+                                            }
+                                            aria-label="Copy phone number"
+                                            title="Copy phone"
+                                        >
+                                            <IoCopyOutline
+                                                className={`copy-icon ${
+                                                    copiedItem === "phone"
+                                                        ? "copied"
+                                                        : ""
+                                                }`}
+                                            />
+                                            {copiedItem === "phone" && (
+                                                <span className="copy-tooltip">
+                                                    Copied!
+                                                </span>
+                                            )}
+                                        </button>
+                                        <div className="detail-shine"></div>
+                                    </div>
+
+                                    <div className="contact-detail-3d">
+                                        <div className="detail-icon-3d">
+                                            <div className="icon-ring"></div>
+                                            <span>🏢</span>
+                                        </div>
+                                        <div className="detail-content-3d">
+                                            <h4 className="detail-title-3d">
+                                                Office
+                                            </h4>
+                                            <p className="detail-text-3d">
+                                                Sanjay Nagar, Raipur
+                                            </p>
+                                        </div>
+                                        <div className="detail-shine"></div>
+                                    </div>
                                 </div>
-                            </div>
 
-                            <div className="contact-detail">
-                                <div className="detail-icon">📍</div>
-                                <div className="detail-content">
-                                    <h4 className="detail-title">Office</h4>
-                                    <p className="detail-text">
-                                        Sanjay Nagar
-                                        <br />
-                                        Raipur{" "}
-                                    </p>
+                                <div className="card-divider-3d">
+                                    <div className="divider-line"></div>
+                                    <div className="divider-glow"></div>
                                 </div>
-                            </div>
-                        </div>
 
-                        <div className="contact-social">
-                            <h4 className="social-title">Follow Us</h4>
-                            <div className="social-links">
-                                <a
-                                    href="#"
-                                    className="social-link"
-                                    aria-label="LinkedIn"
-                                >
-                                    <span className="social-icon">💼</span>
-                                </a>
-                                <a
-                                    href="#"
-                                    className="social-link"
-                                    aria-label="Twitter"
-                                >
-                                    <span className="social-icon">🐦</span>
-                                </a>
-                                <a
-                                    href="#"
-                                    className="social-link"
-                                    aria-label="GitHub"
-                                >
-                                    <span className="social-icon">💻</span>
-                                </a>
-                                <a
-                                    href="#"
-                                    className="social-link"
-                                    aria-label="Instagram"
-                                >
-                                    <span className="social-icon">📷</span>
-                                </a>
+                                {/* Floating particles */}
+                                <div className="floating-particles">
+                                    <div className="particle particle-1"></div>
+                                    <div className="particle particle-2"></div>
+                                    <div className="particle particle-3"></div>
+                                    <div className="particle particle-4"></div>
+                                    <div className="particle particle-5"></div>
+                                </div>
                             </div>
                         </div>
                     </div>
