@@ -161,21 +161,19 @@ export default function Footer() {
                             <div className="contact-item">
                                 <span className="contact-icon">📧</span>
                                 <span className="contact-text">
-                                    hello@nexaagency.com
+                                    asadrazvi33@gmail.com{" "}
                                 </span>
                             </div>
                             <div className="contact-item">
                                 <span className="contact-icon">📞</span>
-                                <span className="contact-text">
-                                    +1 (555) 123-4567
-                                </span>
+                                <span className="contact-text">8287395807</span>
                             </div>
                             <div className="contact-item">
                                 <span className="contact-icon">📍</span>
                                 <span className="contact-text">
-                                    123 Innovation Street
+                                    Sanjay Nagar
                                     <br />
-                                    Tech District, CA 90210
+                                    Raipur
                                 </span>
                             </div>
                         </div>

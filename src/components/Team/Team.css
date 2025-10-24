@@ -1,3 +1,10 @@
+/* CSS Custom Property for angle animation */
+@property --angle {
+    syntax: "<angle>";
+    initial-value: 0deg;
+    inherits: false;
+}
+
 /* Team Section Styles */
 .team-header {
     text-align: center;
@@ -25,8 +32,134 @@
 .team-grid {
     display: grid;
     grid-template-columns: 1fr;
-    gap: var(--space-6);
+    gap: var(--space-8);
     margin-bottom: var(--space-12);
+}
+
+/* Moon Card Styles - Similar to the image */
+.moon-card {
+    position: relative;
+    background: var(
+        --bg-gradient,
+        linear-gradient(
+            135deg,
+            rgba(139, 42, 42, 0.4) 0%,
+            rgba(0, 0, 0, 0.8) 100%
+        )
+    );
+    border: 5px solid transparent;
+    border-radius: 12px;
+    padding: 0;
+    overflow: visible;
+    min-height: 280px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    transition: all 0.3s ease;
+    backdrop-filter: blur(10px);
+}
+
+/* Animated neon border using @property --angle */
+.moon-card::before {
+    content: "";
+    position: absolute;
+    inset: -5px;
+    border: inherit;
+    border-radius: inherit;
+    background: conic-gradient(
+            from var(--angle),
+            var(--border-color, #8b2a2a) 40%,
+            transparent,
+            var(--border-color, #8b2a2a) 60%
+        )
+        border-box;
+    -webkit-mask: conic-gradient(#fff 0 0) subtract,
+        conic-gradient(#fff 0 0) padding-box;
+    mask: conic-gradient(#fff 0 0) subtract,
+        conic-gradient(#fff 0 0) padding-box;
+    opacity: 0.75;
+    z-index: 1;
+    animation: neonRotate 4s linear infinite;
+    pointer-events: none;
+}
+
+/* Glowing effect for the border light */
+.moon-card::after {
+    content: "";
+    position: absolute;
+    inset: -20px;
+    background: conic-gradient(
+        from var(--angle),
+        var(--border-color, #8b2a2a),
+        transparent,
+        var(--border-color, #8b2a2a)
+    );
+    border-radius: 15px;
+    filter: blur(12px);
+    opacity: 0.75;
+    z-index: -1;
+    animation: neonRotate 4s linear infinite;
+    pointer-events: none;
+}
+
+.moon-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.6),
+        0 0 30px var(--border-color, #8b2a2a);
+}
+
+/* Neon rotation animation using CSS custom property */
+@keyframes neonRotate {
+    from {
+        --angle: 0deg;
+    }
+    to {
+        --angle: 360deg;
+    }
+}
+
+.moon-card-content {
+    position: relative;
+    z-index: 2;
+    text-align: center;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 0;
+    margin: 0;
+}
+
+.moon-card-title {
+    font-size: 2rem;
+    font-weight: 600;
+    color: #ffffff;
+    margin: 0;
+    padding: 0;
+    line-height: 1.2;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto",
+        "Helvetica Neue", Arial, sans-serif;
+    letter-spacing: 0.5px;
+}
+
+.moon-card-description {
+    font-size: 1.1rem;
+    color: #ffffff;
+    background: var(--border-color, #8b2a2a);
+    line-height: 1.4;
+    margin: 0.75rem 0 0 0;
+    padding: 0.5rem 1.5rem;
+    font-weight: 500;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto",
+        "Helvetica Neue", Arial, sans-serif;
+    letter-spacing: 0.5px;
+    border-radius: 6px;
+    text-transform: uppercase;
+    font-size: 0.85rem;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
 }
 
 /* Team Card Styles */
@@ -234,33 +367,97 @@
 }
 
 /* Responsive Design */
+/* Tablet - 2 columns */
 @media (min-width: 768px) {
     .team-grid {
         grid-template-columns: repeat(2, 1fr);
-        gap: var(--space-8);
+        gap: 2rem;
     }
 
-    .team-card {
-        height: 420px;
+    .moon-card {
+        min-height: 300px;
     }
 
-    .team-stats-grid {
-        grid-template-columns: repeat(4, 1fr);
+    .moon-card-title {
+        font-size: 2.2rem;
+    }
+
+    .moon-card-description {
+        font-size: 0.9rem;
+        margin-top: 0.85rem;
+        padding: 0.5rem 1.5rem;
     }
 }
 
+/* Desktop - 3 columns (all cards side by side) */
 @media (min-width: 1024px) {
     .team-grid {
         grid-template-columns: repeat(3, 1fr);
-        gap: var(--space-8);
+        gap: 2rem;
     }
 
-    .team-card {
-        height: 450px;
+    .moon-card {
+        min-height: 320px;
     }
 
     .team-title {
         font-size: var(--font-size-5xl);
+    }
+
+    .moon-card-title {
+        font-size: 1.85rem;
+    }
+
+    .moon-card-description {
+        font-size: 0.8rem;
+        margin-top: 0.8rem;
+        padding: 0.45rem 1.25rem;
+    }
+}
+
+/* Large Desktop - more spacing */
+@media (min-width: 1280px) {
+    .team-grid {
+        grid-template-columns: repeat(3, 1fr);
+        gap: 2.5rem;
+        max-width: 1400px;
+        margin: 0 auto;
+    }
+
+    .moon-card {
+        min-height: 340px;
+    }
+
+    .moon-card-title {
+        font-size: 2rem;
+    }
+
+    .moon-card-description {
+        font-size: 0.85rem;
+        margin-top: 0.85rem;
+        padding: 0.5rem 1.5rem;
+    }
+}
+
+/* Extra Large Desktop */
+@media (min-width: 1536px) {
+    .team-grid {
+        gap: 3rem;
+        max-width: 1500px;
+    }
+
+    .moon-card {
+        min-height: 360px;
+    }
+
+    .moon-card-title {
+        font-size: 2.25rem;
+    }
+
+    .moon-card-description {
+        font-size: 0.9rem;
+        margin-top: 0.9rem;
+        padding: 0.55rem 1.75rem;
     }
 }
 
@@ -282,6 +479,24 @@
     }
     50% {
         box-shadow: 0 12px 35px rgba(132, 250, 176, 0.5);
+    }
+}
+
+/* Neon glow pulse animation */
+@keyframes neonPulse {
+    0%,
+    100% {
+        box-shadow: 0 0 10px var(--border-color, #8b2a2a),
+            0 0 20px var(--border-color, #8b2a2a),
+            0 0 30px var(--border-color, #8b2a2a),
+            inset 0 0 10px var(--border-color, #8b2a2a);
+    }
+    50% {
+        box-shadow: 0 0 20px var(--border-color, #8b2a2a),
+            0 0 40px var(--border-color, #8b2a2a),
+            0 0 60px var(--border-color, #8b2a2a),
+            0 0 80px var(--border-color, #8b2a2a),
+            inset 0 0 20px var(--border-color, #8b2a2a);
     }
 }
 
@@ -317,15 +532,21 @@
 /* Mobile-specific optimizations */
 @media (max-width: 767px) {
     .team-grid {
-        gap: var(--space-4);
+        gap: 1.5rem;
+        padding: 0 1rem;
     }
 
-    .team-card {
-        height: 350px;
+    .moon-card {
+        min-height: 260px;
+        border-width: 4px;
     }
 
-    .team-card-front {
-        padding: var(--space-4);
+    .moon-card::before {
+        inset: -4px;
+    }
+
+    .moon-card::after {
+        inset: -16px;
     }
 
     .team-title {
@@ -334,60 +555,70 @@
 
     .team-subtitle {
         font-size: var(--font-size-base);
+        padding: 0 1rem;
     }
 
-    .team-image {
-        width: 100px;
-        height: 100px;
+    .moon-card-title {
+        font-size: 1.75rem;
     }
 
-    .team-avatar {
-        font-size: 3rem;
-    }
-
-    .team-name {
-        font-size: var(--font-size-xl);
-    }
-
-    .team-stats {
-        padding: var(--space-6) var(--space-4);
-    }
-
-    .team-stats-grid {
-        grid-template-columns: repeat(2, 1fr);
-        gap: var(--space-4);
-    }
-
-    .stat-number {
-        font-size: var(--font-size-3xl);
+    .moon-card-description {
+        font-size: 0.8rem;
+        margin-top: 0.7rem;
+        padding: 0.45rem 1.25rem;
     }
 
     /* Simplified hover effects for mobile */
-    .team-card:hover {
+    .moon-card:hover {
         transform: none;
     }
 
-    .team-card:hover .team-image {
-        transform: scale(1.05);
-        animation: none;
+    .moon-card:active {
+        transform: scale(0.98);
+    }
+}
+
+/* Small mobile devices */
+@media (max-width: 480px) {
+    .team-grid {
+        gap: 1.25rem;
+        padding: 0 0.5rem;
     }
 
-    /* Touch-friendly overlay behavior */
-    .team-card:active .team-overlay {
-        opacity: 1;
+    .moon-card {
+        min-height: 240px;
+        border-width: 3px;
     }
 
-    .team-card:active .team-bio,
-    .team-card:active .team-social {
-        transform: translateY(0);
+    .moon-card::before {
+        inset: -3px;
     }
 
-    /* Larger touch targets for mobile */
-    .social-link {
-        width: 48px;
-        height: 48px;
-        min-width: 48px;
-        min-height: 48px;
+    .moon-card::after {
+        inset: -14px;
+        filter: blur(10px);
+    }
+
+    .team-header {
+        margin-bottom: 2rem;
+    }
+
+    .team-title {
+        font-size: 1.75rem;
+    }
+
+    .team-subtitle {
+        font-size: 0.9rem;
+    }
+
+    .moon-card-title {
+        font-size: 1.5rem;
+    }
+
+    .moon-card-description {
+        font-size: 0.75rem;
+        margin-top: 0.65rem;
+        padding: 0.4rem 1rem;
     }
 }
 
