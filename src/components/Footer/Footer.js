@@ -147,7 +147,6 @@ export default function Footer() {
                             </li>
                             <li>
                                 <a href="#services">
-                                    <span className="service-icon">📱</span>
                                     Social Media Marketing
                                 </a>
                             </li>
