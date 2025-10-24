@@ -1,46 +1,39 @@
 "use client";
-
-import { useEffect } from "react";
-import {
-    initScrollAnimations,
-    addStaggeredAnimation,
-} from "../../utils/animations";
+import React, { useState, useRef, useEffect } from "react";
+import Image from "next/image";
 import "./Team.css";
 
 const teamData = [
     {
         id: 1,
-        name: "Sayyed Amaan Hussain",
-        position: "Founder & CEO",
-        image: "👨‍💻",
-       
+        name: "Syed Amaan Hussain",
+        position: "CEO",
+        image: "/api/placeholder/400/320",
+        borderColor: "#8B2A2A",
+        bgGradient:
+            "linear-gradient(135deg, rgba(139, 42, 42, 0.4) 0%, rgba(0, 0, 0, 0.8) 100%)",
     },
     {
         id: 2,
         name: "Asad Madni",
-        position: "CO FOUNDER",
-        image: "👨‍💻",
-       
+        position: "Co Founder",
+        image: "/api/placeholder/400/320",
+        borderColor: "#1B4F72",
+        bgGradient:
+            "linear-gradient(135deg, rgba(27, 79, 114, 0.4) 0%, rgba(0, 0, 0, 0.8) 100%)",
     },
     {
         id: 3,
-        name: "Syed Aaqib Ali",
-        position: "Chief Technology Officer (CTO)",
-        image: "👩‍🎨",
-        
+        name: "Syed Aqib Ali",
+        position: "CTO",
+        image: "/api/placeholder/400/320",
+        borderColor: "#6A4C93",
+        bgGradient:
+            "linear-gradient(135deg, rgba(106, 76, 147, 0.4) 0%, rgba(0, 0, 0, 0.8) 100%)",
     },
-   
 ];
 
 export default function Team() {
-    useEffect(() => {
-        // Initialize scroll animations
-        initScrollAnimations();
-
-        // Add staggered animation to team cards
-        addStaggeredAnimation(".team-card", 100, 150);
-    }, []);
-
     return (
         <section id="team" className="section">
             <div className="container">
@@ -52,47 +45,26 @@ export default function Team() {
                 </div>
 
                 <div className="team-grid">
-                    {teamData.map((member, index) => (
+                    {teamData.map((card, index) => (
                         <div
-                            key={member.id}
-                            className={`team-card animate-on-scroll animate-delay-${
+                            key={card.id}
+                            className={`moon-card animate-on-scroll animate-delay-${
                                 (index + 1) * 100
                             }`}
+                            style={{
+                                "--border-color": card.borderColor,
+                                "--bg-gradient": card.bgGradient,
+                            }}
                         >
-                            <div className="team-card-inner">
-                                {/* Front of card */}
-                                <div className="team-card-front">
-                                    <div className="team-image">
-                                        <span
-                                            className="team-avatar"
-                                            role="img"
-                                            aria-label={`${member.name} avatar`}
-                                        >
-                                            {member.image}
-                                        </span>
-                                    </div>
-
-                                    <div className="team-info">
-                                        <h3 className="team-name">
-                                            {member.name}
-                                        </h3>
-                                        <p className="team-position">
-                                            {member.position}
-                                        </p>
-                                    </div>
-
-                                    <div className="team-overlay">
-                                        <p className="team-bio">{member.bio}</p>
-                                       
-                                    </div>
-                                </div>
+                            <div className="moon-card-content">
+                                <h3 className="moon-card-title">{card.name}</h3>
+                                <p className="moon-card-description">
+                                    {card.position}
+                                </p>
                             </div>
                         </div>
                     ))}
                 </div>
-
-                {/* Team Stats */}
-               
             </div>
         </section>
     );
