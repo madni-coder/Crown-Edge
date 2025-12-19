@@ -13,10 +13,11 @@ export default function Home() {
         <ResponsiveWrapper>
             <Header />
             <Hero />
+            <Services />
+                <Portfolio />
+
             <main className="main-content">
                 <About />
-                <Services />
-                <Portfolio />
                 <Team />
                 <Contact />
             </main>

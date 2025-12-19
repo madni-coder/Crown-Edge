@@ -155,14 +155,14 @@ export default function Contact() {
                                                 Email
                                             </h4>
                                             <p className="detail-text-3d">
-                                                asadrazvi33@gmail.com
+                                                info.crownedge@gmail.com
                                             </p>
                                         </div>
                                         <button
                                             className="copy-button"
                                             onClick={() =>
                                                 handleCopy(
-                                                    "asadrazvi33@gmail.com",
+                                                    " info.crownedge@gmail.com",
                                                     "email"
                                                 )
                                             }
@@ -170,11 +170,10 @@ export default function Contact() {
                                             title="Copy email"
                                         >
                                             <IoCopyOutline
-                                                className={`copy-icon ${
-                                                    copiedItem === "email"
+                                                className={`copy-icon ${copiedItem === "email"
                                                         ? "copied"
                                                         : ""
-                                                }`}
+                                                    }`}
                                             />
                                             {copiedItem === "email" && (
                                                 <span className="copy-tooltip">
@@ -210,11 +209,10 @@ export default function Contact() {
                                             title="Copy phone"
                                         >
                                             <IoCopyOutline
-                                                className={`copy-icon ${
-                                                    copiedItem === "phone"
+                                                className={`copy-icon ${copiedItem === "phone"
                                                         ? "copied"
                                                         : ""
-                                                }`}
+                                                    }`}
                                             />
                                             {copiedItem === "phone" && (
                                                 <span className="copy-tooltip">

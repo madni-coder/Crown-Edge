@@ -34,6 +34,14 @@ const portfolioData = [
         technologies: ["Figma", "Illustrator", "Photoshop"],
         link: "https://www.alazizedu.org/",
     },
+    {
+        id: 4,
+        title: "Saubhagya Weddings",
+        category: "Website",
+        image: "/sau.png",
+        technologies: ["React", "Next.js", "Tailwind CSS"],
+        link: "https://saubhagya-one.vercel.app/",
+    },
 ];
 
 const categories = [

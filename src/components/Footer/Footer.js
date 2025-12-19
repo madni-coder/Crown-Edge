@@ -160,7 +160,7 @@ export default function Footer() {
                             <div className="contact-item">
                                 <span className="contact-icon">📧</span>
                                 <span className="contact-text">
-                                    asadrazvi33@gmail.com{" "}
+                                    info.crownedge@gmail.com{" "}
                                 </span>
                             </div>
                             <div className="contact-item">

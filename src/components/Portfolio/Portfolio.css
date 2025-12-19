@@ -64,9 +64,15 @@
 /* Portfolio Grid - Masonry Layout */
 .portfolio-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    grid-template-columns: repeat(2, minmax(0, 1fr));
     gap: var(--space-6);
     margin-top: var(--space-8);
+}
+
+@media (max-width: 900px) {
+    .portfolio-grid {
+        grid-template-columns: 1fr;
+    }
 }
 
 /* Portfolio Item */
@@ -354,7 +360,7 @@
 
 @media (min-width: 1024px) {
     .portfolio-grid {
-        grid-template-columns: repeat(3, 1fr);
+        grid-template-columns: repeat(2, minmax(0, 1fr));
         gap: var(--space-8);
     }
 
@@ -463,7 +469,8 @@
 
 /* Uiverse.io Card Styles - Smit-Prajapati */
 .uiverse-parent {
-    width: 290px;
+    width: 100%;
+    max-width: 100%;
     height: 300px;
     perspective: 1000px;
 }

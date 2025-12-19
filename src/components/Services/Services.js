@@ -63,7 +63,7 @@ const servicesData = [
     },
     {
         id: 5,
-        title: "Mobile Development",
+        title: "Mobile App Development",
         description:
             "Native and cross-platform mobile applications for iOS and Android.",
         icon: "📱",
