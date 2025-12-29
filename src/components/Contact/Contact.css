@@ -799,6 +799,14 @@
     animation: fadeInUp 0.8s ease-out 0.8s backwards;
 }
 
+/* Disable all animations/transitions in the contact section while preserving design */
+#contact,
+#contact * {
+    animation: none !important;
+    transition: none !important;
+    will-change: auto !important;
+}
+
 .social-title-3d {
     font-size: var(--font-size-lg);
     font-weight: 600;
@@ -1691,6 +1699,31 @@
     outline: 2px solid var(--accent);
     outline-offset: 3px;
     box-shadow: 0 0 0 4px rgba(132, 250, 176, 0.2);
+}
+
+/* Whatsapp icon: make contrast stronger against theme */
+.whatsapp-icon {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: clamp(40px, 8vw, 52px);
+    height: clamp(40px, 8vw, 52px);
+    background: #ebe1e100;
+    color: #011b18; /* darker WhatsApp green */
+    border-radius: 12px;
+    font-size: clamp(1.1rem, 2.5vw, 1.25rem);
+    box-shadow: 0 8px 24px rgba(18, 140, 126, 0.08),
+        0 2px 6px rgba(0, 0, 0, 0.08);
+    border: 1px solid rgba(0, 0, 0, 0.04);
+}
+
+.whatsapp-link {
+    color: #128c7e;
+    font-weight: 600;
+    text-decoration: none;
+}
+.whatsapp-link:hover {
+    text-decoration: underline;
 }
 
 /* High contrast mode */

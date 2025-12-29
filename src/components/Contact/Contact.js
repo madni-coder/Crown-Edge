@@ -1,8 +1,8 @@
 "use client";
 
 import { useState, useEffect } from "react";
-import { initScrollAnimations } from "../../utils/animations";
 import { IoCopyOutline } from "react-icons/io5";
+import { FaWhatsapp } from "react-icons/fa";
 import "./Contact.css";
 
 export default function Contact() {
@@ -18,7 +18,7 @@ export default function Contact() {
     const [copiedItem, setCopiedItem] = useState(null);
 
     useEffect(() => {
-        initScrollAnimations();
+        // animations removed — no-op
     }, []);
 
     const handleCopy = async (text, type) => {
@@ -107,17 +107,17 @@ export default function Contact() {
         <section id="contact" className="section">
             <div className="container">
                 <div className="contact-header">
-                    <h2 className="contact-title animate-on-scroll">
+                    <h2 className="contact-title">
                         Contact Us
                     </h2>
-                    <p className="contact-subtitle animate-on-scroll animate-delay-200">
+                    <p className="contact-subtitle">
                         Let&apos;s start your next project together
                     </p>
                 </div>
 
                 <div className="contact-content">
                     {/* 3D Get in Touch Card */}
-                    <div className="contact-card-3d animate-on-scroll animate-delay-400">
+                    <div className="contact-card-3d">
                         <div className="card-3d-inner">
                             {/* Animated Background Layers */}
                             <div className="card-bg-layer layer-1"></div>
@@ -171,8 +171,8 @@ export default function Contact() {
                                         >
                                             <IoCopyOutline
                                                 className={`copy-icon ${copiedItem === "email"
-                                                        ? "copied"
-                                                        : ""
+                                                    ? "copied"
+                                                    : ""
                                                     }`}
                                             />
                                             {copiedItem === "email" && (
@@ -194,14 +194,14 @@ export default function Contact() {
                                                 Phone
                                             </h4>
                                             <p className="detail-text-3d">
-                                                8287395807
+                                                9993457671
                                             </p>
                                         </div>
                                         <button
                                             className="copy-button"
                                             onClick={() =>
                                                 handleCopy(
-                                                    "8287395807",
+                                                    "9993457671",
                                                     "phone"
                                                 )
                                             }
@@ -210,8 +210,8 @@ export default function Contact() {
                                         >
                                             <IoCopyOutline
                                                 className={`copy-icon ${copiedItem === "phone"
-                                                        ? "copied"
-                                                        : ""
+                                                    ? "copied"
+                                                    : ""
                                                     }`}
                                             />
                                             {copiedItem === "phone" && (
@@ -238,6 +238,24 @@ export default function Contact() {
                                         </div>
                                         <div className="detail-shine"></div>
                                     </div>
+
+                                    <div className="contact-detail-3d">
+                                        <div className="detail-icon-3d">
+                                            <div className="icon-ring"></div>
+                                            <FaWhatsapp className="whatsapp-icon" />
+                                        </div>
+                                        <div className="detail-content-3d">
+                                            <h4 className="detail-title-3d">
+                                                Reach Us On Whatsapp
+                                            </h4>
+                                            <p className="detail-text-3d">
+                                                <a href="https://wa.me/9993457671" target="_blank" rel="noopener noreferrer" className="whatsapp-link">
+                                                    Open WhatsApp
+                                                </a>
+                                            </p>
+                                        </div>
+                                        <div className="detail-shine"></div>
+                                    </div>
                                 </div>
 
                                 <div className="card-divider-3d">
@@ -245,14 +263,7 @@ export default function Contact() {
                                     <div className="divider-glow"></div>
                                 </div>
 
-                                {/* Floating particles */}
-                                <div className="floating-particles">
-                                    <div className="particle particle-1"></div>
-                                    <div className="particle particle-2"></div>
-                                    <div className="particle particle-3"></div>
-                                    <div className="particle particle-4"></div>
-                                    <div className="particle particle-5"></div>
-                                </div>
+                                {/* Floating particles removed to disable animations */}
                             </div>
                         </div>
                     </div>

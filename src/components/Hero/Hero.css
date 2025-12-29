@@ -355,6 +355,145 @@
     }
 }
 
+/* Hanging Call Banner Styles */
+.hero__call-banner {
+    position: fixed;
+    bottom: 50px;
+    right: 32px;
+    transform: none;
+    z-index: 1000;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    cursor: pointer;
+}
+
+.hero__call-banner-content {
+    position: relative;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 12px 24px;
+    background: linear-gradient(135deg, #84fab0 0%, #409ecd 100%);
+    box-shadow: 0 4px 15px rgba(132, 250, 176, 0.4),
+        0 0 20px rgba(143, 211, 244, 0.3);
+    overflow: hidden;
+    /* Make desktop call banner match mobile capsule look */
+    border-radius: 30px;
+}
+
+.hero__call-banner-content::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(
+        135deg,
+        rgba(255, 255, 255, 0.2) 0%,
+        transparent 100%
+    );
+    pointer-events: none;
+}
+
+.hero__call-text {
+    color: #fff;
+    font-weight: 700;
+    font-size: 16px;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    white-space: nowrap;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.hero__call-icon {
+    color: #fff;
+    filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.2));
+}
+
+.hero__call-pulse {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 100%;
+    height: 100%;
+    border-radius: 30px;
+    background: rgba(255, 255, 255, 0.3);
+    animation: callPulse 2s ease-out infinite;
+    pointer-events: none;
+}
+
+@keyframes callPulse {
+    0% {
+        transform: translate(-50%, -50%) scale(1);
+        opacity: 1;
+    }
+    100% {
+        transform: translate(-50%, -50%) scale(1.3);
+        opacity: 0;
+    }
+}
+
+.hero__call-banner:hover {
+    transform: translateY(-4px);
+}
+
+.hero__call-banner:hover .hero__call-banner-content {
+    box-shadow: 0 6px 25px rgba(132, 250, 176, 0.6),
+        0 0 30px rgba(143, 211, 244, 0.5);
+    transform: scale(1.05);
+}
+
+.hero__call-banner:active .hero__call-banner-content {
+    transform: scale(0.95);
+}
+
+/* Initial animation for call banner */
+.hero__call-banner--animate {
+    animation: callBannerSlideIn 0.9s ease-out 1s both;
+}
+
+@keyframes callBannerSlideIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Responsive styles for call banner */
+@media (max-width: 768px) {
+    .hero__call-banner {
+        bottom: 20px;
+        right: 20px;
+        left: auto;
+        transform: none;
+    }
+
+    .hero__call-banner-content {
+        border-radius: 30px;
+    }
+
+    .hero__call-banner:hover {
+        transform: none;
+    }
+
+    @keyframes callBannerSlideIn {
+        from {
+            opacity: 0;
+            transform: translateY(20px);
+        }
+        to {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    }
+}
+
 /* Responsive styles for animated subtitle */
 @media (max-width: 768px) {
     .hero__subtitle--animated {

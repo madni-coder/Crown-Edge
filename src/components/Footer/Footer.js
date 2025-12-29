@@ -165,7 +165,7 @@ export default function Footer() {
                             </div>
                             <div className="contact-item">
                                 <span className="contact-icon">📞</span>
-                                <span className="contact-text">8287395807</span>
+                                <span className="contact-text">9993457671</span>
                             </div>
                             <div className="contact-item">
                                 <span className="contact-icon">📍</span>
