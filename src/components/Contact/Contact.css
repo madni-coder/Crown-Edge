@@ -1,3 +1,124 @@
+/* Flip Button 3D Flip Effect (Web Only) */
+.contact-flip-btn-flip {
+    width: 180px;
+
+    /* Flip Button 3D Flip Effect (Web Only) */
+    .contact-flip-btn-flip {
+        width: 180px;
+        height: 48px;
+        perspective: 600px;
+        position: relative;
+        display: inline-block;
+        outline: none;
+    }
+    .contact-flip-btn-flip-inner {
+        width: 100%;
+        height: 100%;
+        position: relative;
+        transition: transform 0.6s cubic-bezier(0.23, 1, 0.32, 1);
+        transform-style: preserve-3d;
+    }
+    .contact-flip-btn-flip.flipped .contact-flip-btn-flip-inner {
+        transform: rotateY(180deg);
+    }
+    .contact-flip-btn-front,
+    .contact-flip-btn-back {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        left: 0;
+        top: 0;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border-radius: 24px;
+        font-size: 1.1rem;
+        font-weight: 600;
+        background: var(
+            --primary-gradient,
+            linear-gradient(90deg, #84fab0 0%, #8fd3f4 100%)
+        );
+        color: var(--text-primary, #fff);
+        box-shadow: 0 2px 8px rgba(132, 250, 176, 0.15);
+        transition: background 0.3s, color 0.3s;
+        backface-visibility: hidden;
+        padding: 0.75rem 2rem;
+        z-index: 1;
+        cursor: pointer;
+    }
+    .contact-flip-btn-back {
+        background: linear-gradient(90deg, #8fd3f4 0%, #84fab0 100%);
+        color: #222;
+        transform: rotateY(180deg);
+        z-index: 2;
+    }
+    .contact-flip-btn-flip .copy-icon {
+        margin-left: 0.5rem;
+        font-size: 1.2em;
+    }
+    .contact-flip-btn-flip .copy-tooltip {
+        margin-left: 0.5rem;
+        font-size: 0.95em;
+        color: #22c55e;
+    }
+    @media (max-width: 767px) {
+        .contact-flip-btn-container {
+            display: none !important;
+        }
+    }
+}
+/* Flip Button Styles (Web Only) */
+.contact-flip-btn-container {
+    display: flex;
+    justify-content: flex-end;
+    margin-bottom: 1rem;
+}
+
+.contact-flip-btn {
+    background: var(
+        --primary-gradient,
+        linear-gradient(90deg, #84fab0 0%, #8fd3f4 100%)
+    );
+    color: var(--text-primary, #fff);
+    border: none;
+    border-radius: 24px;
+    padding: 0.75rem 2rem;
+    font-size: 1.1rem;
+    font-weight: 600;
+    cursor: pointer;
+    box-shadow: 0 2px 8px rgba(132, 250, 176, 0.15);
+    transition: background 0.3s, color 0.3s,
+        transform 0.6s cubic-bezier(0.23, 1, 0.32, 1);
+    outline: none;
+    position: relative;
+    z-index: 2;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.contact-flip-btn.flipped {
+    background: linear-gradient(90deg, #8fd3f4 0%, #84fab0 100%);
+    color: #222;
+}
+
+/* Flip animation for card-3d-inner (web only) */
+@media (min-width: 768px) {
+    .card-3d-inner {
+        transition: transform 0.6s cubic-bezier(0.23, 1, 0.32, 1);
+        backface-visibility: hidden;
+    }
+    .card-3d-inner.flipped {
+        transform: rotateY(180deg);
+    }
+}
+
+/* Hide flip button on mobile */
+@media (max-width: 767px) {
+    .contact-flip-btn-container {
+        display: none !important;
+    }
+}
 /* Contact Section Styles */
 .contact-header {
     text-align: center;
@@ -147,11 +268,6 @@
     margin-top: var(--space-2);
 }
 
-.form-submit:hover:not(:disabled) {
-    transform: translateY(-2px);
-    box-shadow: 0 8px 25px rgba(132, 250, 176, 0.4);
-}
-
 .form-submit:active {
     transform: translateY(0);
 }
@@ -277,13 +393,6 @@
     50% {
         transform: translateY(-10px) rotateX(2deg);
     }
-}
-
-.contact-card-3d:hover .card-3d-inner {
-    transform: translateY(-15px) rotateX(5deg);
-    box-shadow: 0 30px 80px rgba(0, 0, 0, 0.6),
-        0 15px 40px rgba(132, 250, 176, 0.2),
-        inset 0 1px 0 rgba(255, 255, 255, 0.15);
 }
 
 /* Animated Background Layers */
@@ -558,18 +667,6 @@
     }
 }
 
-.contact-detail-3d:hover {
-    transform: translateX(10px) translateZ(30px);
-    background: linear-gradient(
-        135deg,
-        rgba(132, 250, 176, 0.1) 0%,
-        rgba(143, 211, 244, 0.1) 100%
-    );
-    border-color: rgba(132, 250, 176, 0.4);
-    box-shadow: 0 10px 30px rgba(132, 250, 176, 0.3),
-        inset 0 1px 0 rgba(255, 255, 255, 0.2);
-}
-
 .detail-icon-3d {
     position: relative;
     width: clamp(48px, 10vw, 60px);
@@ -660,13 +757,6 @@
     margin-left: auto;
 }
 
-.copy-button:hover {
-    background: rgba(132, 250, 176, 0.2);
-    border-color: rgba(132, 250, 176, 0.5);
-    transform: translateY(-2px) scale(1.05);
-    box-shadow: 0 4px 12px rgba(132, 250, 176, 0.3);
-}
-
 .copy-button:active {
     transform: translateY(0) scale(0.98);
 }
@@ -749,10 +839,6 @@
     transition: left 0.6s ease;
 }
 
-.contact-detail-3d:hover .detail-shine {
-    left: 100%;
-}
-
 /* Card Divider */
 .card-divider-3d {
     position: relative;
@@ -797,6 +883,31 @@
 .contact-social-3d {
     text-align: center;
     animation: fadeInUp 0.8s ease-out 0.8s backwards;
+}
+
+/* Gmail icon inline styles */
+.gmail-inline {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.gmail-icon {
+    width: 20px;
+    height: 20px;
+    object-fit: contain;
+}
+
+/* Larger icon used inside the detail-icon-3d slot */
+.detail-icon-img {
+    width: 30px;
+    height: 30px;
+}
+
+.phone-icon {
+    width: 35px;
+    height: 35px;
+    color: inherit;
 }
 
 /* Disable all animations/transitions in the contact section while preserving design */
@@ -859,10 +970,6 @@
     }
 }
 
-.social-link-3d:hover {
-    transform: translateY(-10px) scale(1.15) translateZ(40px) rotateY(10deg);
-}
-
 .social-bg {
     position: absolute;
     inset: 0;
@@ -872,20 +979,11 @@
     transition: all 0.4s ease;
 }
 
-.social-link-3d:hover .social-bg {
-    box-shadow: 0 12px 30px rgba(132, 250, 176, 0.6);
-    filter: brightness(1.2);
-}
-
 .social-icon-3d {
     position: relative;
     font-size: clamp(1.3rem, 3vw, 1.8rem);
     z-index: 1;
     transition: transform 0.4s ease;
-}
-
-.social-link-3d:hover .social-icon-3d {
-    transform: scale(1.2) rotateZ(15deg);
 }
 
 .social-ripple {
@@ -896,11 +994,6 @@
     opacity: 0;
     transform: scale(1);
     transition: all 0.6s ease;
-}
-
-.social-link-3d:hover .social-ripple {
-    opacity: 0;
-    transform: scale(1.5);
 }
 
 /* Floating Particles */
@@ -1075,10 +1168,7 @@
         font-size: 1.3rem;
     }
 
-    /* Minimal 3D effects on small mobile */
-    .contact-card-3d:hover .card-3d-inner {
-        transform: translateY(-5px) rotateX(0deg);
-    }
+    /* Minimal 3D effects on small mobile - hover effect removed */
 
     .contact-detail-3d:hover {
         transform: translateX(3px) translateZ(5px);
@@ -1139,10 +1229,7 @@
         font-size: 1.5rem;
     }
 
-    /* Reduce 3D effects on mobile */
-    .contact-card-3d:hover .card-3d-inner {
-        transform: translateY(-8px) rotateX(2deg);
-    }
+    /* Reduce 3D effects on mobile - hover effect removed */
 
     .contact-detail-3d:hover {
         transform: translateX(5px) translateZ(10px);
@@ -1204,9 +1291,7 @@
         padding: 3rem;
     }
 
-    .contact-card-3d:hover .card-3d-inner {
-        transform: translateY(-20px) rotateX(5deg);
-    }
+    /* Hover effect removed from .card-3d-inner */
 }
 
 /* Landscape orientation adjustments */
@@ -1254,7 +1339,6 @@
     }
 
     /* Remove hover effects that don't work on touch */
-    .contact-card-3d:hover .card-3d-inner,
     .contact-detail-3d:hover,
     .social-link-3d:hover,
     .copy-button:hover {
@@ -1301,7 +1385,6 @@
         transition: none !important;
     }
 
-    .contact-card-3d:hover .card-3d-inner,
     .contact-detail-3d:hover,
     .social-link-3d:hover,
     .copy-button:hover {

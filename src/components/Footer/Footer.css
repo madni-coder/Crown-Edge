@@ -399,6 +399,18 @@ html {
         border-top: 1px solid #000;
     }
 
+    /* Gmail icon inline styles */
+    .gmail-inline {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.5rem;
+    }
+
+    .gmail-icon {
+        width: 20px;
+        height: 20px;
+        object-fit: contain;
+    }
     .footer-social {
         display: none;
     }

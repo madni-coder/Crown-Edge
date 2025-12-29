@@ -106,7 +106,7 @@ const Hero = () => {
                                         fill="currentColor"
                                     />
                                 </svg>
-                                <span className="hero__call-text">Call Us</span>
+                                <span className="hero__call-text">contact us</span>
                                 <div className="hero__call-pulse"></div>
                             </div>
                         </a>

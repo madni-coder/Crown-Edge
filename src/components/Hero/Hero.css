@@ -2,7 +2,7 @@
 
 .hero {
     position: relative;
-    min-height: 100vh;
+    min-height: 80vh;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -439,12 +439,6 @@
     transform: translateY(-4px);
 }
 
-.hero__call-banner:hover .hero__call-banner-content {
-    box-shadow: 0 6px 25px rgba(132, 250, 176, 0.6),
-        0 0 30px rgba(143, 211, 244, 0.5);
-    transform: scale(1.05);
-}
-
 .hero__call-banner:active .hero__call-banner-content {
     transform: scale(0.95);
 }
@@ -787,7 +781,7 @@
 @media (max-width: 767px) {
     .hero {
         padding-top: 60px;
-        min-height: 100vh;
+        min-height: 70vh;
     }
 
     .hero__content {

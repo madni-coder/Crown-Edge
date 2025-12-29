@@ -160,7 +160,14 @@ export default function Footer() {
                             <div className="contact-item">
                                 <span className="contact-icon">📧</span>
                                 <span className="contact-text">
-                                    info.crownedge@gmail.com{" "}
+                                    <span className="gmail-inline">
+                                        <img
+                                            src="/gmailLogo.png"
+                                            alt="Gmail"
+                                            className="gmail-icon"
+                                        />
+                                        <a href="mailto:info.crownedge@gmail.com">info.crownedge@gmail.com</a>
+                                    </span>
                                 </span>
                             </div>
                             <div className="contact-item">

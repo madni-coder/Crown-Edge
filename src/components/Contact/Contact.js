@@ -1,11 +1,14 @@
 "use client";
 
 import { useState, useEffect } from "react";
+import { useResponsive } from "../../hooks/useResponsive";
 import { IoCopyOutline } from "react-icons/io5";
 import { FaWhatsapp } from "react-icons/fa";
+import { AiOutlinePhone } from "react-icons/ai";
 import "./Contact.css";
 
 export default function Contact() {
+    const { isMobile } = useResponsive();
     const [formData, setFormData] = useState({
         name: "",
         email: "",
@@ -16,6 +19,7 @@ export default function Contact() {
     const [isSubmitting, setIsSubmitting] = useState(false);
     const [submitStatus, setSubmitStatus] = useState(null);
     const [copiedItem, setCopiedItem] = useState(null);
+    const [isFlipped, setIsFlipped] = useState(false);
 
     useEffect(() => {
         // animations removed — no-op
@@ -118,6 +122,45 @@ export default function Contact() {
                 <div className="contact-content">
                     {/* 3D Get in Touch Card */}
                     <div className="contact-card-3d">
+                        {/* Flip Button for Web/Desktop only */}
+                        {!isMobile && (
+                            <div className="contact-flip-btn-container">
+                                <div
+                                    className={`contact-flip-btn-flip${isFlipped ? " flipped" : ""}`}
+                                    tabIndex={0}
+                                    role="button"
+                                    aria-pressed={isFlipped}
+                                    aria-label={isFlipped ? "Show Contact Us" : "Show Phone Number"}
+                                    onClick={() => setIsFlipped(f => !f)}
+                                    onKeyDown={e => {
+                                        if (e.key === "Enter" || e.key === " ") setIsFlipped(f => !f);
+                                    }}
+                                >
+                                    <div className="contact-flip-btn-flip-inner">
+                                        <div className="contact-flip-btn-front">
+                                            Contact Us
+                                        </div>
+                                        <div className="contact-flip-btn-back">
+                                            <span style={{ display: "flex", alignItems: "center", gap: 8 }}>
+                                                9993457671
+                                                <span
+                                                    style={{ cursor: "pointer" }}
+                                                    onClick={e => {
+                                                        e.stopPropagation();
+                                                        handleCopy("9993457671", "phone-flip");
+                                                    }}
+                                                >
+                                                    <IoCopyOutline className={`copy-icon${copiedItem === "phone-flip" ? " copied" : ""}`} />
+                                                </span>
+                                                {copiedItem === "phone-flip" && (
+                                                    <span className="copy-tooltip">Copied!</span>
+                                                )}
+                                            </span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        )}
                         <div className="card-3d-inner">
                             {/* Animated Background Layers */}
                             <div className="card-bg-layer layer-1"></div>
@@ -148,21 +191,27 @@ export default function Contact() {
                                     <div className="contact-detail-3d">
                                         <div className="detail-icon-3d">
                                             <div className="icon-ring"></div>
-                                            <span>📧</span>
-                                        </div>
+                                            <img
+                                                src="/gmailLogo.png"
+                                                alt="Gmail"
+                                                className="gmail-icon detail-icon-img "
+                                            />                                        </div>
                                         <div className="detail-content-3d">
                                             <h4 className="detail-title-3d">
                                                 Email
                                             </h4>
                                             <p className="detail-text-3d">
-                                                info.crownedge@gmail.com
+                                                <span className="gmail-inline">
+
+                                                    <span>info.crownedge@gmail.com</span>
+                                                </span>
                                             </p>
                                         </div>
                                         <button
                                             className="copy-button"
                                             onClick={() =>
                                                 handleCopy(
-                                                    " info.crownedge@gmail.com",
+                                                    "info.crownedge@gmail.com",
                                                     "email"
                                                 )
                                             }
@@ -187,7 +236,7 @@ export default function Contact() {
                                     <div className="contact-detail-3d">
                                         <div className="detail-icon-3d">
                                             <div className="icon-ring"></div>
-                                            <span>📞</span>
+                                            <AiOutlinePhone className="phone-icon" />
                                         </div>
                                         <div className="detail-content-3d">
                                             <h4 className="detail-title-3d">
