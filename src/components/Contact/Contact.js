@@ -122,45 +122,7 @@ export default function Contact() {
                 <div className="contact-content">
                     {/* 3D Get in Touch Card */}
                     <div className="contact-card-3d">
-                        {/* Flip Button for Web/Desktop only */}
-                        {!isMobile && (
-                            <div className="contact-flip-btn-container">
-                                <div
-                                    className={`contact-flip-btn-flip${isFlipped ? " flipped" : ""}`}
-                                    tabIndex={0}
-                                    role="button"
-                                    aria-pressed={isFlipped}
-                                    aria-label={isFlipped ? "Show Contact Us" : "Show Phone Number"}
-                                    onClick={() => setIsFlipped(f => !f)}
-                                    onKeyDown={e => {
-                                        if (e.key === "Enter" || e.key === " ") setIsFlipped(f => !f);
-                                    }}
-                                >
-                                    <div className="contact-flip-btn-flip-inner">
-                                        <div className="contact-flip-btn-front">
-                                            Contact Us
-                                        </div>
-                                        <div className="contact-flip-btn-back">
-                                            <span style={{ display: "flex", alignItems: "center", gap: 8 }}>
-                                                9993457671
-                                                <span
-                                                    style={{ cursor: "pointer" }}
-                                                    onClick={e => {
-                                                        e.stopPropagation();
-                                                        handleCopy("9993457671", "phone-flip");
-                                                    }}
-                                                >
-                                                    <IoCopyOutline className={`copy-icon${copiedItem === "phone-flip" ? " copied" : ""}`} />
-                                                </span>
-                                                {copiedItem === "phone-flip" && (
-                                                    <span className="copy-tooltip">Copied!</span>
-                                                )}
-                                            </span>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        )}
+                        {/* Removed duplicate flip button in center */}
                         <div className="card-3d-inner">
                             {/* Animated Background Layers */}
                             <div className="card-bg-layer layer-1"></div>
