@@ -24,15 +24,19 @@ const Hero = () => {
         // Prevent default link behavior (tel: on mac opens FaceTime)
         if (e && e.preventDefault) e.preventDefault();
 
-        // Trigger flip animation
-        setIsCallFlipped(true);
+        // Disable flip behavior on mobile devices; preserve desktop/web view
+        const isMobile = typeof window !== "undefined" && window.innerWidth < 768;
 
-        // After flip animation, reset flip state
-        setTimeout(() => {
-            setIsCallFlipped(false);
-        }, 1200);
+        if (isMobile) {
+            // On mobile, open the phone dialer instead of scrolling or flipping
+            if (typeof window !== "undefined") {
+                window.location.href = `tel:${phoneNumber}`;
+            }
+            return;
+        }
 
-        // Scroll to contact after a short delay (mid-flip)
+        // Toggle flip state on desktop/web; do not auto-reset
+        setIsCallFlipped((prev) => !prev);
 
     };
 
