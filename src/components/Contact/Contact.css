@@ -1778,11 +1778,11 @@
     outline-offset: 2px;
 }
 
-.copy-button:focus-visible {
+/* .copy-button:focus-visible {
     outline: 2px solid var(--accent);
     outline-offset: 3px;
     box-shadow: 0 0 0 4px rgba(132, 250, 176, 0.2);
-}
+} */
 
 /* Whatsapp icon: make contrast stronger against theme */
 .whatsapp-icon {
