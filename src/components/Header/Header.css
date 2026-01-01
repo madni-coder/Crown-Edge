@@ -97,6 +97,11 @@
     overflow: hidden;
 }
 
+/* keep space for border to avoid layout shift */
+.header__nav-link {
+    border: 2px solid transparent;
+}
+
 .header__nav-link::before {
     content: "";
     position: absolute;
@@ -108,6 +113,18 @@
     opacity: 0.1;
     transition: left var(--transition-normal);
     z-index: -1;
+}
+
+.header__nav-link:hover::before,
+.header__nav-link:focus::before {
+    left: 0;
+}
+
+.header__nav-link:hover,
+.header__nav-link:focus {
+    border-color: var(--accent);
+    /* subtle glow to match screenshot */
+    box-shadow: 0 0 0 4px rgba(132, 250, 176, 0.06);
 }
 
 /* Hover effects removed */

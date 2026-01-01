@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect } from "react";
+import { MdCall, MdLocationOn, MdEmail } from "react-icons/md";
 import { initScrollAnimations, smoothScrollTo } from "../../utils/animations";
 import "./Footer.css";
 
@@ -33,36 +34,7 @@ export default function Footer() {
                             that drive business growth and create exceptional
                             user experiences.
                         </p>
-                        <div className="footer-social">
-                            <a
-                                href="#"
-                                className="social-link"
-                                aria-label="LinkedIn"
-                            >
-                                <span className="social-icon">💼</span>
-                            </a>
-                            <a
-                                href="#"
-                                className="social-link"
-                                aria-label="Twitter"
-                            >
-                                <span className="social-icon">🐦</span>
-                            </a>
-                            <a
-                                href="#"
-                                className="social-link"
-                                aria-label="GitHub"
-                            >
-                                <span className="social-icon">💻</span>
-                            </a>
-                            <a
-                                href="#"
-                                className="social-link"
-                                aria-label="Instagram"
-                            >
-                                <span className="social-icon">📷</span>
-                            </a>
-                        </div>
+
                     </div>
 
                     {/* Quick Links */}
@@ -158,24 +130,19 @@ export default function Footer() {
                         <h4 className="footer-title">Contact Info</h4>
                         <div className="footer-contact">
                             <div className="contact-item">
-                                <span className="contact-icon">📧</span>
                                 <span className="contact-text">
-                                    <span className="gmail-inline">
-                                        <img
-                                            src="/gmailLogo.png"
-                                            alt="Gmail"
-                                            className="gmail-icon"
-                                        />
+                                    <span className="gmail-outline">
+                                        <MdEmail className="contact-icon gmail-icon" aria-hidden="true" />
                                         <a href="mailto:info.crownedge@gmail.com">info.crownedge@gmail.com</a>
                                     </span>
                                 </span>
                             </div>
                             <div className="contact-item">
-                                <span className="contact-icon">📞</span>
+                                <MdCall className="contact-icon" aria-hidden="true" />
                                 <span className="contact-text">9993457671</span>
                             </div>
                             <div className="contact-item">
-                                <span className="contact-icon">📍</span>
+                                <MdLocationOn className="contact-icon" aria-hidden="true" />
                                 <span className="contact-text">
                                     Sanjay Nagar
                                     <br />
@@ -190,7 +157,7 @@ export default function Footer() {
                 <div className="footer-bottom animate-on-scroll">
                     <div className="footer-bottom-content">
                         <p className="copyright">
-                            © 2025 Crown Edge Technologies. All rights reserved.
+                            © 2026 Crown Edge Technologies. All rights reserved.
                         </p>
                         <div className="footer-bottom-links">
                             <a href="#" className="footer-link">

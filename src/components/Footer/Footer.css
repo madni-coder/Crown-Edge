@@ -194,7 +194,7 @@
 
 .contact-item {
     display: flex;
-    align-items: flex-start;
+    align-items: center;
     gap: var(--space-2);
     transition: transform var(--transition-normal);
 }
@@ -206,8 +206,19 @@
 .contact-icon {
     font-size: 1.2rem;
     width: 24px;
+    height: 24px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
     flex-shrink: 0;
-    margin-top: 2px;
+    margin-top: 0;
+}
+
+/* Ensure the gmail icon and address align nicely */
+.gmail-outline {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
 }
 
 .contact-text {
@@ -215,7 +226,6 @@
     color: var(--text-secondary);
     line-height: 1.5;
 }
-
 /* Footer Bottom */
 .footer-bottom {
     padding-top: var(--space-6);
@@ -401,15 +411,13 @@ html {
 
     /* Gmail icon inline styles */
     .gmail-inline {
-        display: inline-flex;
+        display: flex;
         align-items: center;
-        gap: 0.5rem;
+        gap: 8px;
     }
 
     .gmail-icon {
-        width: 20px;
-        height: 20px;
-        object-fit: contain;
+        flex-shrink: 0;
     }
     .footer-social {
         display: none;
