@@ -260,7 +260,7 @@ export default function Contact() {
                                                 Reach Us On Whatsapp
                                             </h4>
                                             <p className="detail-text-3d">
-                                                <a href="https://wa.me/9993457671" target="_blank" rel="noopener noreferrer" className="whatsapp-link">
+                                                <a href="https://wa.me/message/K2MCIN3YCBWFA1" target="_blank" rel="noopener noreferrer" className="whatsapp-link">
                                                     Open WhatsApp
                                                 </a>
                                             </p>
