@@ -95,6 +95,8 @@
     transition: all var(--transition-fast);
     position: relative;
     overflow: hidden;
+    text-decoration: none;
+    display: inline-block;
 }
 
 /* keep space for border to avoid layout shift */
@@ -220,6 +222,8 @@
     font-size: var(--font-size-lg);
     border-bottom: 1px solid rgba(161, 140, 209, 0.1);
     border-radius: 0;
+    text-decoration: none;
+    color: var(--text-primary);
 }
 
 /* Hover effect removed */

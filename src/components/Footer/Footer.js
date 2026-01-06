@@ -144,9 +144,9 @@ export default function Footer() {
                             <div className="contact-item">
                                 <MdLocationOn className="contact-icon" aria-hidden="true" />
                                 <span className="contact-text">
-                                    Sanjay Nagar
-                                    <br />
                                     Raipur
+                                    <br />
+                                    Chhattisgarh
                                 </span>
                             </div>
                         </div>

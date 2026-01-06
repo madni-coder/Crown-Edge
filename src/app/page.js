@@ -7,14 +7,16 @@ import Team from "../components/Team";
 import Contact from "../components/Contact";
 import Footer from "../components/Footer";
 import ResponsiveWrapper from "../components/ResponsiveWrapper";
+import SectionScroller from "../components/SectionScroller";
 
 export default function Home() {
     return (
         <ResponsiveWrapper>
+            <SectionScroller />
             <Header />
             <Hero />
             <Services />
-                <Portfolio />
+            <Portfolio />
 
             <main className="main-content">
                 <About />

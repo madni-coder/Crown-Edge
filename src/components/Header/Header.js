@@ -2,21 +2,24 @@
 
 import { useState, useEffect } from "react";
 import Image from "next/image";
+import Link from "next/link";
+import { usePathname } from "next/navigation";
 import { smoothScrollTo } from "../../utils/animations";
 import "./Header.css";
 
 const Header = () => {
     const [isMenuOpen, setIsMenuOpen] = useState(false);
     const [isScrolled, setIsScrolled] = useState(false);
+    const pathname = usePathname();
 
-    // Navigation items
+    // Navigation items with proper routes
     const navItems = [
-        { id: "home", label: "Home", href: "#home" },
-        { id: "about", label: "About", href: "#about" },
-        { id: "services", label: "Services", href: "#services" },
-        { id: "portfolio", label: "Portfolio", href: "#portfolio" },
-        { id: "team", label: "Team", href: "#team" },
-        { id: "contact", label: "Contact", href: "#contact" },
+        { id: "home", label: "Home", href: "/" },
+        { id: "about", label: "About", href: "/about" },
+        { id: "services", label: "Services", href: "/services" },
+        { id: "portfolio", label: "Portfolio", href: "/portfolio" },
+        { id: "team", label: "Team", href: "/team" },
+        { id: "contact", label: "Contact", href: "/contact" },
     ];
 
     // Handle scroll effect
@@ -34,10 +37,15 @@ const Header = () => {
         setIsMenuOpen(!isMenuOpen);
     };
 
-    // Handle navigation click
-    const handleNavClick = (href) => {
-        const targetId = href.replace("#", "");
-        smoothScrollTo(targetId, 80); // 80px offset for fixed header
+    // Handle navigation click - scroll to section if on home page
+    const handleNavClick = (item, e) => {
+        // If we're on the home page, scroll to the section
+        if (pathname === "/") {
+            e.preventDefault();
+            const targetId = item.id;
+            smoothScrollTo(targetId, 80); // 80px offset for fixed header
+        }
+        // Otherwise, let the Link navigate to the route
         setIsMenuOpen(false); // Close mobile menu
     };
 
@@ -71,8 +79,8 @@ const Header = () => {
             <div className="container">
                 <div className="header__content ">
                     {/* Logo on the left */}
-                    <button
-                        onClick={() => handleNavClick("#home")}
+                    <Link
+                        href="/"
                         className="header__logo-link"
                         aria-label="Crown Edge Technologies Home"
                     >
@@ -93,7 +101,7 @@ const Header = () => {
                                 Crown Edge Technologies
                             </span>
                         </div>
-                    </button>
+                    </Link>
 
                     {/* Desktop Navigation */}
                     <nav
@@ -103,14 +111,15 @@ const Header = () => {
                         <ul className="header__nav-list">
                             {navItems.map((item) => (
                                 <li key={item.id} className="header__nav-item">
-                                    <button
-                                        onClick={() =>
-                                            handleNavClick(item.href)
+                                    <Link
+                                        href={item.href}
+                                        onClick={(e) =>
+                                            handleNavClick(item, e)
                                         }
                                         className="header__nav-link"
                                     >
                                         {item.label}
-                                    </button>
+                                    </Link>
                                 </li>
                             ))}
                         </ul>
@@ -118,9 +127,8 @@ const Header = () => {
 
                     {/* Mobile Menu Button */}
                     <button
-                        className={`header__menu-toggle ${
-                            isMenuOpen ? "header__menu-toggle--active" : ""
-                        }`}
+                        className={`header__menu-toggle ${isMenuOpen ? "header__menu-toggle--active" : ""
+                            }`}
                         onClick={toggleMenu}
                         aria-label={isMenuOpen ? "Close menu" : "Open menu"}
                         aria-expanded={isMenuOpen}
@@ -133,9 +141,8 @@ const Header = () => {
 
                 {/* Mobile Navigation */}
                 <nav
-                    className={`header__nav header__nav--mobile ${
-                        isMenuOpen ? "header__nav--mobile-open" : ""
-                    }`}
+                    className={`header__nav header__nav--mobile ${isMenuOpen ? "header__nav--mobile-open" : ""
+                        }`}
                     aria-label="Mobile navigation"
                 >
                     <ul className="header__nav-list header__nav-list--mobile">
@@ -145,12 +152,13 @@ const Header = () => {
                                 className="header__nav-item header__nav-item--mobile"
                                 style={{ animationDelay: `${index * 0.1}s` }}
                             >
-                                <button
-                                    onClick={() => handleNavClick(item.href)}
+                                <Link
+                                    href={item.href}
+                                    onClick={(e) => handleNavClick(item, e)}
                                     className="header__nav-link header__nav-link--mobile"
                                 >
                                     {item.label}
-                                </button>
+                                </Link>
                             </li>
                         ))}
                     </ul>

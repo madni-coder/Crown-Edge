@@ -244,7 +244,7 @@ export default function Contact() {
                                                 Office
                                             </h4>
                                             <p className="detail-text-3d">
-                                                Sanjay Nagar, Raipur
+                                             Raipur Chhattisgarh
                                             </p>
                                         </div>
                                         <div className="detail-shine"></div>
