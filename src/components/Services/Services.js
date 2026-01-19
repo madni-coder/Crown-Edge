@@ -24,32 +24,20 @@ const servicesData = [
     },
     {
         id: 2,
-        title: "UI/UX Design",
+        title: "Mobile App Development",
         description:
-            "Beautiful, user-friendly interfaces that convert visitors to customers.",
-        icon: "🎨",
+            "Native and cross-platform mobile applications for iOS and Android.",
+        icon: "📱",
         features: [
-            "User Research",
-            "Wireframing",
-            "Prototyping",
-            "Visual Design",
+            "iOS Development",
+            "Android Development",
+            "React Native",
+            "App Store Optimization",
         ],
     },
+
     {
         id: 3,
-        title: "Digital Marketing",
-        description:
-            "Strategic marketing campaigns that drive growth and engagement.",
-        icon: "📈",
-        features: [
-            "SEO Strategy",
-            "Social Media",
-            "Content Marketing",
-            "Analytics",
-        ],
-    },
-    {
-        id: 4,
         title: "E-commerce Solutions",
         description:
             "Complete online store solutions with secure payment processing.",
@@ -62,18 +50,32 @@ const servicesData = [
         ],
     },
     {
-        id: 5,
-        title: "Mobile App Development",
+        id: 4,
+        title: "UI/UX Design",
         description:
-            "Native and cross-platform mobile applications for iOS and Android.",
-        icon: "📱",
+            "Beautiful, user-friendly interfaces that convert visitors to customers.",
+        icon: "🎨",
         features: [
-            "iOS Development",
-            "Android Development",
-            "React Native",
-            "App Store Optimization",
+            "User Research",
+            "Wireframing",
+            "Prototyping",
+            "Visual Design",
         ],
     },
+    {
+        id: 5,
+        title: "Digital Marketing",
+        description:
+            "Strategic marketing campaigns that drive growth and engagement.",
+        icon: "📈",
+        features: [
+            "SEO Strategy",
+            "Social Media",
+            "Content Marketing",
+            "Analytics",
+        ],
+    },
+
     {
         id: 6,
         title: "Social Media Ads",
@@ -112,9 +114,8 @@ export default function Services() {
                     {servicesData.map((service, index) => (
                         <div
                             key={service.id}
-                            className={`card card-active animate-on-scroll animate-delay-${
-                                (index + 1) * 100
-                            }`}
+                            className={`card card-active animate-on-scroll animate-delay-${(index + 1) * 100
+                                }`}
                         >
                             <div className="light-layer">
                                 <div className="slit"></div>
