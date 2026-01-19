@@ -62,28 +62,7 @@ const servicesData = [
             "Visual Design",
         ],
     },
-    {
-        id: 5,
-        title: "Digital Marketing",
-        description:
-            "Strategic marketing campaigns that drive growth and engagement.",
-        icon: "📈",
-        features: [
-            "SEO Strategy",
-            "Social Media",
-            "Content Marketing",
-            "Analytics",
-        ],
-    },
-
-    {
-        id: 6,
-        title: "Social Media Ads",
-        description:
-            "Boost your brand's visibility and engagement with our expert social media strategies.",
-        icon: "📢",
-        features: ["Google Ads", "Facebook Ads", "Instagram Ads"],
-    },
+   
 ];
 
 export default function Services() {
