@@ -20,7 +20,7 @@ export default function Home() {
 
             <main className="main-content">
                 <About />
-                <Team />
+                
                 <Contact />
             </main>
             <Footer />
