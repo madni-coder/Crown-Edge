@@ -115,7 +115,8 @@ export default function Contact() {
                         Contact Us
                     </h2>
                     <p className="contact-subtitle">
-                        Let&apos;s start your next project together
+                        Start your web development or mobile app development
+                        project today
                     </p>
                 </div>
 
@@ -143,9 +144,8 @@ export default function Contact() {
                                         Get in Touch
                                     </h3>
                                     <p className="card-subtitle-3d">
-                                        Ready to bring your vision to life?
-                                        Let&apos;s create something amazing
-                                        together.
+                                        Ready to build a high-performing website
+                                        or mobile app? Let&apos;s talk.
                                     </p>
                                 </div>
 
@@ -244,7 +244,7 @@ export default function Contact() {
                                                 Office
                                             </h4>
                                             <p className="detail-text-3d">
-                                             Raipur Chhattisgarh
+                                                Raipur Chhattisgarh
                                             </p>
                                         </div>
                                         <div className="detail-shine"></div>

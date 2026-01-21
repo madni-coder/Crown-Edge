@@ -47,16 +47,16 @@ const About = () => {
                     <div className="about__header-content animate-on-scroll">
                         <span className="about__label">About Our Company</span>
                         <h2 className="about__title">
-                            We Create Digital Experiences
+                            We Build Websites & Mobile Apps
                             <span className="gradient-text">
                                 {" "}
                                 That Drive Results
                             </span>
                         </h2>
                         <p className="about__subtitle">
-                            With years of expertise in digital innovation, we
-                            transform ideas into powerful digital solutions that
-                            help businesses thrive in the modern world.
+                            With years of expertise in website development and
+                            mobile app development, we transform ideas into fast,
+                            secure digital products that help businesses grow.
                         </p>
                     </div>
                 </div>
@@ -69,18 +69,17 @@ const About = () => {
                             <h3 className="about__story-title">Our Story</h3>
                             <p className="about__story-text">
                                 Founded with a vision to bridge the gap between
-                                technology and business success, Our Company has
+                                technology and business success, our company has
                                 grown from a small team of passionate developers
-                                to a full-service digital service provider,
-                                trusted by various companies.
+                                to a web development and mobile app development
+                                company trusted by businesses.
                             </p>
                             <p className="about__story-text">
-                                We specialize in creating custom web
-                                applications, mobile solutions, and digital
-                                marketing strategies that not only look great
-                                but deliver real business value. Our approach
-                                combines creativity with technical expertise to
-                                ensure every project exceeds expectations.
+                                We specialize in custom website development, web
+                                application development, ecommerce development,
+                                and Android/iOS app development that deliver
+                                real business value. Our approach focuses on
+                                performance, security, and measurable results.
                             </p>
 
                             {/* Mission Statement */}
@@ -90,10 +89,10 @@ const About = () => {
                                 </h4>
                                 <p className="about__mission-text">
                                     To empower businesses with innovative
-                                    digital solutions that drive growth, enhance
-                                    user experiences, and create lasting
-                                    competitive advantages in the digital
-                                    landscape.
+                                    web development and mobile app development
+                                    that drive growth, improve performance, and
+                                    create lasting competitive advantages in the
+                                    digital landscape.
                                 </p>
                             </div>
                         </div>
@@ -150,7 +149,7 @@ const About = () => {
                             <h4 className="about__value-title">Excellence</h4>
                             <p className="about__value-description">
                                 Maintaining the highest standards in every
-                                aspect of our work, from design to deployment.
+                                aspect of our work, from architecture to deployment.
                             </p>
                         </div>
                     </div>

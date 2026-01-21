@@ -30,9 +30,9 @@ export default function Footer() {
                             </p>
                         </div>
                         <p className="footer-description">
-                            Transforming ideas into powerful digital solutions
-                            that drive business growth and create exceptional
-                            user experiences.
+                            Delivering custom web development and mobile app
+                            development that drive growth, performance, and
+                            measurable results.
                         </p>
 
                     </div>
@@ -95,6 +95,9 @@ export default function Footer() {
                                     Contact
                                 </a>
                             </li>
+                            <li>
+                                <a href="/privacy">Privacy Policy</a>
+                            </li>
                         </ul>
                     </div>
 
@@ -106,21 +109,16 @@ export default function Footer() {
                                 <a href="#services">Web Development</a>
                             </li>
                             <li>
-                                <a href="#services">UI/UX Design</a>
+                                <a href="#services">Web Application Development</a>
                             </li>
                             <li>
-                                <a href="#services">Digital Marketing</a>
-                            </li>
-                            <li>
-                                <a href="#services">E-commerce Solutions</a>
+                                <a href="#services">E-commerce Development</a>
                             </li>
                             <li>
                                 <a href="#services">Mobile App Development</a>
                             </li>
                             <li>
-                                <a href="#services">
-                                    Social Media Marketing
-                                </a>
+                                <a href="#services">Website Maintenance</a>
                             </li>
                         </ul>
                     </div>
@@ -149,6 +147,7 @@ export default function Footer() {
                                     Chhattisgarh
                                 </span>
                             </div>
+
                         </div>
                     </div>
                 </div>
@@ -160,10 +159,10 @@ export default function Footer() {
                             © 2026 Crown Edge Technologies. All rights reserved.
                         </p>
                         <div className="footer-bottom-links">
-                            <a href="#" className="footer-link">
+                            <a href="/privacy" className="footer-link">
                                 Privacy Policy
                             </a>
-                            <a href="#" className="footer-link">
+                            <a href="/privacy" className="footer-link">
                                 Terms of Service
                             </a>
                             <a href="#" className="footer-link">

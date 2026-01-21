@@ -1,4 +1,4 @@
-import { Inter } from "next/font/google";
+import { Inter, Poppins } from "next/font/google";
 import "./globals.css";
 import AnimationProvider from "../components/AnimationProvider";
 import Script from "next/script";
@@ -6,12 +6,20 @@ import Script from "next/script";
 const inter = Inter({
     subsets: ["latin"],
     display: "swap",
+    variable: "--font-inter",
+});
+
+const poppins = Poppins({
+    subsets: ["latin"],
+    weight: ["400", "500", "600", "700"],
+    display: "swap",
+    variable: "--font-poppins",
 });
 
 export const metadata = {
     title: "Crown Edge Technologies",
     description:
-        "Professional agency website showcasing modern design and digital solutions",
+        "Web development and mobile app development company in Raipur, Chhattisgarh. Custom website development, web applications, ecommerce solutions, and Android/iOS app development.",
     icons: {
         icon: "/c-favicon.gif",
     },
@@ -20,7 +28,7 @@ export const metadata = {
 export default function RootLayout({ children }) {
     return (
         <html lang="en">
-            <body className={inter.className}>
+            <body className={`${inter.variable} ${poppins.variable}`}>
                 <AnimationProvider>{children}</AnimationProvider>
                 <Script id="responsive-init" strategy="afterInteractive">
                     {`

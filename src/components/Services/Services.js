@@ -11,58 +11,58 @@ import "./Services.css";
 const servicesData = [
     {
         id: 1,
-        title: "Web Development",
+        title: "Website Development",
         description:
-            "Modern, responsive websites built with the latest technologies and best practices.",
+            "Custom website development with responsive layouts, fast performance, and SEO-friendly code.",
         icon: "🌐",
         features: [
-            "Responsive Design",
+            "Responsive Website Design",
             "Performance Optimization",
-            "SEO Ready",
-            "Cross-browser Compatible",
+            "SEO-Friendly Development",
+            "Cross-Browser Compatibility",
         ],
     },
     {
         id: 2,
-        title: "Mobile App Development",
+        title: "Web App Development",
         description:
-            "Native and cross-platform mobile applications for iOS and Android.",
+            "Web application development for portals, dashboards, and business platforms.",
         icon: "📱",
         features: [
-            "iOS Development",
-            "Android Development",
-            "React Native",
-            "App Store Optimization",
+            "Custom Web Applications",
+            "API Integrations",
+            "Performance & Security",
+            "Maintenance & Support",
         ],
     },
 
     {
         id: 3,
-        title: "E-commerce Solutions",
+        title: "Android App Development",
         description:
-            "Complete online store solutions with secure payment processing.",
+            "Android app development for scalable, reliable, and user-friendly mobile apps.",
         icon: "🛒",
         features: [
-            "Payment Integration",
-            "Inventory Management",
-            "Order Processing",
-            "Mobile Commerce",
+            "Android App Development",
+            "Google Play Store Launch",
+            "Performance Optimization",
+            "Ongoing Support",
         ],
     },
     {
         id: 4,
-        title: "UI/UX Design",
+        title: "iOS App Development",
         description:
-            "Beautiful, user-friendly interfaces that convert visitors to customers.",
+            "iOS app development for iPhone and iPad with smooth performance and stability.",
         icon: "🎨",
         features: [
-            "User Research",
-            "Wireframing",
-            "Prototyping",
-            "Visual Design",
+            "iOS App Development",
+            "App Store Submission",
+            "Quality Assurance",
+            "Ongoing Support",
         ],
     },
-   
+
 ];
 
 export default function Services() {
@@ -85,7 +85,8 @@ export default function Services() {
                         Our Services
                     </h2>
                     <p className="services-subtitle animate-on-scroll animate-delay-200">
-                        Comprehensive digital solutions for your business growth
+                        Web development and mobile app development solutions for
+                        business growth
                     </p>
                 </div>
 

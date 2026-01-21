@@ -1,0 +1,144 @@
+/* Privacy / Terms page styles - refined dark theme */
+.privacy-page {
+    min-height: 70vh;
+    padding: 3.5rem 1rem;
+    background: transparent;
+    color: #d7e9df;
+    -webkit-font-smoothing: antialiased;
+    font-weight: 500; /* medium weight for body text */
+}
+
+.privacy-container {
+    max-width: 980px;
+    margin: 0 auto;
+    padding: 1.5rem;
+}
+
+.privacy-title {
+    color: #8fe0a1;
+    font-size: 2.4rem;
+    margin: 0 0 1rem 0;
+    font-weight: 700;
+    letter-spacing: -0.5px;
+}
+
+/* Remove heavy card visuals: keep a clean, modern section layout */
+.terms-card {
+    background: transparent;
+    border: none;
+    padding: 0;
+    border-radius: 0;
+    box-shadow: none;
+}
+
+/* Use CSS counters to render numbers neatly beside the headings */
+.terms-list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    counter-reset: terms;
+    display: flex;
+    flex-direction: column;
+    gap: 1.25rem;
+}
+
+.terms-list > li {
+    counter-increment: terms;
+    display: block;
+}
+
+/* Heading with inline number */
+.terms-list h3 {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    margin: 0 0 0.4rem 0;
+    font-size: 1.125rem;
+    color: #9fe7b6;
+    font-weight: 700;
+}
+
+.terms-list h3::before {
+    content: counter(terms) ".";
+    flex: none;
+    width: 40px;
+    height: 40px;
+    display: inline-grid;
+    place-items: center;
+    font-weight: 700;
+    color: #0b3a26; /* dark green for contrast on white */
+    background: #ffffff; /* white badge for visibility */
+    border: 1px solid rgba(2, 6, 4, 0.06);
+    border-radius: 8px;
+    box-shadow: 0 6px 18px rgba(2, 6, 4, 0.28);
+}
+
+.terms-list p,
+.terms-card ul {
+    color: #cddfda;
+    line-height: 1.8;
+    margin: 0 0 0.6rem 0;
+    font-size: 1.06rem; /* make privacy text larger */
+    font-weight: 500; /* medium weight */
+    letter-spacing: 0.1px;
+}
+
+.terms-card ul {
+    list-style: disc;
+    margin: 0.5rem 0 0.5rem 1.6rem;
+}
+
+/* Accent left border for the whole section on wide screens */
+.privacy-container {
+    border-left: 3px solid rgba(143, 224, 161, 0.06);
+    padding-left: 1.5rem;
+}
+
+/* Responsive tweaks */
+@media (max-width: 900px) {
+    .privacy-title {
+        font-size: 2rem;
+    }
+    .terms-list h3::before {
+        width: 34px;
+        height: 34px;
+        font-size: 0.97rem;
+    }
+}
+
+@media (max-width: 640px) {
+    .privacy-page {
+        padding: 2rem 0.75rem;
+    }
+    .privacy-container {
+        padding-left: 1rem;
+        border-left: 2px solid rgba(143, 224, 161, 0.05);
+    }
+    .privacy-title {
+        font-size: 1.6rem;
+        margin-bottom: 0.75rem;
+    }
+    .terms-list h3 {
+        font-size: 1rem;
+    }
+    .terms-list h3::before {
+        width: 30px;
+        height: 30px;
+        font-size: 0.9rem;
+        border-radius: 6px;
+    }
+}
+
+/* Small visual polish for long paragraphs */
+.terms-list > li:last-child {
+    margin-bottom: 0;
+}
+
+/* Desktop/web view: larger body text for privacy content */
+@media (min-width: 1000px) {
+    .terms-list p,
+    .terms-card ul {
+        font-size: 1.25rem;
+        line-height: 1.95;
+    }
+}

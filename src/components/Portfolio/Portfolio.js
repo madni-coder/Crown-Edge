@@ -15,7 +15,7 @@ const portfolioData = [
         image: "/sau.png",
         technologies: ["React", "Next.js", "Tailwind CSS"],
         link: "https://saubhagya-one.vercel.app/",
-    },,
+    },
     {
         id: 2,
         title: "Food Sport",
@@ -39,10 +39,10 @@ const portfolioData = [
         title: "Al Aziz Education",
         category: "Website",
         image: "/alazeez.png",
-        technologies: ["Figma", "Illustrator", "Photoshop"],
+        technologies: ["Next.js", "Responsive Development", "SEO"],
         link: "https://www.alazizedu.org/",
     },
-   
+
 ];
 
 const categories = [
@@ -60,7 +60,7 @@ const categories = [
     },
     {
         id: "Web & Mobile",
-        label: "UI/UX Design",
+        label: "Web Apps & Mobile",
         count: portfolioData.filter((item) => item.category === "design")
             .length,
     },
@@ -106,8 +106,8 @@ export default function Portfolio() {
                         Our Projects
                     </h2>
                     <p className="portfolio-subtitle animate-on-scroll animate-delay-200">
-                        Showcasing our best work across web, mobile, and design
-                        projects
+                        Showcasing our best work across web development and
+                        mobile app development projects
                     </p>
                 </div>
 
