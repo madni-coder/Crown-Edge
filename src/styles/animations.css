@@ -5,6 +5,7 @@
     from {
         opacity: 0;
     }
+
     to {
         opacity: 1;
     }
@@ -15,6 +16,7 @@
         opacity: 0;
         transform: translateY(50px);
     }
+
     to {
         opacity: 1;
         transform: translateY(0);
@@ -26,6 +28,7 @@
         opacity: 0;
         transform: translateX(-50px);
     }
+
     to {
         opacity: 1;
         transform: translateX(0);
@@ -37,6 +40,7 @@
         opacity: 0;
         transform: translateX(50px);
     }
+
     to {
         opacity: 1;
         transform: translateX(0);
@@ -48,6 +52,7 @@
         opacity: 0;
         transform: scale(0.8);
     }
+
     to {
         opacity: 1;
         transform: scale(1);
@@ -55,10 +60,12 @@
 }
 
 @keyframes pulse {
+
     0%,
     100% {
         transform: scale(1);
     }
+
     50% {
         transform: scale(1.05);
     }
@@ -93,15 +100,19 @@
 .animate-delay-100 {
     animation-delay: 0.1s;
 }
+
 .animate-delay-200 {
     animation-delay: 0.2s;
 }
+
 .animate-delay-300 {
     animation-delay: 0.3s;
 }
+
 .animate-delay-400 {
     animation-delay: 0.4s;
 }
+
 .animate-delay-500 {
     animation-delay: 0.5s;
 }
@@ -109,8 +120,8 @@
 /* Initial states for animations */
 .animate-on-scroll {
     opacity: 0;
-    transform: translateY(50px);
-    transition: all var(--transition-slow) ease-out;
+    transform: translateY(30px);
+    transition: opacity var(--transition-slow) ease-out, transform var(--transition-slow) ease-out;
 }
 
 .animate-on-scroll.animate {
@@ -149,6 +160,7 @@
     0% {
         transform: rotate(0deg);
     }
+
     100% {
         transform: rotate(360deg);
     }
@@ -161,6 +173,7 @@
 
 /* Reduced motion support */
 @media (prefers-reduced-motion: reduce) {
+
     .animate-fade-in,
     .animate-slide-up,
     .animate-slide-in-left,

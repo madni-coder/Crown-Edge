@@ -24,24 +24,40 @@
     --font-primary:
         var(--font-inter), var(--font-poppins), -apple-system,
         BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
-    --font-size-xs: 0.75rem; /* 12px */
-    --font-size-sm: 0.875rem; /* 14px */
-    --font-size-base: 1rem; /* 16px */
-    --font-size-lg: 1.125rem; /* 18px */
-    --font-size-xl: 1.25rem; /* 20px */
-    --font-size-2xl: 1.5rem; /* 24px */
-    --font-size-3xl: 1.875rem; /* 30px */
-    --font-size-4xl: 2.25rem; /* 36px */
-    --font-size-5xl: 3rem; /* 48px */
+    --font-size-xs: 0.75rem;
+    /* 12px */
+    --font-size-sm: 0.875rem;
+    /* 14px */
+    --font-size-base: 1rem;
+    /* 16px */
+    --font-size-lg: 1.125rem;
+    /* 18px */
+    --font-size-xl: 1.25rem;
+    /* 20px */
+    --font-size-2xl: 1.5rem;
+    /* 24px */
+    --font-size-3xl: 1.875rem;
+    /* 30px */
+    --font-size-4xl: 2.25rem;
+    /* 36px */
+    --font-size-5xl: 3rem;
+    /* 48px */
 
     /* Spacing */
-    --space-1: 0.5rem; /* 8px */
-    --space-2: 1rem; /* 16px */
-    --space-3: 1.5rem; /* 24px */
-    --space-4: 2rem; /* 32px */
-    --space-6: 3rem; /* 48px */
-    --space-8: 4rem; /* 64px */
-    --space-12: 6rem; /* 96px */
+    --space-1: 0.5rem;
+    /* 8px */
+    --space-2: 1rem;
+    /* 16px */
+    --space-3: 1.5rem;
+    /* 24px */
+    --space-4: 2rem;
+    /* 32px */
+    --space-6: 3rem;
+    /* 48px */
+    --space-8: 4rem;
+    /* 64px */
+    --space-12: 6rem;
+    /* 96px */
 
     /* Breakpoints */
     --breakpoint-sm: 768px;
@@ -99,18 +115,23 @@ h6 {
 h1 {
     font-size: var(--font-size-5xl);
 }
+
 h2 {
     font-size: var(--font-size-4xl);
 }
+
 h3 {
     font-size: var(--font-size-3xl);
 }
+
 h4 {
     font-size: var(--font-size-2xl);
 }
+
 h5 {
     font-size: var(--font-size-xl);
 }
+
 h6 {
     font-size: var(--font-size-lg);
 }
@@ -164,8 +185,9 @@ a {
     font-weight: 500;
     text-decoration: none;
     cursor: pointer;
-    transition: all var(--transition-normal);
-    min-height: 44px; /* Touch-friendly */
+    transition: transform var(--transition-normal), opacity var(--transition-normal);
+    min-height: 44px;
+    /* Touch-friendly */
 }
 
 .btn-primary {
@@ -175,12 +197,36 @@ a {
 
 /* Hover effect removed */
 
+/* Performance: promote animated scroll-reveal elements to own layer */
+.animate-on-scroll {
+    will-change: transform, opacity;
+}
+
+.animate-on-scroll.animate {
+    will-change: auto;
+}
+
+/* Global: respect user preference for reduced motion */
+@media (prefers-reduced-motion: reduce) {
+
+    *,
+    *::before,
+    *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+    }
+}
+
 /* Responsive typography */
 @media (max-width: 767px) {
     :root {
-        --font-size-5xl: 2.25rem; /* 36px */
-        --font-size-4xl: 1.875rem; /* 30px */
-        --font-size-3xl: 1.5rem; /* 24px */
+        --font-size-5xl: 2.25rem;
+        /* 36px */
+        --font-size-4xl: 1.875rem;
+        /* 30px */
+        --font-size-3xl: 1.5rem;
+        /* 24px */
         --container-padding: var(--space-2);
     }
 
@@ -306,6 +352,7 @@ a {
     white-space: nowrap;
     border: 0;
 }
+
 /* Additional utility classes */
 .bg-gray-800 {
     background-color: rgba(31, 41, 55, 0.8);
@@ -318,6 +365,7 @@ a {
 .text-secondary {
     color: var(--text-secondary);
 }
+
 /* Performance Optimizations */
 .reduce-animations * {
     animation-duration: 0.01ms !important;
@@ -344,6 +392,7 @@ a {
 
 /* Mobile-specific optimizations */
 @media (max-width: 767px) {
+
     /* Improve touch targets */
     button,
     a,
@@ -374,6 +423,7 @@ a {
 
 /* Tablet optimizations */
 @media (min-width: 768px) and (max-width: 1023px) {
+
     /* Optimize for tablet touch targets */
     button,
     a,

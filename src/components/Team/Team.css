@@ -39,14 +39,10 @@
 /* Moon Card Styles - Similar to the image */
 .moon-card {
     position: relative;
-    background: var(
-        --bg-gradient,
-        linear-gradient(
-            135deg,
-            rgba(139, 42, 42, 0.4) 0%,
-            rgba(0, 0, 0, 0.8) 100%
-        )
-    );
+    background: var(--bg-gradient,
+            linear-gradient(135deg,
+                rgba(139, 42, 42, 0.4) 0%,
+                rgba(0, 0, 0, 0.8) 100%));
     border: 5px solid transparent;
     border-radius: 12px;
     padding: 0;
@@ -56,8 +52,8 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    transition: all 0.3s ease;
-    backdrop-filter: blur(10px);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    backdrop-filter: blur(6px);
 }
 
 /* Animated neon border using @property --angle */
@@ -67,13 +63,10 @@
     inset: -5px;
     border: inherit;
     border-radius: inherit;
-    background: conic-gradient(
-            from var(--angle),
+    background: conic-gradient(from var(--angle),
             var(--border-color, #8b2a2a) 40%,
             transparent,
-            var(--border-color, #8b2a2a) 60%
-        )
-        border-box;
+            var(--border-color, #8b2a2a) 60%) border-box;
     -webkit-mask: conic-gradient(#fff 0 0) subtract,
         conic-gradient(#fff 0 0) padding-box;
     mask: conic-gradient(#fff 0 0) subtract,
@@ -81,25 +74,23 @@
     opacity: 0.75;
     z-index: 1;
     animation: neonRotate 4s linear infinite;
+    will-change: --angle;
     pointer-events: none;
 }
 
-/* Glowing effect for the border light */
+/* Glowing effect for the border light — static, no animation for perf */
 .moon-card::after {
     content: "";
     position: absolute;
     inset: -20px;
-    background: conic-gradient(
-        from var(--angle),
-        var(--border-color, #8b2a2a),
-        transparent,
-        var(--border-color, #8b2a2a)
-    );
+    background: conic-gradient(from 45deg,
+            var(--border-color, #8b2a2a),
+            transparent,
+            var(--border-color, #8b2a2a));
     border-radius: 15px;
     filter: blur(12px);
-    opacity: 0.75;
+    opacity: 0.35;
     z-index: -1;
-    animation: neonRotate 4s linear infinite;
     pointer-events: none;
 }
 
@@ -114,6 +105,7 @@
     from {
         --angle: 0deg;
     }
+
     to {
         --angle: 360deg;
     }
@@ -300,7 +292,8 @@
     border-radius: 50%;
     transition: all var(--transition-normal);
     text-decoration: none;
-    min-height: 44px; /* Touch-friendly */
+    min-height: 44px;
+    /* Touch-friendly */
     min-width: 44px;
 }
 
@@ -463,40 +456,39 @@
 
 /* Animation Keyframes */
 @keyframes avatarBounce {
+
     0%,
     100% {
         transform: scale(1) rotate(0deg);
     }
+
     50% {
         transform: scale(1.1) rotate(3deg);
     }
 }
 
 @keyframes cardGlow {
+
     0%,
     100% {
-        box-shadow: 0 8px 25px rgba(132, 250, 176, 0.3);
+        opacity: 0.85;
     }
+
     50% {
-        box-shadow: 0 12px 35px rgba(132, 250, 176, 0.5);
+        opacity: 1;
     }
 }
 
-/* Neon glow pulse animation */
+/* Neon glow pulse animation — reduced to opacity-only for performance */
 @keyframes neonPulse {
+
     0%,
     100% {
-        box-shadow: 0 0 10px var(--border-color, #8b2a2a),
-            0 0 20px var(--border-color, #8b2a2a),
-            0 0 30px var(--border-color, #8b2a2a),
-            inset 0 0 10px var(--border-color, #8b2a2a);
+        opacity: 0.7;
     }
+
     50% {
-        box-shadow: 0 0 20px var(--border-color, #8b2a2a),
-            0 0 40px var(--border-color, #8b2a2a),
-            0 0 60px var(--border-color, #8b2a2a),
-            0 0 80px var(--border-color, #8b2a2a),
-            inset 0 0 20px var(--border-color, #8b2a2a);
+        opacity: 1;
     }
 }
 
@@ -513,18 +505,23 @@
 .animate-delay-100 {
     animation-delay: 0.1s;
 }
+
 .animate-delay-200 {
     animation-delay: 0.2s;
 }
+
 .animate-delay-300 {
     animation-delay: 0.3s;
 }
+
 .animate-delay-400 {
     animation-delay: 0.4s;
 }
+
 .animate-delay-500 {
     animation-delay: 0.5s;
 }
+
 .animate-delay-600 {
     animation-delay: 0.6s;
 }
@@ -624,6 +621,7 @@
 
 /* Accessibility improvements */
 @media (prefers-reduced-motion: reduce) {
+
     .team-card-inner,
     .team-image,
     .team-avatar,
@@ -691,10 +689,12 @@
 }
 
 @keyframes pulse {
+
     0%,
     100% {
         opacity: 1;
     }
+
     50% {
         opacity: 0.5;
     }

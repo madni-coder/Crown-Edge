@@ -156,24 +156,7 @@ export default function Footer() {
                 </div>
 
                 {/* Footer Bottom */}
-                <div className="footer-bottom animate-on-scroll">
-                    <div className="footer-bottom-content">
-                        <p className="copyright">
-                            © 2026 Crown Edge Technologies. All rights reserved.
-                        </p>
-                        <div className="footer-bottom-links">
-                            <a href="/privacy" className="footer-link">
-                                Privacy Policy
-                            </a>
-                            <Link href="/terms" className="footer-link">
-                                Terms &amp; Conditions
-                            </Link>
-                            <a href="#" className="footer-link">
-                                Cookie Policy
-                            </a>
-                        </div>
-                    </div>
-                </div>
+               
             </div>
         </footer>
     );

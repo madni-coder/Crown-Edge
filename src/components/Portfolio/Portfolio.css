@@ -39,12 +39,13 @@
     font-size: var(--font-size-sm);
     font-weight: 500;
     cursor: pointer;
-    transition: all var(--transition-normal);
-    backdrop-filter: blur(10px);
+    transition: background-color var(--transition-normal), color var(--transition-normal), border-color var(--transition-normal), box-shadow var(--transition-normal);
+    backdrop-filter: blur(6px);
     display: flex;
     align-items: center;
     gap: var(--space-1);
-    min-height: 44px; /* Touch-friendly */
+    min-height: 44px;
+    /* Touch-friendly */
 }
 
 /* Hover effect removed */
@@ -80,8 +81,9 @@
     position: relative;
     border-radius: 16px;
     overflow: hidden;
-    transition: all 0.3s ease;
-    height: 420px; /* unified height */
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    height: 420px;
+    /* unified height */
     background: #1a1a1a;
     border: 1px solid rgba(255, 255, 255, 0.1);
     display: flex;
@@ -99,8 +101,10 @@
 .portfolio-image-container {
     position: relative;
     width: 100%;
-    height: auto !important; /* override fixed height */
-    aspect-ratio: 16 / 9; /* maintain consistent ratio */
+    height: auto !important;
+    /* override fixed height */
+    aspect-ratio: 16 / 9;
+    /* maintain consistent ratio */
     overflow: hidden;
     flex-shrink: 0;
 }
@@ -113,7 +117,8 @@
     background-size: cover !important;
     background-position: top center !important;
     background-repeat: no-repeat !important;
-    background-color: transparent; /* remove black background */
+    background-color: transparent;
+    /* remove black background */
     transition: transform 0.3s ease;
 }
 
@@ -121,12 +126,15 @@
 
 /* Portfolio Overlay */
 .portfolio-overlay {
-    position: relative; /* remove absolute overlay */
+    position: relative;
+    /* remove absolute overlay */
     bottom: auto;
     left: auto;
     right: auto;
-    height: auto; /* auto height based on content */
-    background: #000; /* solid background for readability */
+    height: auto;
+    /* auto height based on content */
+    background: #000;
+    /* solid background for readability */
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -140,7 +148,8 @@
     flex-direction: column;
     gap: 8px;
     align-items: flex-start;
-    width: 100%; /* ensure content stretches full height to push button down */
+    width: 100%;
+    /* ensure content stretches full height to push button down */
 }
 
 .portfolio-item-title {
@@ -181,7 +190,8 @@
     text-decoration: none;
     border: none;
     cursor: pointer;
-    margin-top: auto; /* Keep button pinned to bottom inside overlay */
+    margin-top: auto;
+    /* Keep button pinned to bottom inside overlay */
 }
 
 .portfolio-view-btn:hover {
@@ -305,7 +315,7 @@
     border-radius: var(--radius-md);
     font-weight: 600;
     text-decoration: none;
-    transition: all var(--transition-normal);
+    transition: transform var(--transition-normal), box-shadow var(--transition-normal);
     min-height: 44px;
 }
 
@@ -316,6 +326,7 @@
     from {
         opacity: 0;
     }
+
     to {
         opacity: 1;
     }
@@ -326,6 +337,7 @@
         opacity: 0;
         transform: scale(0.9);
     }
+
     to {
         opacity: 1;
         transform: scale(1);
@@ -447,6 +459,7 @@
 
 /* Reduced motion support */
 @media (prefers-reduced-motion: reduce) {
+
     .portfolio-item,
     .portfolio-image,
     .portfolio-overlay,
@@ -478,7 +491,7 @@
 .uiverse-card {
     height: 100%;
     border-radius: 50px;
-    transition: all 0.5s ease-in-out;
+    transition: transform 0.5s ease-in-out, box-shadow 0.5s ease-in-out;
     transform-style: preserve-3d;
     box-shadow: rgba(5, 71, 17, 0.1) 40px 60px 40px -40px,
         rgba(5, 71, 17, 0.4) 0px 35px 35px -5px,
@@ -492,11 +505,9 @@
     inset: 8px;
     border-radius: 55px;
     border-top-right-radius: 100%;
-    background: linear-gradient(
-        0deg,
-        rgba(255, 255, 255, 0.349) 0%,
-        rgba(255, 255, 255, 0.815) 100%
-    );
+    background: linear-gradient(0deg,
+            rgba(255, 255, 255, 0.349) 0%,
+            rgba(255, 255, 255, 0.815) 100%);
     transform: translate3d(0px, 0px, 25px);
     border-left: 1px solid white;
     border-bottom: 1px solid white;
@@ -542,7 +553,7 @@
     align-items: center;
     width: 100%;
     justify-content: center;
-    transition: all 0.3s ease-in-out;
+    transition: transform 0.3s ease-in-out;
 }
 
 .uiverse-bottom .uiverse-view-more:hover {
@@ -611,31 +622,22 @@
     box-shadow: rgba(5, 71, 17, 0.5) 0px 7px 5px -5px;
 }
 
-.uiverse-bottom
-    .uiverse-social-buttons-container
-    .uiverse-social-button:first-child {
+.uiverse-bottom .uiverse-social-buttons-container .uiverse-social-button:first-child {
     transition: transform 0.2s ease-in-out 0.4s,
         box-shadow 0.2s ease-in-out 0.4s;
 }
 
-.uiverse-bottom
-    .uiverse-social-buttons-container
-    .uiverse-social-button:nth-child(2) {
+.uiverse-bottom .uiverse-social-buttons-container .uiverse-social-button:nth-child(2) {
     transition: transform 0.2s ease-in-out 0.6s,
         box-shadow 0.2s ease-in-out 0.6s;
 }
 
-.uiverse-bottom
-    .uiverse-social-buttons-container
-    .uiverse-social-button:nth-child(3) {
+.uiverse-bottom .uiverse-social-buttons-container .uiverse-social-button:nth-child(3) {
     transition: transform 0.2s ease-in-out 0.8s,
         box-shadow 0.2s ease-in-out 0.8s;
 }
 
-.uiverse-bottom
-    .uiverse-social-buttons-container
-    .uiverse-social-button
-    .uiverse-svg {
+.uiverse-bottom .uiverse-social-buttons-container .uiverse-social-button .uiverse-svg {
     width: 15px;
     fill: #00894d;
 }
@@ -644,23 +646,15 @@
     background: black;
 }
 
-.uiverse-bottom
-    .uiverse-social-buttons-container
-    .uiverse-social-button:hover
-    .uiverse-svg {
+.uiverse-bottom .uiverse-social-buttons-container .uiverse-social-button:hover .uiverse-svg {
     fill: white;
 }
 
-.uiverse-bottom
-    .uiverse-social-buttons-container
-    .uiverse-social-button:active {
+.uiverse-bottom .uiverse-social-buttons-container .uiverse-social-button:active {
     background: rgb(255, 234, 0);
 }
 
-.uiverse-bottom
-    .uiverse-social-buttons-container
-    .uiverse-social-button:active
-    .uiverse-svg {
+.uiverse-bottom .uiverse-social-buttons-container .uiverse-social-button:active .uiverse-svg {
     fill: black;
 }
 
@@ -682,7 +676,7 @@
     -webkit-backdrop-filter: blur(5px);
     backdrop-filter: blur(5px);
     background: rgba(0, 249, 203, 0.2);
-    transition: all 0.5s ease-in-out;
+    transition: transform 0.5s ease-in-out, opacity 0.5s ease-in-out;
 }
 
 .uiverse-logo .uiverse-circle1 {
@@ -740,11 +734,7 @@
         rgba(0, 0, 0, 0.4) 0px 25px 40px 0px;
 }
 
-.uiverse-parent:hover
-    .uiverse-card
-    .uiverse-bottom
-    .uiverse-social-buttons-container
-    .uiverse-social-button {
+.uiverse-parent:hover .uiverse-card .uiverse-bottom .uiverse-social-buttons-container .uiverse-social-button {
     transform: translate3d(0, 0, 50px);
     box-shadow: rgba(5, 71, 17, 0.2) -5px 20px 10px 0px;
 }

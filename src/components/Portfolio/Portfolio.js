@@ -2,7 +2,6 @@
 
 import { useState, useEffect } from "react";
 import {
-    initScrollAnimations,
     addStaggeredAnimation,
 } from "../../utils/animations";
 import "./Portfolio.css";
@@ -17,6 +16,14 @@ const portfolioData = [
         link: "https://saubhagya-one.vercel.app/",
     },
     {
+        id: 4,
+        title: "Ambition Perfumes",
+        category: "Website",
+        image: "/amss.png",
+        technologies: ["Figma", "Illustrator", "Photoshop"],
+        link: "https://ambtionperfumes.vercel.app/",
+    },
+    {
         id: 2,
         title: "Food Sport",
         category: "Website",
@@ -25,16 +32,9 @@ const portfolioData = [
         technologies: ["React", "Node.js", "MongoDB", "Stripe"],
         link: "https://foodsport-dev.vercel.app/",
     },
-    
+
+
    
-    {
-        id: 4,
-        title: "Ambition Perfumes",
-        category: "Website",
-        image: "/amss.png",
-        technologies: ["Figma", "Illustrator", "Photoshop"],
-        link: "https://ambtionperfumes.vercel.app/",
-    },
     {
         id: 4,
         title: "Al Aziz Education",
@@ -89,9 +89,6 @@ export default function Portfolio() {
     const [filteredItems, setFilteredItems] = useState(portfolioData);
 
     useEffect(() => {
-        // Initialize scroll animations
-        initScrollAnimations();
-
         // Add staggered animation to portfolio items
         addStaggeredAnimation(".portfolio-item", 100, 100);
     }, []);

@@ -2,7 +2,6 @@
 
 import { useEffect } from "react";
 import {
-    initScrollAnimations,
     addStaggeredAnimation,
 } from "../../utils/animations";
 import { initPerformanceOptimizations } from "../../utils/lazyLoad";
@@ -67,9 +66,6 @@ const servicesData = [
 
 export default function Services() {
     useEffect(() => {
-        // Initialize scroll animations
-        initScrollAnimations();
-
         // Add staggered animation to service cards
         addStaggeredAnimation(".service-card", 100, 150);
 

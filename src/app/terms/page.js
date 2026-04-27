@@ -71,7 +71,8 @@ export default function TermsPage() {
         },
         {
             title: "Cancellation Policy",
-            body: "Once the project is approved and the 50% deposit is received, clients may cancel within 3 days. In such cases, 10%  cost will be deducted as a cancellation fee, and the remaining 40% will be refunded. Cancellations made after this 3-day period are non-refundable — no amount will be returned."        },
+            body: "Once the project is approved and the 50% deposit is received, clients may cancel within 3 days. In such cases, 10%  cost will be deducted as a cancellation fee, and the remaining 40% will be refunded. Cancellations made after this 3-day period are non-refundable — no amount will be returned."
+        },
         {
             title: "Limitation of Liability",
             body: "Crown Edge Technologies is not liable for any loss of business, loss of revenue, or indirect damages resulting from the use or unavailability of your website. Our total liability is limited to the amount paid for the specific service in question.",
@@ -96,7 +97,7 @@ export default function TermsPage() {
             title: "Changes to These Terms",
             body: "Crown Edge Technologies may update these Terms & Conditions from time to time. Changes will be posted on this page with an updated date. Continuing to use our services after changes are posted means you accept the new terms.",
         },
-        
+
     ];
 
     return (
@@ -117,7 +118,7 @@ export default function TermsPage() {
                     <h1 className="terms-title gradient-text">
                         Terms &amp; Conditions
                     </h1>
-                  
+
                 </section>
 
                 {/* Intro */}
@@ -145,8 +146,8 @@ export default function TermsPage() {
                 <div className="terms-contact-box">
                     <h3 className="terms-contact-title">Have Questions?</h3>
                     <p className="terms-contact-text">
-                        If anything here is unclear or you'd like to discuss any
-                        of these terms before hiring us, we're happy to chat.
+                        If anything here is unclear or you&apos;d like to discuss any
+                        of these terms before hiring us, we&apos;re happy to chat.
                     </p>
                     <a href="mailto:info.crownedge@gmail.com" className="terms-contact-btn">
                         Contact Us
