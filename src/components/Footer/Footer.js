@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect } from "react";
+import Link from "next/link";
 import { MdCall, MdLocationOn, MdEmail } from "react-icons/md";
 import { initScrollAnimations, smoothScrollTo } from "../../utils/animations";
 import "./Footer.css";
@@ -96,7 +97,9 @@ export default function Footer() {
                                 </a>
                             </li>
                             <li>
-                                <a href="/privacy">Privacy Policy</a>
+                                <Link href="/terms" className="terms-quick-link">
+                                    Terms &amp; Conditions
+                                </Link>
                             </li>
                         </ul>
                     </div>
@@ -162,9 +165,9 @@ export default function Footer() {
                             <a href="/privacy" className="footer-link">
                                 Privacy Policy
                             </a>
-                            <a href="/privacy" className="footer-link">
-                                Terms of Service
-                            </a>
+                            <Link href="/terms" className="footer-link">
+                                Terms &amp; Conditions
+                            </Link>
                             <a href="#" className="footer-link">
                                 Cookie Policy
                             </a>

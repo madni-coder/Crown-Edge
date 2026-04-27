@@ -1,0 +1,220 @@
+/* Terms & Conditions Page */
+.terms-page {
+    min-height: 100vh;
+    background: linear-gradient(135deg,
+            rgba(17, 24, 39, 1) 0%,
+            rgba(26, 26, 26, 1) 100%);
+    color: var(--text-primary);
+    padding-bottom: 5rem;
+}
+
+/* Back Nav */
+.terms-nav {
+    background: rgba(31, 41, 55, 0.8);
+    border-bottom: 1px solid rgba(132, 250, 176, 0.15);
+    padding: 1rem 0;
+    position: sticky;
+    top: 0;
+    z-index: 50;
+    backdrop-filter: blur(10px);
+}
+
+.terms-back-link {
+    color: var(--accent);
+    text-decoration: none;
+    font-size: var(--font-size-sm);
+    font-weight: 500;
+    letter-spacing: 0.02em;
+    transition: opacity 0.2s;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.25rem;
+}
+
+.terms-back-link:hover {
+    opacity: 0.75;
+}
+
+/* Header Section */
+.terms-header {
+    text-align: center;
+    padding: 4rem 0 2.5rem;
+}
+
+.terms-badge {
+    display: inline-block;
+    background: rgba(132, 250, 176, 0.12);
+    border: 1px solid rgba(132, 250, 176, 0.3);
+    color: var(--accent);
+    font-size: var(--font-size-xs);
+    font-weight: 600;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    padding: 0.3rem 1rem;
+    border-radius: 999px;
+    margin-bottom: 1.25rem;
+}
+
+.terms-title {
+    font-size: clamp(2rem, 5vw, 3.5rem);
+    font-weight: 800;
+    line-height: 1.15;
+    margin-bottom: 0.75rem;
+}
+
+.terms-subtitle {
+    font-size: var(--font-size-lg);
+    color: var(--text-secondary);
+    margin-bottom: 1rem;
+}
+
+.terms-effective {
+    font-size: var(--font-size-sm);
+    color: var(--text-secondary);
+    opacity: 0.75;
+}
+
+/* Intro Paragraph */
+.terms-intro {
+    font-size: var(--font-size-base);
+    color: var(--text-secondary);
+    line-height: 1.8;
+    max-width: 760px;
+    margin: 0 auto 3rem;
+    text-align: center;
+    padding: 1.5rem 2rem;
+    background: rgba(132, 250, 176, 0.04);
+    border-left: 3px solid var(--accent);
+    border-radius: 0 8px 8px 0;
+}
+
+/* Terms Ordered List */
+.terms-list {
+    list-style: none;
+    padding: 0;
+    margin: 0 0 4rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1.25rem;
+    counter-reset: none;
+}
+
+/* Terms Item */
+.terms-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 1.5rem;
+    background: rgba(31, 41, 55, 0.6);
+    border: 1px solid rgba(132, 250, 176, 0.1);
+    border-radius: 12px;
+    padding: 1.75rem 2rem;
+    transition: border-color 0.25s, transform 0.25s, box-shadow 0.25s;
+}
+
+.terms-item:hover {
+    border-color: rgba(132, 250, 176, 0.35);
+    transform: translateY(-2px);
+    box-shadow: 0 8px 32px rgba(132, 250, 176, 0.08);
+}
+
+.terms-item-number {
+    flex-shrink: 0;
+    width: 3rem;
+    height: 3rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: var(--primary-gradient);
+    border-radius: 50%;
+    font-size: var(--font-size-sm);
+    font-weight: 700;
+    color: #1a1a1a;
+    line-height: 1;
+}
+
+.terms-item-content {
+    flex: 1;
+}
+
+.terms-item-title {
+    font-size: var(--font-size-lg);
+    font-weight: 600;
+    color: var(--text-primary);
+    margin-bottom: 0.5rem;
+}
+
+.terms-item-body {
+    font-size: var(--font-size-base);
+    color: var(--text-secondary);
+    line-height: 1.75;
+    margin: 0;
+}
+
+/* Contact CTA Box */
+.terms-contact-box {
+    text-align: center;
+    padding: 3rem 2rem;
+    background: rgba(132, 250, 176, 0.05);
+    border: 1px solid rgba(132, 250, 176, 0.2);
+    border-radius: 16px;
+    margin-bottom: 3rem;
+}
+
+.terms-contact-title {
+    font-size: var(--font-size-2xl);
+    font-weight: 700;
+    color: var(--text-primary);
+    margin-bottom: 0.75rem;
+}
+
+.terms-contact-text {
+    font-size: var(--font-size-base);
+    color: var(--text-secondary);
+    margin-bottom: 1.75rem;
+    line-height: 1.7;
+}
+
+.terms-contact-btn {
+    display: inline-block;
+    background: var(--primary-gradient);
+    color: #1a1a1a;
+    font-weight: 700;
+    font-size: var(--font-size-base);
+    padding: 0.85rem 2.5rem;
+    border-radius: 999px;
+    text-decoration: none;
+    transition: opacity 0.2s, transform 0.2s, box-shadow 0.2s;
+}
+
+.terms-contact-btn:hover {
+    opacity: 0.88;
+    transform: translateY(-2px);
+    box-shadow: 0 8px 24px rgba(132, 250, 176, 0.3);
+}
+
+/* Footer Note */
+.terms-footer-note {
+    text-align: center;
+    font-size: var(--font-size-xs);
+    color: var(--text-secondary);
+    opacity: 0.5;
+}
+
+/* Responsive */
+@media (max-width: 640px) {
+    .terms-item {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 1rem;
+        padding: 1.25rem 1.25rem;
+    }
+
+    .terms-intro {
+        text-align: left;
+        padding: 1.25rem;
+    }
+
+    .terms-header {
+        padding: 2.5rem 0 1.5rem;
+    }
+}

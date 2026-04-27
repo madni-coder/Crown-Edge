@@ -25,14 +25,15 @@ const portfolioData = [
         technologies: ["React", "Node.js", "MongoDB", "Stripe"],
         link: "https://foodsport-dev.vercel.app/",
     },
+    
+   
     {
-        id: 3,
-        title: "Islamic Prayer Times",
-        category: "Mobile App",
-        image: "/prayer.png",
-
-        technologies: ["React Native", "Firebase", "Biometrics"],
-        link: "https://raahehidayat.vercel.app/",
+        id: 4,
+        title: "Ambition Perfumes",
+        category: "Website",
+        image: "/amss.png",
+        technologies: ["Figma", "Illustrator", "Photoshop"],
+        link: "https://ambtionperfumes.vercel.app/",
     },
     {
         id: 4,
@@ -42,7 +43,24 @@ const portfolioData = [
         technologies: ["Next.js", "Responsive Development", "SEO"],
         link: "https://www.alazizedu.org/",
     },
+    {
+        id: 3,
+        title: "Choice Center Website",
+        category: "Web Site",
+        image: "/ss.png",
 
+        technologies: ["React Native", "Firebase", "Biometrics"],
+        link: "https://shahjahan-cc.vercel.app/",
+    },
+    {
+        id: 3,
+        title: "Islamic Prayer Times",
+        category: "Mobile App",
+        image: "/prayer.png",
+
+        technologies: ["React Native", "Firebase", "Biometrics"],
+        link: "https://raahehidayat.vercel.app/",
+    },
 ];
 
 const categories = [
