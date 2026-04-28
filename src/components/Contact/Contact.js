@@ -3,7 +3,7 @@
 import { useState, useEffect } from "react";
 import { useResponsive } from "../../hooks/useResponsive";
 import { IoCopyOutline } from "react-icons/io5";
-import { FaWhatsapp } from "react-icons/fa";
+import { FaWhatsapp, FaHandshake, FaBuilding } from "react-icons/fa";
 import { AiOutlinePhone } from "react-icons/ai";
 import "./Contact.css";
 
@@ -138,7 +138,7 @@ export default function Contact() {
                                 <div className="card-header-3d">
                                     <div className="card-icon-wrapper">
                                         <div className="card-icon-glow"></div>
-                                        <div className="card-icon">🤝</div>
+                                        <div className="card-icon"><FaHandshake /></div>
                                     </div>
                                     <h3 className="card-title-3d">
                                         Get in Touch
@@ -237,7 +237,7 @@ export default function Contact() {
                                     <div className="contact-detail-3d">
                                         <div className="detail-icon-3d">
                                             <div className="icon-ring"></div>
-                                            <span>🏢</span>
+                                            <FaBuilding />
                                         </div>
                                         <div className="detail-content-3d">
                                             <h4 className="detail-title-3d">

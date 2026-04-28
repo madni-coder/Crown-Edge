@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect } from "react";
+import { FaGlobe, FaMobile, FaAndroid, FaApple } from "react-icons/fa";
 import {
     addStaggeredAnimation,
 } from "../../utils/animations";
@@ -13,7 +14,7 @@ const servicesData = [
         title: "Website Development",
         description:
             "Custom website development with responsive layouts, fast performance, and SEO-friendly code.",
-        icon: "🌐",
+        icon: <FaGlobe />,
         features: [
             "Responsive Website Design",
             "Performance Optimization",
@@ -26,7 +27,7 @@ const servicesData = [
         title: "Web App Development",
         description:
             "Web application development for portals, dashboards, and business platforms.",
-        icon: "📱",
+        icon: <FaMobile />,
         features: [
             "Custom Web Applications",
             "API Integrations",
@@ -40,7 +41,7 @@ const servicesData = [
         title: "Android App Development",
         description:
             "Android app development for scalable, reliable, and user-friendly mobile apps.",
-        icon: "🛒",
+        icon: <FaAndroid />,
         features: [
             "Android App Development",
             "Google Play Store Launch",
@@ -53,7 +54,7 @@ const servicesData = [
         title: "iOS App Development",
         description:
             "iOS app development for iPhone and iPad with smooth performance and stability.",
-        icon: "🎨",
+        icon: <FaApple />,
         features: [
             "iOS App Development",
             "App Store Submission",

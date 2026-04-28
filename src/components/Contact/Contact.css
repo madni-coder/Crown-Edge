@@ -252,7 +252,7 @@
 }
 
 .form-error::before {
-    content: "⚠";
+    content: "\26A0";
     font-size: var(--font-size-sm);
 }
 

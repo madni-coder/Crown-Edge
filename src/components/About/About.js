@@ -1,6 +1,7 @@
 "use client";
 
 import { useRef } from "react";
+import { FaRocket, FaBullseye, FaHandshake, FaBolt, FaLightbulb, FaLock, FaStar } from "react-icons/fa";
 import "./About.css";
 
 const About = () => {
@@ -11,28 +12,28 @@ const About = () => {
     const features = [
         {
             id: 1,
-            icon: "🚀",
+            icon: <FaRocket />,
             title: "Innovation First",
             description:
                 "We leverage cutting-edge technologies to create solutions that push boundaries and drive innovation.",
         },
         {
             id: 2,
-            icon: "🎯",
+            icon: <FaBullseye />,
             title: "Results Driven",
             description:
                 "Every project is focused on delivering measurable results that contribute to your business growth.",
         },
         {
             id: 3,
-            icon: "🤝",
+            icon: <FaHandshake />,
             title: "Client Partnership",
             description:
                 "We believe in building long-term partnerships, working closely with clients throughout the journey.",
         },
         {
             id: 4,
-            icon: "⚡",
+            icon: <FaBolt />,
             title: "Fast Delivery",
             description:
                 "Efficient workflows and agile methodologies ensure timely delivery without compromising quality.",
@@ -129,7 +130,7 @@ const About = () => {
                     <h3 className="about__values-title">Our Core Values</h3>
                     <div className="about__values-grid ">
                         <div className="about__value animate-on-scroll">
-                            <div className="about__value-icon">💡</div>
+                            <div className="about__value-icon"><FaLightbulb /></div>
                             <h4 className="about__value-title">Innovation</h4>
                             <p className="about__value-description">
                                 Constantly exploring new technologies and
@@ -137,7 +138,7 @@ const About = () => {
                             </p>
                         </div>
                         <div className="about__value animate-on-scroll animate-delay-200">
-                            <div className="about__value-icon">🔒</div>
+                            <div className="about__value-icon"><FaLock /></div>
                             <h4 className="about__value-title">Reliability</h4>
                             <p className="about__value-description">
                                 Building robust, secure, and scalable solutions
@@ -145,7 +146,7 @@ const About = () => {
                             </p>
                         </div>
                         <div className="about__value animate-on-scroll animate-delay-400">
-                            <div className="about__value-icon">🌟</div>
+                            <div className="about__value-icon"><FaStar /></div>
                             <h4 className="about__value-title">Excellence</h4>
                             <p className="about__value-description">
                                 Maintaining the highest standards in every
