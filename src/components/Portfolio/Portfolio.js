@@ -32,16 +32,15 @@ const portfolioData = [
         technologies: ["React", "Node.js", "MongoDB", "Stripe"],
         link: "https://foodsport-dev.vercel.app/",
     },
-
-
+ 
    
     {
         id: 4,
-        title: "Al Aziz Education",
+        title: "Sunshine Hospitals",
         category: "Website",
-        image: "/alazeez.png",
+        image: "/sun.png",
         technologies: ["Next.js", "Responsive Development", "SEO"],
-        link: "https://www.alazizedu.org/",
+        link: "https://sunshine-hospital-rose.vercel.app",
     },
     {
         id: 3,
