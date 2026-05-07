@@ -1,0 +1,29 @@
+/* ── Admin Shell ── */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+.admin-shell {
+    display: flex;
+    min-height: 100vh;
+    background: #0d0d14;
+    font-family: var(--font-poppins, "Poppins", sans-serif);
+    color: #e0e0e0;
+}
+
+.admin-main {
+    margin-left: 240px;
+    flex: 1;
+    min-height: 100vh;
+    padding: 36px 32px;
+    background: #0d0d14;
+}
+
+@media (max-width: 768px) {
+    .admin-main {
+        margin-left: 0;
+        padding: 80px 16px 24px;
+    }
+}

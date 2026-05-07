@@ -1,0 +1,378 @@
+/* ── Enquiries Page ── */
+.enq-page__header {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    margin-bottom: 24px;
+    gap: 12px;
+    flex-wrap: wrap;
+}
+
+.enq-page__title {
+    font-size: 28px;
+    font-weight: 700;
+    color: #fff;
+    margin-bottom: 4px;
+}
+
+.enq-page__sub {
+    font-size: 13px;
+    color: #666;
+}
+
+.enq-refresh-btn {
+    display: flex;
+    align-items: center;
+    gap: 7px;
+    padding: 9px 18px;
+    background: rgba(132, 250, 176, 0.1);
+    border: 1px solid rgba(132, 250, 176, 0.25);
+    border-radius: 10px;
+    color: #84fab0;
+    font-size: 14px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: background 0.2s;
+    font-family: inherit;
+}
+
+.enq-refresh-btn:hover {
+    background: rgba(132, 250, 176, 0.18);
+}
+
+/* Filters */
+.enq-filters {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 20px;
+    flex-wrap: wrap;
+}
+
+.enq-filters__icon {
+    color: #555;
+    font-size: 18px;
+    flex-shrink: 0;
+}
+
+.enq-filter-btn {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    padding: 7px 14px;
+    background: #111118;
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 20px;
+    color: #888;
+    font-size: 13px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.18s;
+    font-family: inherit;
+}
+
+.enq-filter-btn:hover {
+    border-color: rgba(132, 250, 176, 0.3);
+    color: #ccc;
+}
+
+.enq-filter-btn--active {
+    background: rgba(132, 250, 176, 0.12);
+    border-color: rgba(132, 250, 176, 0.4);
+    color: #84fab0;
+    font-weight: 600;
+}
+
+.enq-filter-btn__count {
+    background: rgba(255, 255, 255, 0.08);
+    color: inherit;
+    font-size: 11px;
+    padding: 1px 7px;
+    border-radius: 10px;
+    font-weight: 600;
+}
+
+/* States */
+.enq-state {
+    text-align: center;
+    padding: 60px 20px;
+    color: #555;
+    font-size: 14px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 14px;
+}
+
+.enq-state--error {
+    color: #f87171;
+}
+
+/* Spinner */
+.enq-spinner {
+    width: 32px;
+    height: 32px;
+    border: 3px solid rgba(132, 250, 176, 0.15);
+    border-top-color: #84fab0;
+    border-radius: 50%;
+    animation: enq-spin 0.8s linear infinite;
+}
+
+.enq-spinner--sm {
+    width: 14px;
+    height: 14px;
+    border-width: 2px;
+}
+
+@keyframes enq-spin {
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+/* Table */
+.enq-table-wrap {
+    background: #111118;
+    border: 1px solid rgba(255, 255, 255, 0.07);
+    border-radius: 16px;
+    overflow-x: auto;
+}
+
+.enq-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 14px;
+    min-width: 700px;
+}
+
+.enq-table th {
+    text-align: left;
+    padding: 12px 16px;
+    color: #555;
+    font-size: 12px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.07);
+    white-space: nowrap;
+}
+
+.enq-table td {
+    padding: 13px 16px;
+    color: #ccc;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.04);
+    vertical-align: middle;
+}
+
+.enq-table tr:last-child td {
+    border-bottom: none;
+}
+
+.enq-table tr:hover td {
+    background: rgba(132, 250, 176, 0.025);
+}
+
+.enq-table__num {
+    color: #444;
+    font-size: 13px;
+    width: 40px;
+}
+
+.enq-table__name {
+    font-weight: 600;
+    color: #e0e0e0;
+}
+
+.enq-table__date {
+    color: #555;
+    font-size: 13px;
+    white-space: nowrap;
+}
+
+/* Mobile cell with copy button */
+.enq-mobile-cell {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    white-space: nowrap;
+}
+
+.enq-copy-btn {
+    background: rgba(255, 255, 255, 0.06);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 6px;
+    color: #888;
+    width: 28px;
+    height: 28px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    font-size: 14px;
+    transition: all 0.18s;
+    flex-shrink: 0;
+}
+
+.enq-copy-btn:hover {
+    background: rgba(132, 250, 176, 0.1);
+    border-color: rgba(132, 250, 176, 0.3);
+    color: #84fab0;
+}
+
+.enq-copy-btn--done {
+    background: rgba(132, 250, 176, 0.15);
+    border-color: rgba(132, 250, 176, 0.4);
+    color: #84fab0;
+}
+
+/* Service tag */
+.enq-service-tag {
+    display: inline-block;
+    padding: 3px 10px;
+    background: rgba(64, 158, 205, 0.12);
+    color: #60b8f5;
+    border-radius: 20px;
+    font-size: 12px;
+    font-weight: 600;
+    white-space: nowrap;
+}
+
+/* Status select */
+.enq-status-select {
+    background: #1a1a2a;
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    border-radius: 8px;
+    color: #ccc;
+    font-size: 13px;
+    font-weight: 500;
+    padding: 5px 10px;
+    cursor: pointer;
+    outline: none;
+    font-family: inherit;
+    transition: border-color 0.18s;
+    appearance: auto;
+}
+
+.enq-status-select:focus {
+    border-color: rgba(132, 250, 176, 0.4);
+}
+
+.enq-status-select--new {
+    color: #60b8f5;
+    border-color: rgba(96, 184, 245, 0.25);
+}
+
+.enq-status-select--contacted {
+    color: #f5a623;
+    border-color: rgba(245, 166, 35, 0.25);
+}
+
+.enq-status-select--closed {
+    color: #7ed321;
+    border-color: rgba(126, 211, 33, 0.25);
+}
+
+/* Delete button */
+.enq-delete-btn {
+    background: rgba(248, 113, 113, 0.08);
+    border: 1px solid rgba(248, 113, 113, 0.2);
+    border-radius: 8px;
+    color: #f87171;
+    width: 34px;
+    height: 34px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    font-size: 16px;
+    transition: all 0.18s;
+    flex-shrink: 0;
+}
+
+.enq-delete-btn:hover:not(:disabled) {
+    background: rgba(248, 113, 113, 0.18);
+    border-color: rgba(248, 113, 113, 0.45);
+}
+
+.enq-delete-btn:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+}
+
+/* Mobile Cards — hidden by default, shown on mobile */
+.enq-cards {
+    display: none;
+}
+
+.enq-card {
+    background: #111118;
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 14px;
+    padding: 16px;
+    margin-bottom: 12px;
+}
+
+.enq-card__top {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 14px;
+    padding-bottom: 12px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+.enq-card__num {
+    font-size: 12px;
+    color: #444;
+    font-weight: 600;
+    flex-shrink: 0;
+}
+
+.enq-card__name {
+    flex: 1;
+    font-size: 15px;
+    font-weight: 700;
+    color: #e0e0e0;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.enq-card__body {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.enq-card__row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 10px;
+}
+
+.enq-card__label {
+    font-size: 12px;
+    color: #555;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.4px;
+    flex-shrink: 0;
+    width: 90px;
+}
+
+/* Responsive */
+@media (max-width: 600px) {
+    .enq-page__title {
+        font-size: 22px;
+    }
+
+    /* Hide table, show cards */
+    .enq-table-wrap {
+        display: none;
+    }
+
+    .enq-cards {
+        display: block;
+    }
+}

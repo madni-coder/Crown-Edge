@@ -2,6 +2,7 @@
 
 import { useState, useEffect, useCallback } from "react";
 import { useRouter } from "next/navigation";
+import axios from "axios";
 import { MdMailOutline } from "react-icons/md";
 import { IoClose } from "react-icons/io5";
 import { FiSend } from "react-icons/fi";
@@ -87,7 +88,7 @@ export default function EnquireNow() {
         }
     };
 
-    const handleSubmit = (e) => {
+    const handleSubmit = async (e) => {
         e.preventDefault();
         const validationErrors = validate();
         if (Object.keys(validationErrors).length > 0) {
@@ -95,14 +96,23 @@ export default function EnquireNow() {
             return;
         }
         setSubmitting(true);
-        // Simulate brief processing then redirect
-        setTimeout(() => {
+        try {
+            await axios.post("/api/enquiries", {
+                fullName: form.fullName.trim(),
+                mobile: form.mobile.trim(),
+                service: form.service,
+                city: form.city.trim(),
+            });
             setOpen(false);
             setForm(INITIAL);
             setErrors({});
-            setSubmitting(false);
             router.push("/thank-you");
-        }, 600);
+        } catch (err) {
+            const msg = err?.response?.data?.error || "Submission failed. Please try again.";
+            setErrors({ submit: msg });
+        } finally {
+            setSubmitting(false);
+        }
     };
 
     const handleOverlayClick = (e) => {
@@ -153,7 +163,7 @@ export default function EnquireNow() {
                             <h2 className="enquire-modal__title" id="enquire-title">
                                 Let&apos;s Build Something Great
                             </h2>
-                            
+
                         </div>
 
                         {/* Form */}
@@ -161,7 +171,7 @@ export default function EnquireNow() {
                             {/* Full Name */}
                             <div className="enquire-form__group">
                                 <label className="enquire-form__label" htmlFor="enq-fullName">
-                                     Name/Company Name <span>*</span>
+                                    Name/Company Name <span>*</span>
                                 </label>
                                 <input
                                     id="enq-fullName"
@@ -254,6 +264,13 @@ export default function EnquireNow() {
                                     </span>
                                 )}
                             </div>
+
+                            {/* Submit error */}
+                            {errors.submit && (
+                                <span className="enquire-form__error enquire-form__error--submit" role="alert">
+                                    {errors.submit}
+                                </span>
+                            )}
 
                             {/* Submit */}
                             <button
