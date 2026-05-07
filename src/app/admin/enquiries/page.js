@@ -197,6 +197,13 @@ export default function EnquiriesPage() {
                                             month: "short",
                                             year: "numeric",
                                         })}
+                                        <span className="enq-table__time">
+                                            {new Date(e.createdAt).toLocaleTimeString("en-IN", {
+                                                hour: "2-digit",
+                                                minute: "2-digit",
+                                                hour12: true,
+                                            })}
+                                        </span>
                                     </td>
                                     <td>
                                         <button
@@ -271,6 +278,13 @@ export default function EnquiriesPage() {
                                             month: "short",
                                             year: "numeric",
                                         })}
+                                        <span className="enq-table__time">
+                                            {new Date(e.createdAt).toLocaleTimeString("en-IN", {
+                                                hour: "2-digit",
+                                                minute: "2-digit",
+                                                hour12: true,
+                                            })}
+                                        </span>
                                     </span>
                                 </div>
                                 <div className="enq-card__row">

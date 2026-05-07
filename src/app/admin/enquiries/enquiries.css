@@ -187,6 +187,14 @@
     color: #555;
     font-size: 13px;
     white-space: nowrap;
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+}
+
+.enq-table__time {
+    color: #888;
+    font-size: 11px;
 }
 
 /* Mobile cell with copy button */
