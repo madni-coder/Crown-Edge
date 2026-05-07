@@ -339,7 +339,7 @@
 
 /* Animation for initial load */
 .hero__subtitle--animate {
-    animation: subtitleSlideUp 1s ease-out 1.8s both;
+    animation: subtitleSlideUp 1s ease-out 0.4s both;
 }
 
 @keyframes subtitleSlideUp {
@@ -429,8 +429,9 @@
 }
 
 /* Initial animation for call banner */
-
-
+.hero__call-banner--animate {
+    animation: callBannerSlideIn 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94) 0.6s both;
+}
 @keyframes callBannerSlideIn {
     from {
         opacity: 0;
@@ -725,14 +726,21 @@
     display: none;
     justify-content: center;
     align-items: center;
-    opacity: 0;
-    transform: scale(0.8) rotate(-10deg);
-    transition: opacity 1s cubic-bezier(0.25, 0.46, 0.45, 0.94) 0.7s, transform 1s cubic-bezier(0.25, 0.46, 0.45, 0.94) 0.7s;
 }
 
 .hero__visual--animate {
-    opacity: 1;
-    transform: scale(1) rotate(0deg);
+    animation: visualFadeIn 1s cubic-bezier(0.25, 0.46, 0.45, 0.94) 0.7s both;
+}
+
+@keyframes visualFadeIn {
+    from {
+        opacity: 0;
+        transform: scale(0.8) rotate(-10deg);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1) rotate(0deg);
+    }
 }
 
 .hero__visual-container {
