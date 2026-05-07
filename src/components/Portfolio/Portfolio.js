@@ -1,6 +1,7 @@
 "use client";
 
 import { useState, useEffect } from "react";
+import Image from "next/image";
 import {
     addStaggeredAnimation,
 } from "../../utils/animations";
@@ -11,7 +12,7 @@ const portfolioData = [
         id: 1,
         title: "Saubhagya Weddings",
         category: "Website",
-        image: "/sau.png",
+        image: "/sau.webp",
         technologies: ["React", "Next.js", "Tailwind CSS"],
         link: "https://saubhagya-one.vercel.app/",
     },
@@ -19,7 +20,7 @@ const portfolioData = [
         id: 3,
         title: "Al Aziz Education",
         category: "Website",
-        image: "/al-aziz.png",
+        image: "/al-aziz.webp",
 
         technologies: ["React Native", "Firebase", "Biometrics"],
         link: "https://www.alazizedu.org/",
@@ -28,7 +29,7 @@ const portfolioData = [
         id: 4,
         title: "Ambition Perfumes",
         category: "Website",
-        image: "/amss.png",
+        image: "/amss.webp",
         technologies: ["Figma", "Illustrator", "Photoshop"],
         link: "https://ambtionperfumes.vercel.app/",
     },
@@ -36,7 +37,7 @@ const portfolioData = [
         id: 2,
         title: "Food Sport",
         category: "Website",
-        image: "/food.png",
+        image: "/food.webp",
 
         technologies: ["React", "Node.js", "MongoDB", "Stripe"],
         link: "https://foodsport-dev.vercel.app/",
@@ -47,7 +48,7 @@ const portfolioData = [
         id: 4,
         title: "Sunshine Hospitals",
         category: "Website",
-        image: "/sun.png",
+        image: "/sun.webp",
         technologies: ["Next.js", "Responsive Development", "SEO"],
         link: "https://sunshine-hospital-rose.vercel.app",
     },
@@ -55,7 +56,7 @@ const portfolioData = [
         id: 3,
         title: "Choice Center Website",
         category: "Web Site",
-        image: "/ss.png",
+        image: "/ss.webp",
 
         technologies: ["React Native", "Firebase", "Biometrics"],
         link: "https://shahjahan-cc.vercel.app/",
@@ -64,7 +65,7 @@ const portfolioData = [
         id: 3,
         title: "Islamic Prayer Times",
         category: "Mobile App",
-        image: "/prayer.png",
+        image: "/prayer.webp",
 
         technologies: ["React Native", "Firebase", "Biometrics"],
         link: "https://raahehidayat.vercel.app/",
@@ -214,15 +215,15 @@ export default function Portfolio() {
                                         margin: 0,
                                     }}
                                 >
-                                    <img
+                                    <Image
                                         src={item.image}
                                         alt={item.title}
+                                        fill
+                                        sizes="(max-width: 768px) 100vw, 50vw"
                                         style={{
-                                            width: "100%",
-                                            height: "100%",
                                             objectFit: "cover",
-                                            display: "block",
                                         }}
+                                        loading="lazy"
                                     />
                                 </div>
                             </div>

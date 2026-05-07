@@ -126,15 +126,11 @@
     font-weight: 700;
     line-height: 1.1;
     margin-bottom: var(--space-4);
-    opacity: 0;
-    transform: translateY(50px);
-    transition: opacity 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94), transform 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
     will-change: transform, opacity;
 }
 
 .hero__title--animate {
-    opacity: 1;
-    transform: translateY(0);
+    animation: heroFadeUp 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94) 0.05s both;
 }
 
 .hero__title-line {
@@ -155,15 +151,11 @@
 .hero__slogan {
     position: relative;
     margin: var(--space-4) auto var(--space-6);
-    opacity: 0;
-    transform: translateY(20px);
-    transition: opacity 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94) 0.25s, transform 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94) 0.25s;
     will-change: transform, opacity;
 }
 
 .hero__slogan--animate {
-    opacity: 1;
-    transform: translateY(0);
+    animation: heroFadeUp 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94) 0.2s both;
 }
 
 .hero__slogan-text {
@@ -254,14 +246,10 @@
     color: var(--text-secondary);
     max-width: 600px;
     margin: 0 auto var(--space-6);
-    opacity: 0;
-    transform: translateY(30px);
-    transition: opacity 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94) 0.4s, transform 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94) 0.4s;
 }
 
 .hero__subtitle--animate {
-    opacity: 1;
-    transform: translateY(0);
+    animation: heroFadeUp 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94) 0.35s both;
 }
 
 /* Animated subtitle styles */
@@ -643,14 +631,22 @@
     flex-direction: column;
     gap: var(--space-3);
     align-items: center;
-    opacity: 0;
-    transform: translateY(30px);
-    transition: opacity 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94) 0.6s, transform 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94) 0.6s;
 }
 
 .hero__actions--animate {
-    opacity: 1;
-    transform: translateY(0);
+    animation: heroFadeUp 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94) 0.5s both;
+}
+
+/* Shared keyframe used by all hero entrance animations */
+@keyframes heroFadeUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
 }
 
 /* Primary CTA Button */

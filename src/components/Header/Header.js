@@ -86,7 +86,7 @@ const Header = () => {
                     >
                         <div className="header__logo-container">
                             <Image
-                                src="/companyLogo.png"
+                                src="/companyLogo.webp"
                                 alt="Crown Edge Technologies Logo"
                                 width={40}
                                 height={40}

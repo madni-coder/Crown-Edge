@@ -1,20 +1,10 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { IoCopyOutline } from "react-icons/io5";
 import "./Hero.css";
 
 const Hero = () => {
-    const [isLoaded, setIsLoaded] = useState(false);
-
-    useEffect(() => {
-        // Trigger animations after component mounts
-        const timer = setTimeout(() => {
-            setIsLoaded(true);
-        }, 100);
-
-        return () => clearTimeout(timer);
-    }, []);
 
     const [isCallFlipped, setIsCallFlipped] = useState(false);
     const [copyTooltip, setCopyTooltip] = useState(false);
@@ -80,8 +70,7 @@ const Hero = () => {
                     {/* Main Headline */}
                     <div className="hero__text">
                         <h1
-                            className={`hero__title ${isLoaded ? "hero__title--animate" : ""
-                                }`}
+                            className="hero__title hero__title--animate"
                         >
                             <span className="hero__title-line hero__title-line--1">
                                 CROWN EDGE{" "}
@@ -92,8 +81,7 @@ const Hero = () => {
                         </h1>
 
                         <div
-                            className={`hero__slogan ${isLoaded ? "hero__slogan--animate" : ""
-                                }`}
+                            className="hero__slogan hero__slogan--animate"
                         >
                             <span className="hero__slogan-text">
                                 Empowering You with a Royal Edge
@@ -121,7 +109,7 @@ const Hero = () => {
                                     handleCallClick(e);
                                 }
                             }}
-                            className={`hero__call-banner ${isLoaded ? "hero__call-banner--animate" : ""}`}
+                            className="hero__call-banner hero__call-banner--animate"
                             aria-label="Contact us"
                         >
                             <div className={`hero__call-banner-content ${isCallFlipped ? "flipped" : ""}`}>
@@ -168,8 +156,7 @@ const Hero = () => {
 
                     {/* Hero Visual Element */}
                     <div
-                        className={`hero__visual ${isLoaded ? "hero__visual--animate" : ""
-                            }`}
+                        className="hero__visual hero__visual--animate"
                     >
                         <div className="hero__visual-container">
                             {/* Animated geometric shapes */}

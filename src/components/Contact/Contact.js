@@ -154,7 +154,7 @@ export default function Contact() {
                                         <div className="detail-icon-3d">
                                             <div className="icon-ring"></div>
                                             <img
-                                                src="/gmailLogo.png"
+                                                src="/gmailLogo.webp"
                                                 alt="Gmail"
                                                 className="gmail-icon detail-icon-img "
                                             />                                        </div>
