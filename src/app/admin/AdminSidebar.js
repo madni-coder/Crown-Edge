@@ -2,8 +2,8 @@
 
 import { useState } from "react";
 import Link from "next/link";
-import { usePathname } from "next/navigation";
-import { MdDashboard, MdInbox, MdMenu, MdClose } from "react-icons/md";
+import { usePathname, useRouter } from "next/navigation";
+import { MdDashboard, MdInbox, MdMenu, MdClose, MdLogout } from "react-icons/md";
 import "./AdminSidebar.css";
 
 const NAV = [
@@ -13,7 +13,13 @@ const NAV = [
 
 export default function AdminSidebar() {
     const pathname = usePathname();
+    const router = useRouter();
     const [open, setOpen] = useState(false);
+
+    function handleLogout() {
+        document.cookie = "admin_auth=; path=/; expires=Thu, 01 Jan 1970 00:00:00 GMT; SameSite=Strict";
+        router.push("/admin/login");
+    }
 
     return (
         <>
@@ -77,6 +83,9 @@ export default function AdminSidebar() {
                     <Link href="/" className="admin-sidebar__home-link">
                         ← Back to Website
                     </Link>
+                    <button className="admin-sidebar__logout" onClick={handleLogout}>
+                        <MdLogout aria-hidden="true" /> Logout
+                    </button>
                 </div>
             </aside>
         </>

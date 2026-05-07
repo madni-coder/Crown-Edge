@@ -1,4 +1,4 @@
-import AdminSidebar from "./AdminSidebar";
+import AdminShell from "./AdminShell";
 import "./layout.css";
 
 export const metadata = {
@@ -6,10 +6,5 @@ export const metadata = {
 };
 
 export default function AdminLayout({ children }) {
-    return (
-        <div className="admin-shell">
-            <AdminSidebar />
-            <main className="admin-main">{children}</main>
-        </div>
-    );
+    return <AdminShell>{children}</AdminShell>;
 }
