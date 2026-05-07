@@ -218,7 +218,7 @@ export default function EnquireNow() {
                             {/* Service Dropdown */}
                             <div className="enquire-form__group">
                                 <label className="enquire-form__label" htmlFor="enq-service">
-                                    My Enquiry is for <span>*</span>
+                                    Enquiry is for <span>*</span>
                                 </label>
                                 <div className="enquire-form__select-wrap">
                                     <select
