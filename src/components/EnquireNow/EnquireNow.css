@@ -1,0 +1,414 @@
+/* =============================================
+   Enquire Now — Sticky Button (matches Contact Us)
+   ============================================= */
+.enquire-btn {
+    position: fixed;
+    bottom: 50px;
+    left: 32px;
+    z-index: 1000;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 12px 24px;
+    border: none;
+    border-radius: 30px;
+    background: linear-gradient(135deg, #84fab0 0%, #409ecd 100%);
+    color: #fff;
+    font-size: 16px;
+    font-weight: 700;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    white-space: nowrap;
+    cursor: pointer;
+    box-shadow: 0 4px 15px rgba(132, 250, 176, 0.4),
+        0 0 20px rgba(143, 211, 244, 0.3);
+    transition: transform 0.25s ease, box-shadow 0.25s ease;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+    outline: none;
+    /* shimmer overlay */
+    overflow: hidden;
+}
+
+.enquire-btn::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(135deg,
+            rgba(255, 255, 255, 0.2) 0%,
+            transparent 100%);
+    pointer-events: none;
+    border-radius: 30px;
+}
+
+.enquire-btn:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 25px rgba(132, 250, 176, 0.55),
+        0 0 30px rgba(143, 211, 244, 0.4);
+}
+
+.enquire-btn:active {
+    transform: scale(0.95);
+}
+
+.enquire-btn__icon {
+    font-size: 20px;
+    display: flex;
+    align-items: center;
+    flex-shrink: 0;
+    color: #fff;
+    filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.2));
+}
+
+/* Pulse ring — child div instead of ::after to avoid overflow:hidden clipping */
+.enquire-btn__pulse {
+    position: fixed;
+    bottom: 50px;
+    left: 32px;
+    width: 150px;
+    /* approximate pill width; adjusted by content */
+    height: 48px;
+    border-radius: 30px;
+    border: 2px solid rgba(132, 250, 176, 0.55);
+    pointer-events: none;
+    z-index: 999;
+    animation: enquirePulse 2.2s ease-out infinite;
+}
+
+@keyframes enquirePulse {
+    0% {
+        transform: scale(1);
+        opacity: 0.7;
+    }
+
+    70% {
+        transform: scale(1.22);
+        opacity: 0;
+    }
+
+    100% {
+        transform: scale(1.22);
+        opacity: 0;
+    }
+}
+
+/* =============================================
+   Modal Overlay
+   ============================================= */
+.enquire-overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(10, 10, 18, 0.78);
+    backdrop-filter: blur(6px);
+    -webkit-backdrop-filter: blur(6px);
+    z-index: 2000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 16px;
+    animation: overlayFadeIn 0.25s ease;
+}
+
+@keyframes overlayFadeIn {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+/* =============================================
+   Modal Box
+   ============================================= */
+.enquire-modal {
+    position: relative;
+    width: 100%;
+    max-width: 520px;
+    background: #1a1a1a;
+    border: 1px solid rgba(132, 250, 176, 0.18);
+    border-radius: 20px;
+    padding: 40px 36px 32px;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.6),
+        0 0 40px rgba(132, 250, 176, 0.08);
+    animation: modalSlideUp 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    max-height: 90vh;
+    overflow-y: auto;
+}
+
+@keyframes modalSlideUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px) scale(0.97);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+}
+
+/* Decorative gradient top bar */
+.enquire-modal::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 3px;
+    border-radius: 20px 20px 0 0;
+    background: linear-gradient(90deg, #a18cd1 0%, #84fab0 50%, #8fd3f4 100%);
+}
+
+/* Close button */
+.enquire-modal__close {
+    position: absolute;
+    top: 16px;
+    right: 16px;
+    background: rgba(255, 255, 255, 0.07);
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    color: #ccc;
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    font-size: 18px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: background 0.2s, color 0.2s, transform 0.2s;
+    outline: none;
+    line-height: 1;
+}
+
+.enquire-modal__close:hover {
+    background: rgba(161, 140, 209, 0.25);
+    color: #fff;
+    transform: rotate(90deg);
+}
+
+/* Header */
+.enquire-modal__header {
+    margin-bottom: 28px;
+    text-align: center;
+}
+
+.enquire-modal__badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    background: rgba(132, 250, 176, 0.1);
+    border: 1px solid rgba(132, 250, 176, 0.3);
+    color: #84fab0;
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    padding: 4px 12px;
+    border-radius: 20px;
+    margin-bottom: 12px;
+}
+
+.enquire-modal__title {
+    font-size: clamp(1.4rem, 4vw, 1.8rem);
+    font-weight: 700;
+    background: linear-gradient(135deg, #fff 0%, #84fab0 60%, #8fd3f4 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    margin: 0 0 6px;
+    line-height: 1.2;
+}
+
+.enquire-modal__subtitle {
+    font-size: 0.875rem;
+    color: rgba(200, 200, 220, 0.7);
+    margin: 0;
+}
+
+/* =============================================
+   Form
+   ============================================= */
+.enquire-form {
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+}
+
+.enquire-form__group {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+
+.enquire-form__label {
+    font-size: 13px;
+    font-weight: 600;
+    color: rgba(200, 200, 220, 0.85);
+    letter-spacing: 0.5px;
+}
+
+.enquire-form__label span {
+    color: #84fab0;
+}
+
+.enquire-form__input,
+.enquire-form__select {
+    width: 100%;
+    padding: 12px 16px;
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(132, 250, 176, 0.2);
+    border-radius: 10px;
+    color: #fff;
+    font-size: 15px;
+    font-family: inherit;
+    outline: none;
+    transition: border-color 0.2s, background 0.2s, box-shadow 0.2s;
+    appearance: none;
+    -webkit-appearance: none;
+}
+
+.enquire-form__input::placeholder {
+    color: rgba(180, 180, 200, 0.4);
+}
+
+.enquire-form__input:focus,
+.enquire-form__select:focus {
+    border-color: #84fab0;
+    background: rgba(132, 250, 176, 0.07);
+    box-shadow: 0 0 0 3px rgba(132, 250, 176, 0.12);
+}
+
+.enquire-form__input.error,
+.enquire-form__select.error {
+    border-color: #f87171;
+    box-shadow: 0 0 0 3px rgba(248, 113, 113, 0.12);
+}
+
+/* Custom select arrow */
+.enquire-form__select-wrap {
+    position: relative;
+}
+
+.enquire-form__select-wrap::after {
+    content: "▾";
+    position: absolute;
+    right: 14px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: #84fab0;
+    pointer-events: none;
+    font-size: 14px;
+}
+
+.enquire-form__select option {
+    background: #1e1e2e;
+    color: #fff;
+}
+
+/* Error message */
+.enquire-form__error {
+    font-size: 12px;
+    color: #f87171;
+    margin-top: 2px;
+}
+
+/* Submit button */
+.enquire-form__submit {
+    margin-top: 6px;
+    padding: 14px 32px;
+    border: none;
+    border-radius: 12px;
+    background: linear-gradient(135deg, #84fab0 0%, #409ecd 100%);
+    color: #fff;
+    font-size: 16px;
+    font-weight: 700;
+    letter-spacing: 0.5px;
+    cursor: pointer;
+    transition: opacity 0.2s, transform 0.2s, box-shadow 0.2s;
+    box-shadow: 0 4px 20px rgba(132, 250, 176, 0.4);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    width: 100%;
+    font-family: inherit;
+    outline: none;
+}
+
+.enquire-form__submit:hover:not(:disabled) {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 28px rgba(132, 250, 176, 0.55);
+}
+
+.enquire-form__submit:active:not(:disabled) {
+    transform: scale(0.98);
+}
+
+.enquire-form__submit:disabled {
+    opacity: 0.65;
+    cursor: not-allowed;
+}
+
+.enquire-form__spin {
+    animation: enquireSpin 0.8s linear infinite;
+}
+
+@keyframes enquireSpin {
+    from {
+        transform: rotate(0deg);
+    }
+
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+/* =============================================
+   Responsive
+   ============================================= */
+@media (max-width: 768px) {
+
+    /* Sit at the same level as Call Us — clean symmetrical floating pair */
+    .enquire-btn {
+        bottom: 24px;
+        left: 16px;
+        padding: 10px 18px;
+        font-size: 13px;
+        letter-spacing: 0.5px;
+        gap: 7px;
+    }
+
+    .enquire-btn__pulse {
+        bottom: 24px;
+        left: 16px;
+        height: 42px;
+        width: 128px;
+    }
+
+    .enquire-modal {
+        padding: 32px 20px 24px;
+        border-radius: 16px;
+    }
+}
+
+@media (max-width: 480px) {
+    .enquire-btn {
+        padding: 9px 14px;
+        font-size: 12px;
+        letter-spacing: 0;
+        gap: 6px;
+    }
+
+    .enquire-btn__icon {
+        font-size: 16px;
+    }
+
+    .enquire-btn__pulse {
+        width: 112px;
+        height: 40px;
+    }
+}

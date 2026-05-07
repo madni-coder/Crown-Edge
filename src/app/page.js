@@ -8,19 +8,21 @@ import Contact from "../components/Contact";
 import Footer from "../components/Footer";
 import ResponsiveWrapper from "../components/ResponsiveWrapper";
 import SectionScroller from "../components/SectionScroller";
+import EnquireNow from "../components/EnquireNow";
 
 export default function Home() {
     return (
         <ResponsiveWrapper>
             <SectionScroller />
             <Header />
+            <EnquireNow />
             <Hero />
             <Services />
             <Portfolio />
 
             <main className="main-content">
                 <About />
-                
+
                 <Contact />
             </main>
             <Footer />
