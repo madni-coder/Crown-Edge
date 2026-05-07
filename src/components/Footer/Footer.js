@@ -101,6 +101,11 @@ export default function Footer() {
                                     Terms &amp; Conditions
                                 </Link>
                             </li>
+                            <li>
+                                <Link href="/privacy" className="terms-quick-link">
+                                    Privacy Policy
+                                </Link>
+                            </li>
                         </ul>
                     </div>
 
@@ -145,9 +150,9 @@ export default function Footer() {
                             <div className="contact-item">
                                 <MdLocationOn className="contact-icon" aria-hidden="true" />
                                 <span className="contact-text">
-                                    Raipur
-                                    <br />
-                                    Chhattisgarh
+                                    Office No 357, Sanjay Nagar, Raipur Chhattisgarh
+
+                                    
                                 </span>
                             </div>
 
