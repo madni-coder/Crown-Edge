@@ -65,7 +65,7 @@ const portfolioData = [
         id: 3,
         title: "Islamic Prayer Times",
         category: "Mobile App",
-        image: "/prayer.webp",
+        image: "/pra.webp",
 
         technologies: ["React Native", "Firebase", "Biometrics"],
         link: "https://raahehidayat.vercel.app/",
