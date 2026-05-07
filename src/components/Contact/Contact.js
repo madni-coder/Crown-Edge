@@ -112,7 +112,7 @@ export default function Contact() {
             <div className="container">
                 <div className="contact-header">
                     <h2 className="contact-title">
-                        Contact Us
+                        Call Us
                     </h2>
                     <p className="contact-subtitle">
                         Start your web development or mobile app development
@@ -244,7 +244,8 @@ export default function Contact() {
                                                 Office
                                             </h4>
                                             <p className="detail-text-3d">
-                                                Raipur Chhattisgarh
+                                               Office No 357,
+                                                Sanjay Nagar, Raipur Chhattisgarh
                                             </p>
                                         </div>
                                         <div className="detail-shine"></div>

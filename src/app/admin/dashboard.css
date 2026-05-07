@@ -1,0 +1,177 @@
+/* ── Dashboard ── */
+.dash__title {
+    font-size: 28px;
+    font-weight: 700;
+    color: #fff;
+    margin-bottom: 4px;
+}
+
+.dash__sub {
+    font-size: 14px;
+    color: #666;
+    margin-bottom: 32px;
+}
+
+/* Stat Cards */
+.dash__cards {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 18px;
+    margin-bottom: 40px;
+}
+
+.dash__card {
+    background: #111118;
+    border: 1px solid rgba(255, 255, 255, 0.07);
+    border-radius: 14px;
+    padding: 24px 20px;
+    border-left: 3px solid var(--card-color, #84fab0);
+    transition: transform 0.2s;
+}
+
+.dash__card:hover {
+    transform: translateY(-2px);
+}
+
+.dash__card-value {
+    display: block;
+    font-size: 36px;
+    font-weight: 800;
+    color: var(--card-color, #84fab0);
+    line-height: 1;
+    margin-bottom: 8px;
+}
+
+.dash__card-label {
+    font-size: 13px;
+    color: #888;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+/* Section */
+.dash__section {
+    background: #111118;
+    border: 1px solid rgba(255, 255, 255, 0.07);
+    border-radius: 16px;
+    padding: 24px;
+}
+
+.dash__section-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 20px;
+}
+
+.dash__section-title {
+    font-size: 18px;
+    font-weight: 600;
+    color: #fff;
+}
+
+.dash__view-all {
+    font-size: 13px;
+    color: #84fab0;
+    text-decoration: none;
+    font-weight: 500;
+    transition: opacity 0.2s;
+}
+
+.dash__view-all:hover {
+    opacity: 0.75;
+}
+
+.dash__empty {
+    text-align: center;
+    padding: 32px;
+    color: #555;
+    font-size: 14px;
+}
+
+/* Table */
+.dash__table-wrap {
+    overflow-x: auto;
+    border-radius: 10px;
+}
+
+.dash__table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 14px;
+}
+
+.dash__table th {
+    text-align: left;
+    padding: 10px 14px;
+    color: #666;
+    font-size: 12px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.07);
+    white-space: nowrap;
+}
+
+.dash__table td {
+    padding: 12px 14px;
+    color: #ccc;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.04);
+    white-space: nowrap;
+}
+
+.dash__table tr:last-child td {
+    border-bottom: none;
+}
+
+.dash__table tr:hover td {
+    background: rgba(132, 250, 176, 0.03);
+}
+
+/* Status badges */
+.dash__badge {
+    display: inline-block;
+    padding: 3px 10px;
+    border-radius: 20px;
+    font-size: 12px;
+    font-weight: 600;
+    text-transform: capitalize;
+}
+
+.dash__badge--new {
+    background: rgba(96, 184, 245, 0.15);
+    color: #60b8f5;
+}
+
+.dash__badge--contacted {
+    background: rgba(245, 166, 35, 0.15);
+    color: #f5a623;
+}
+
+.dash__badge--closed {
+    background: rgba(126, 211, 33, 0.15);
+    color: #7ed321;
+}
+
+/* Responsive */
+@media (max-width: 1024px) {
+    .dash__cards {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 480px) {
+    .dash__cards {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 12px;
+    }
+
+    .dash__card {
+        padding: 18px 14px;
+    }
+
+    .dash__card-value {
+        font-size: 28px;
+    }
+}

@@ -1,0 +1,741 @@
+/* =============================================
+   Thank You Page — Full Redesign
+   ============================================= */
+
+/* ── Page shell ── */
+.ty-page {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    background: #0d0d14;
+    color: #fff;
+    font-family: var(--font-primary, sans-serif);
+    position: relative;
+    overflow: hidden;
+}
+
+/* ── Decorative background grid ── */
+.ty-page::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background-image:
+        linear-gradient(rgba(132, 250, 176, 0.04) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(132, 250, 176, 0.04) 1px, transparent 1px);
+    background-size: 48px 48px;
+    pointer-events: none;
+    z-index: 0;
+}
+
+/* ── Glow blobs ── */
+.ty-blob {
+    position: absolute;
+    border-radius: 50%;
+    filter: blur(100px);
+    pointer-events: none;
+    z-index: 0;
+}
+
+.ty-blob--1 {
+    width: 600px;
+    height: 600px;
+    background: radial-gradient(circle, rgba(132, 250, 176, 0.18), transparent 70%);
+    top: -180px;
+    left: -160px;
+}
+
+.ty-blob--2 {
+    width: 500px;
+    height: 500px;
+    background: radial-gradient(circle, rgba(143, 211, 244, 0.15), transparent 70%);
+    bottom: -140px;
+    right: -120px;
+}
+
+.ty-blob--3 {
+    width: 300px;
+    height: 300px;
+    background: radial-gradient(circle, rgba(161, 140, 209, 0.14), transparent 70%);
+    top: 40%;
+    left: 60%;
+}
+
+/* ── Floating dot particles ── */
+.ty-particles {
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    z-index: 0;
+    overflow: hidden;
+}
+
+.ty-particle {
+    position: absolute;
+    border-radius: 50%;
+    animation: tyFloat linear infinite;
+}
+
+.ty-particle--1 {
+    width: 5px;
+    height: 5px;
+    background: #84fab0;
+    top: 12%;
+    left: 7%;
+    animation-duration: 9s;
+    animation-delay: 0s;
+}
+
+.ty-particle--2 {
+    width: 4px;
+    height: 4px;
+    background: #8fd3f4;
+    top: 68%;
+    left: 90%;
+    animation-duration: 7s;
+    animation-delay: 1.5s;
+}
+
+.ty-particle--3 {
+    width: 6px;
+    height: 6px;
+    background: #a18cd1;
+    top: 35%;
+    left: 94%;
+    animation-duration: 11s;
+    animation-delay: 3s;
+}
+
+.ty-particle--4 {
+    width: 4px;
+    height: 4px;
+    background: #84fab0;
+    top: 82%;
+    left: 10%;
+    animation-duration: 8s;
+    animation-delay: 2s;
+}
+
+.ty-particle--5 {
+    width: 5px;
+    height: 5px;
+    background: #8fd3f4;
+    top: 18%;
+    left: 78%;
+    animation-duration: 10s;
+    animation-delay: 0.5s;
+}
+
+.ty-particle--6 {
+    width: 3px;
+    height: 3px;
+    background: #84fab0;
+    top: 55%;
+    left: 5%;
+    animation-duration: 13s;
+    animation-delay: 4s;
+}
+
+.ty-particle--7 {
+    width: 4px;
+    height: 4px;
+    background: #a18cd1;
+    top: 90%;
+    left: 55%;
+    animation-duration: 6s;
+    animation-delay: 1s;
+}
+
+@keyframes tyFloat {
+    0% {
+        transform: translateY(0) scale(1);
+        opacity: 0.5;
+    }
+
+    50% {
+        transform: translateY(-28px) scale(1.2);
+        opacity: 0.8;
+    }
+
+    100% {
+        transform: translateY(0) scale(1);
+        opacity: 0.5;
+    }
+}
+
+/* ── Top nav bar ── */
+.ty-topbar {
+    position: relative;
+    z-index: 1;
+    display: flex;
+    align-items: center;
+    padding: 20px 40px;
+    border-bottom: 1px solid rgba(132, 250, 176, 0.1);
+}
+
+.ty-topbar__logo {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    text-decoration: none;
+    color: #fff;
+}
+
+.ty-topbar__logo-icon {
+    width: 36px;
+    height: 36px;
+    border-radius: 10px;
+    background: linear-gradient(135deg, #84fab0 0%, #409ecd 100%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 18px;
+    color: #fff;
+    flex-shrink: 0;
+}
+
+.ty-topbar__name {
+    font-size: 15px;
+    font-weight: 700;
+    letter-spacing: 0.5px;
+    background: linear-gradient(90deg, #84fab0, #8fd3f4);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+/* ── Main content ── */
+.ty-main {
+    position: relative;
+    z-index: 1;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 48px 24px 40px;
+    text-align: center;
+}
+
+/* ── Success icon ── */
+.ty-icon-outer {
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 36px;
+    animation: iconPop 0.6s cubic-bezier(0.34, 1.56, 0.64, 1) 0.2s both;
+}
+
+/* three concentric rings */
+.ty-ring {
+    position: absolute;
+    border-radius: 50%;
+    border: 1px solid rgba(132, 250, 176, 0.25);
+    animation: ringExpand 3s ease-out infinite;
+}
+
+.ty-ring--1 {
+    width: 100px;
+    height: 100px;
+    animation-delay: 0s;
+}
+
+.ty-ring--2 {
+    width: 140px;
+    height: 140px;
+    animation-delay: 0.7s;
+    border-color: rgba(143, 211, 244, 0.2);
+}
+
+.ty-ring--3 {
+    width: 180px;
+    height: 180px;
+    animation-delay: 1.4s;
+    border-color: rgba(161, 140, 209, 0.15);
+}
+
+@keyframes ringExpand {
+    0% {
+        transform: scale(0.85);
+        opacity: 0.8;
+    }
+
+    50% {
+        transform: scale(1.08);
+        opacity: 0.35;
+    }
+
+    100% {
+        transform: scale(0.85);
+        opacity: 0.8;
+    }
+}
+
+.ty-icon-circle {
+    position: relative;
+    z-index: 1;
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, #84fab0 0%, #409ecd 100%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 0 40px rgba(132, 250, 176, 0.4),
+        0 0 80px rgba(132, 250, 176, 0.15);
+}
+
+.ty-icon-circle svg {
+    width: 36px;
+    height: 36px;
+    color: #fff;
+}
+
+@keyframes iconPop {
+    from {
+        opacity: 0;
+        transform: scale(0.3);
+    }
+
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+/* ── Badge ── */
+.ty-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 7px;
+    background: rgba(132, 250, 176, 0.08);
+    border: 1px solid rgba(132, 250, 176, 0.28);
+    color: #84fab0;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    padding: 6px 16px;
+    border-radius: 20px;
+    margin-bottom: 20px;
+    animation: fadeUp 0.5s ease 0.5s both;
+}
+
+/* ── Heading ── */
+.ty-heading {
+    font-size: clamp(2.4rem, 7vw, 4rem);
+    font-weight: 800;
+    line-height: 1.1;
+    margin: 0 0 8px;
+    background: linear-gradient(135deg, #fff 0%, #84fab0 50%, #8fd3f4 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    animation: fadeUp 0.5s ease 0.6s both;
+}
+
+.ty-heading-sub {
+    display: block;
+    font-size: clamp(1.2rem, 3.5vw, 1.8rem);
+    font-weight: 600;
+    color: rgba(255, 255, 255, 0.75);
+    margin-bottom: 24px;
+    animation: fadeUp 0.5s ease 0.65s both;
+}
+
+/* ── Body text ── */
+.ty-body {
+    font-size: clamp(1rem, 2.5vw, 1.15rem);
+    color: rgba(200, 210, 225, 0.8);
+    line-height: 1.7;
+    max-width: 560px;
+    margin: 0 auto 48px;
+    animation: fadeUp 0.5s ease 0.7s both;
+}
+
+.ty-body strong {
+    color: #84fab0;
+    font-weight: 700;
+}
+
+/* ── "What happens next" steps ── */
+.ty-steps {
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+    gap: 0;
+    margin-bottom: 52px;
+    max-width: 760px;
+    width: 100%;
+    animation: fadeUp 0.5s ease 0.75s both;
+}
+
+.ty-step {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    padding: 0 16px;
+    position: relative;
+}
+
+/* connector line between steps */
+.ty-step:not(:last-child)::after {
+    content: "";
+    position: absolute;
+    top: 28px;
+    right: -2px;
+    width: calc(100% - 28px);
+    height: 1px;
+    background: linear-gradient(90deg, rgba(132, 250, 176, 0.4), rgba(143, 211, 244, 0.2));
+    transform: translateX(14px);
+}
+
+.ty-step__num {
+    width: 56px;
+    height: 56px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, rgba(132, 250, 176, 0.15) 0%, rgba(143, 211, 244, 0.1) 100%);
+    border: 1px solid rgba(132, 250, 176, 0.3);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 20px;
+    margin-bottom: 14px;
+    color: #84fab0;
+    flex-shrink: 0;
+}
+
+.ty-step__title {
+    font-size: 14px;
+    font-weight: 700;
+    color: #fff;
+    margin-bottom: 6px;
+}
+
+.ty-step__desc {
+    font-size: 13px;
+    color: rgba(180, 190, 210, 0.7);
+    line-height: 1.5;
+}
+
+/* ── Stats row ── */
+.ty-stats {
+    display: flex;
+    gap: 40px;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin-bottom: 48px;
+    animation: fadeUp 0.5s ease 0.82s both;
+}
+
+.ty-stat {
+    text-align: center;
+}
+
+.ty-stat__value {
+    display: block;
+    font-size: clamp(1.6rem, 4vw, 2.2rem);
+    font-weight: 800;
+    background: linear-gradient(135deg, #84fab0, #8fd3f4);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    line-height: 1;
+    margin-bottom: 4px;
+}
+
+.ty-stat__label {
+    font-size: 12px;
+    font-weight: 600;
+    color: rgba(180, 190, 210, 0.6);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+/* ── CTA button ── */
+.ty-cta-row {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 16px;
+    flex-wrap: wrap;
+    position: relative;
+    animation: fadeUp 0.5s ease 0.9s both;
+}
+
+.ty-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    padding: 15px 36px;
+    border: none;
+    border-radius: 14px;
+    font-size: 16px;
+    font-weight: 700;
+    letter-spacing: 0.4px;
+    cursor: pointer;
+    text-decoration: none;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    font-family: inherit;
+    outline: none;
+}
+
+.ty-btn--primary {
+    background: transparent;
+    color: #84fab0;
+    border: 1.5px solid rgba(132, 250, 176, 0.4);
+    box-shadow: none;
+}
+
+.ty-btn--primary:hover {
+    background: rgba(132, 250, 176, 0.08);
+    transform: translateY(-3px);
+    box-shadow: none;
+}
+
+.ty-btn--outline {
+    background: transparent;
+    color: #84fab0;
+    border: 1.5px solid rgba(132, 250, 176, 0.4);
+}
+
+.ty-btn--outline:hover {
+    background: rgba(132, 250, 176, 0.08);
+    transform: translateY(-3px);
+}
+
+.ty-btn:active {
+    transform: scale(0.97);
+}
+
+/* ── Call Us flip button (desktop: flip to show number; mobile: tel: dialer) ── */
+.ty-call-btn {
+    /* Match .ty-btn sizing/shape but use gradient fill like Hero */
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 15px 36px;
+    border: none;
+    border-radius: 14px;
+    font-size: 16px;
+    font-weight: 700;
+    letter-spacing: 0.4px;
+    cursor: pointer;
+    font-family: inherit;
+    outline: none;
+    background: linear-gradient(135deg, #84fab0 0%, #409ecd 100%);
+    color: #fff;
+    box-shadow: 0 6px 24px rgba(132, 250, 176, 0.35),
+        0 0 20px rgba(143, 211, 244, 0.2);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    /* 3-D flip container */
+    perspective: 1200px;
+    text-decoration: none;
+}
+
+.ty-call-btn:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 10px 32px rgba(132, 250, 176, 0.45),
+        0 0 28px rgba(143, 211, 244, 0.3);
+}
+
+.ty-call-btn:active {
+    transform: scale(0.97);
+}
+
+/* Inner flip card */
+.ty-call-btn__content {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transform-style: preserve-3d;
+    transition: transform 0.7s cubic-bezier(0.2, 0.9, 0.2, 1);
+    width: 100%;
+    height: 100%;
+}
+
+/* Front face */
+.ty-call-btn__front {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    justify-content: center;
+    backface-visibility: hidden;
+    -webkit-backface-visibility: hidden;
+    transform: rotateY(0deg);
+    transition: transform 0.7s cubic-bezier(0.2, 0.9, 0.2, 1);
+    white-space: nowrap;
+}
+
+/* Back face */
+.ty-call-btn__back {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    backface-visibility: hidden;
+    -webkit-backface-visibility: hidden;
+    transform: rotateY(180deg);
+    transition: transform 0.7s cubic-bezier(0.2, 0.9, 0.2, 1);
+}
+
+/* Flipped state */
+.ty-call-btn__content.flipped .ty-call-btn__front {
+    transform: rotateY(180deg);
+}
+
+.ty-call-btn__content.flipped .ty-call-btn__back {
+    transform: rotateY(0deg);
+}
+
+/* Back face inner layout */
+.ty-call-btn__back-text {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    font-weight: 700;
+    font-size: 15px;
+    letter-spacing: 1px;
+    white-space: nowrap;
+}
+
+.ty-call-btn__copy {
+    background: rgba(255, 255, 255, 0.15);
+    border: none;
+    color: #fff;
+    padding: 5px 9px;
+    border-radius: 8px;
+    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    font-size: 15px;
+    transition: background 0.15s ease;
+}
+
+.ty-call-btn__copy:hover {
+    background: rgba(255, 255, 255, 0.25);
+}
+
+.ty-call-btn__tooltip {
+    position: absolute;
+    bottom: calc(100% + 32px);
+    left: 50%;
+    transform: translateX(-50%);
+    background: rgba(0, 0, 0, 0.75);
+    color: #fff;
+    padding: 4px 10px;
+    border-radius: 6px;
+    font-size: 12px;
+    white-space: nowrap;
+    pointer-events: none;
+}
+
+/* ── Footer strip ── */
+.ty-footer {
+    position: relative;
+    z-index: 1;
+    text-align: center;
+    padding: 16px 24px 24px;
+    font-size: 13px;
+    color: rgba(180, 190, 210, 0.4);
+    border-top: 1px solid rgba(132, 250, 176, 0.07);
+}
+
+/* ── Shared animation ── */
+@keyframes fadeUp {
+    from {
+        opacity: 0;
+        transform: translateY(24px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* =============================================
+   Responsive
+   ============================================= */
+@media (max-width: 768px) {
+    .ty-topbar {
+        padding: 16px 20px;
+    }
+
+    .ty-main {
+        padding: 36px 16px 32px;
+    }
+
+    .ty-steps {
+        flex-direction: column;
+        align-items: center;
+        gap: 24px;
+    }
+
+    .ty-step:not(:last-child)::after {
+        display: none;
+    }
+
+    .ty-step {
+        flex-direction: row;
+        text-align: left;
+        padding: 0;
+        gap: 16px;
+        max-width: 340px;
+        width: 100%;
+    }
+
+    .ty-step__num {
+        width: 48px;
+        height: 48px;
+        font-size: 18px;
+        flex-shrink: 0;
+        margin-bottom: 0;
+    }
+
+    .ty-stats {
+        gap: 24px;
+    }
+
+    .ty-cta-row {
+        flex-direction: column;
+        width: 100%;
+    }
+
+    .ty-btn {
+        width: 100%;
+        max-width: 320px;
+        justify-content: center;
+    }
+}
+
+@media (max-width: 480px) {
+    .ty-icon-circle {
+        width: 68px;
+        height: 68px;
+    }
+
+    .ty-icon-circle svg {
+        width: 30px;
+        height: 30px;
+    }
+
+    .ty-ring--1 {
+        width: 88px;
+        height: 88px;
+    }
+
+    .ty-ring--2 {
+        width: 122px;
+        height: 122px;
+    }
+
+    .ty-ring--3 {
+        width: 158px;
+        height: 158px;
+    }
+}
