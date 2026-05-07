@@ -1,3 +1,5 @@
+export const dynamic = "force-dynamic";
+
 import connectDB from "@/lib/mongodb";
 import Enquiry from "@/models/Enquiry";
 import Link from "next/link";
