@@ -16,6 +16,15 @@ const portfolioData = [
         link: "https://saubhagya-one.vercel.app/",
     },
     {
+        id: 3,
+        title: "Al Aziz Education",
+        category: "Website",
+        image: "/al-aziz.png",
+
+        technologies: ["React Native", "Firebase", "Biometrics"],
+        link: "https://www.alazizedu.org/",
+    },
+    {
         id: 4,
         title: "Ambition Perfumes",
         category: "Website",
@@ -60,6 +69,7 @@ const portfolioData = [
         technologies: ["React Native", "Firebase", "Biometrics"],
         link: "https://raahehidayat.vercel.app/",
     },
+    
 ];
 
 const categories = [

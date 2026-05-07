@@ -13,7 +13,7 @@ const servicesData = [
         id: 1,
         title: "Website Development",
         description:
-            "Custom website development with responsive layouts, fast performance, and SEO-friendly code.",
+            "Custom website development with responsive layouts.",
         icon: <FaGlobe />,
         features: [
             "Responsive Website Design",
