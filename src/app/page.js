@@ -3,29 +3,37 @@ import Hero from "../components/Hero";
 import About from "../components/About";
 import Services from "../components/Services";
 import Portfolio from "../components/Portfolio";
-import Team from "../components/Team";
+import Process from "../components/Process/Process";
+import TechStack from "../components/TechStack/TechStack";
 import Contact from "../components/Contact";
 import Footer from "../components/Footer";
 import ResponsiveWrapper from "../components/ResponsiveWrapper";
 import SectionScroller from "../components/SectionScroller";
 import EnquireNow from "../components/EnquireNow";
+import CustomCursor from "../components/Cursor/CustomCursor";
+import { EnquireNowProvider } from "../context/EnquireNowContext";
 
 export default function Home() {
     return (
-        <ResponsiveWrapper>
-            <SectionScroller />
-            <Header />
-            <EnquireNow />
-            <Hero />
-            <Services />
-            <Portfolio />
+        <EnquireNowProvider>
+            <ResponsiveWrapper>
+                <SectionScroller />
+                <CustomCursor />
+                <Header />
+                <EnquireNow />
+                <Hero />
 
-            <main className="main-content">
-                <About />
+                <main className="main-content">
+                    <About />
+                    <Services />
+                    <Portfolio />
+                    <Process />
+                    <TechStack />
+                    <Contact />
+                </main>
 
-                <Contact />
-            </main>
-            <Footer />
-        </ResponsiveWrapper>
+                <Footer />
+            </ResponsiveWrapper>
+        </EnquireNowProvider>
     );
 }

@@ -1,0 +1,124 @@
+.process__header {
+    text-align: center;
+    max-width: 640px;
+    margin: 0 auto var(--space-8);
+}
+
+.process__title {
+    font-size: clamp(2rem, 4.5vw, 3rem);
+}
+
+.process__track {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-6);
+}
+
+.process__line {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 27px;
+    width: 2px;
+    background: var(--border-subtle);
+    border-radius: var(--radius-full);
+}
+
+.process__line-fill {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    background: var(--primary-gradient);
+    transform-origin: top;
+    transform: scaleY(0);
+    border-radius: var(--radius-full);
+}
+
+.process-stage {
+    position: relative;
+    padding-left: 72px;
+}
+
+.process-stage__node {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 56px;
+    height: 56px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.process-stage__icon {
+    color: var(--accent-2);
+    font-size: 1.3rem;
+}
+
+.process-stage__number {
+    display: block;
+    font-family: var(--font-display);
+    font-size: 0.8rem;
+    color: var(--text-tertiary);
+    letter-spacing: 0.1em;
+    margin-bottom: 0.25rem;
+}
+
+.process-stage__title {
+    font-size: var(--font-size-2xl);
+    margin-bottom: 0.4rem;
+}
+
+.process-stage__desc {
+    color: var(--text-secondary);
+    max-width: 420px;
+    margin-bottom: 0;
+}
+
+@media (min-width: 900px) {
+    .process__track {
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: flex-start;
+        gap: var(--space-3);
+    }
+
+    .process__line {
+        top: 27px;
+        left: 0;
+        right: 0;
+        bottom: auto;
+        width: 100%;
+        height: 2px;
+    }
+
+    .process__line-fill {
+        transform-origin: left;
+        transform: scaleX(0);
+    }
+
+    .process-stage {
+        padding-left: 0;
+        padding-top: 88px;
+        flex: 1;
+        text-align: center;
+    }
+
+    .process-stage__node {
+        left: 50%;
+        transform: translateX(-50%);
+    }
+
+    .process-stage__desc {
+        margin: 0 auto;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .process__line-fill {
+        transform: none !important;
+    }
+}

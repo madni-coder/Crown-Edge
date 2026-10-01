@@ -1,99 +1,76 @@
 "use client";
 
-import { useEffect } from "react";
+import { useEffect, useRef } from "react";
 import { FaGlobe, FaMobile, FaAndroid, FaApple } from "react-icons/fa";
-import {
-    addStaggeredAnimation,
-} from "../../utils/animations";
-import { initPerformanceOptimizations } from "../../utils/lazyLoad";
+import { gsap } from "../../lib/gsap";
 import "./Services.css";
 
 const servicesData = [
     {
         id: 1,
         title: "Website Development",
-        description:
-            "Custom website development with responsive layouts.",
+        description: "Custom website development with responsive layouts.",
         icon: <FaGlobe />,
-        features: [
-            "Responsive Website Design",
-            "Performance Optimization",
-            "SEO-Friendly Development",
-            "Cross-Browser Compatibility",
-        ],
     },
     {
         id: 2,
         title: "Web App Development",
-        description:
-            "Web application development for portals, dashboards, and business platforms.",
+        description: "Web application development for portals, dashboards, and business platforms.",
         icon: <FaMobile />,
-        features: [
-            "Custom Web Applications",
-            "API Integrations",
-            "Performance & Security",
-            "Maintenance & Support",
-        ],
     },
-
     {
         id: 3,
         title: "Android App Development",
-        description:
-            "Android app development for scalable, reliable, and user-friendly mobile apps.",
+        description: "Android app development for scalable, reliable, and user-friendly mobile apps.",
         icon: <FaAndroid />,
-        features: [
-            "Android App Development",
-            "Google Play Store Launch",
-            "Performance Optimization",
-            "Ongoing Support",
-        ],
     },
     {
         id: 4,
         title: "iOS App Development",
-        description:
-            "iOS app development for iPhone and iPad with smooth performance and stability.",
+        description: "iOS app development for iPhone and iPad with smooth performance and stability.",
         icon: <FaApple />,
-        features: [
-            "iOS App Development",
-            "App Store Submission",
-            "Quality Assurance",
-            "Ongoing Support",
-        ],
     },
-
 ];
 
 export default function Services() {
-    useEffect(() => {
-        // Add staggered animation to service cards
-        addStaggeredAnimation(".service-card", 100, 150);
+    const sectionRef = useRef(null);
 
-        // Initialize performance optimizations
-        initPerformanceOptimizations();
+    useEffect(() => {
+        const ctx = gsap.context(() => {
+            gsap.from(".services-header > *", {
+                y: 24,
+                opacity: 0,
+                duration: 0.7,
+                ease: "power3.out",
+                stagger: 0.1,
+                scrollTrigger: { trigger: sectionRef.current, start: "top 78%" },
+            });
+            gsap.from(".card", {
+                y: 30,
+                opacity: 0,
+                duration: 0.7,
+                ease: "power3.out",
+                stagger: 0.12,
+                scrollTrigger: { trigger: ".services-grid", start: "top 80%" },
+            });
+        }, sectionRef);
+        return () => ctx.revert();
     }, []);
 
     return (
-        <section id="services" className="section">
+        <section id="services" className="section" ref={sectionRef}>
             <div className="container">
                 <div className="services-header">
-                    <h2 className="services-title animate-on-scroll">
-                        Our Services
-                    </h2>
-                    <p className="services-subtitle animate-on-scroll animate-delay-200">
+                    <h2 className="services-title">Our Services</h2>
+                    <p className="services-subtitle">
                         Web development and mobile app development solutions for
                         business growth
                     </p>
                 </div>
 
                 <div className="services-grid">
-                    {servicesData.map((service, index) => (
-                        <div
-                            key={service.id}
-                            className={`card card-active animate-on-scroll animate-delay-${(index + 1) * 100
-                                }`}
-                        >
+                    {servicesData.map((service) => (
+                        <div key={service.id} className="card card-active">
                             <div className="light-layer">
                                 <div className="slit"></div>
                                 <div className="lumen">
@@ -110,11 +87,7 @@ export default function Services() {
                             </div>
                             <div className="content">
                                 <div className="icon">
-                                    <span
-                                        className="icon-emoji"
-                                        role="img"
-                                        aria-label={service.title}
-                                    >
+                                    <span className="icon-emoji" role="img" aria-label={service.title}>
                                         {service.icon}
                                     </span>
                                 </div>

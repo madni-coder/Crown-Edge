@@ -1,10 +1,8 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useEffect, useRef } from "react";
 import Image from "next/image";
-import {
-    addStaggeredAnimation,
-} from "../../utils/animations";
+import { gsap } from "../../lib/gsap";
 import "./Portfolio.css";
 
 const portfolioData = [
@@ -12,145 +10,114 @@ const portfolioData = [
         id: 1,
         title: "Saubhagya Weddings",
         category: "Website",
+        description: "A wedding-planning brand site with elegant galleries and a simple booking enquiry flow.",
         image: "/sau.webp",
-        technologies: ["React", "Next.js", "Tailwind CSS"],
         link: "https://saubhagya-one.vercel.app/",
     },
     {
         id: 9,
-        title: "Real Estate Website",
+        title: "Simnani Estates",
         category: "Website",
+        description: "Property listings and lead-capture built for a growing real-estate brand.",
         image: "/sim.png",
-        technologies: ["React", "Next.js", "Tailwind CSS"],
         link: "https://www.simnaniestates.com/",
     },
     {
         id: 3,
         title: "Al Aziz Education",
         category: "Website",
+        description: "An education platform with program information and an admissions enquiry funnel.",
         image: "/al-aziz.webp",
-
-        technologies: ["React Native", "Firebase", "Biometrics"],
         link: "https://www.alazizedu.org/",
     },
     {
         id: 4,
         title: "Ambition Perfumes",
         category: "Website",
+        description: "A fragrance brand showcase with a premium, minimal product catalog feel.",
         image: "/amss.webp",
-        technologies: ["Figma", "Illustrator", "Photoshop"],
         link: "https://ambtionperfumes.vercel.app/",
     },
     {
         id: 5,
         title: "Food Sport",
         category: "Website",
+        description: "A food ordering experience built for speed, clarity, and repeat customers.",
         image: "/food.webp",
-
-        technologies: ["React", "Node.js", "MongoDB", "Stripe"],
         link: "https://foodsport-dev.vercel.app/",
     },
-
-
     {
         id: 6,
         title: "Sunshine Hospitals",
         category: "Website",
+        description: "A healthcare website focused on trust, clarity, and easy appointment enquiries.",
         image: "/sun.webp",
-        technologies: ["Next.js", "Responsive Development", "SEO"],
         link: "https://sunshine-hospital-rose.vercel.app",
     },
     {
         id: 7,
-        title: "Choice Center Website",
-        category: "Web Site",
+        title: "Choice Center",
+        category: "Website",
+        description: "An institutional site built for clear information architecture and easy navigation.",
         image: "/ss.webp",
-
-        technologies: ["React Native", "Firebase", "Biometrics"],
         link: "https://shahjahan-cc.vercel.app/",
     },
     {
         id: 8,
         title: "Islamic Prayer Times",
         category: "Mobile App",
+        description: "A prayer-times companion app with accurate, location-aware schedules.",
         image: "/pra.webp",
-
-        technologies: ["React Native", "Firebase", "Biometrics"],
         link: "https://raahehidayat.vercel.app/",
-    },
-    
-];
-
-const categories = [
-    { id: "all", label: "All Projects", count: portfolioData.length },
-    {
-        id: "Website",
-        label: "Web Development",
-        count: portfolioData.filter((item) => item.category === "web").length,
-    },
-    {
-        id: "Mobile App",
-        label: "Mobile Apps",
-        count: portfolioData.filter((item) => item.category === "mobile")
-            .length,
-    },
-    {
-        id: "Web & Mobile",
-        label: "Web Apps & Mobile",
-        count: portfolioData.filter((item) => item.category === "design")
-            .length,
     },
 ];
 
 export default function Portfolio() {
-    const [activeFilter, setActiveFilter] = useState("all");
-    const [filteredItems, setFilteredItems] = useState(portfolioData);
+    const sectionRef = useRef(null);
 
     useEffect(() => {
-        // Add staggered animation to portfolio items
-        addStaggeredAnimation(".portfolio-item", 100, 100);
+        const ctx = gsap.context(() => {
+            gsap.from(".portfolio-header > *", {
+                y: 24,
+                opacity: 0,
+                duration: 0.7,
+                ease: "power3.out",
+                stagger: 0.1,
+                scrollTrigger: { trigger: sectionRef.current, start: "top 78%" },
+            });
+        }, sectionRef);
+        return () => ctx.revert();
     }, []);
 
     useEffect(() => {
-        // Filter items based on active filter
-        if (activeFilter === "all") {
-            setFilteredItems(portfolioData);
-        } else {
-            setFilteredItems(
-                portfolioData.filter((item) => item.category === activeFilter)
-            );
-        }
-    }, [activeFilter]);
-
-    const handleFilterChange = (categoryId) => {
-        setActiveFilter(categoryId);
-    };
+        gsap.from(".uiverse-parent", {
+            y: 24,
+            opacity: 0,
+            duration: 0.5,
+            ease: "power3.out",
+            stagger: 0.08,
+        });
+    }, []);
 
     const openProjectLink = (e, link) => {
-        e.stopPropagation(); // Prevent event bubbling
+        e.stopPropagation();
         window.open(link, "_blank", "noopener,noreferrer");
     };
 
     return (
-        <section id="portfolio" className="section">
+        <section id="portfolio" className="section" ref={sectionRef}>
             <div className="container">
                 <div className="portfolio-header">
-                    <h2 className="portfolio-title animate-on-scroll">
-                        Our Projects
-                    </h2>
-                    <p className="portfolio-subtitle animate-on-scroll animate-delay-200">
+                    <h2 className="portfolio-title">Our Projects</h2>
+                    <p className="portfolio-subtitle">
                         Showcasing our best work across web development and
                         mobile app development projects
                     </p>
                 </div>
 
-                {/* Portfolio Grid */}
                 <div className="portfolio-grid">
-                    {filteredItems.map((item, index) => (
-                        <div
-                            key={item.id}
-                            className="uiverse-parent animate-on-scroll animate-delay-100"
-                        >
+                    {portfolioData.map((item) => (
+                        <div key={item.id} className="uiverse-parent">
                             <div className="uiverse-card">
                                 <div className="uiverse-logo">
                                     <span className="uiverse-circle uiverse-circle1"></span>
@@ -169,68 +136,33 @@ export default function Portfolio() {
                                             strokeLinejoin="round"
                                             className="uiverse-svg"
                                         >
-                                            <rect
-                                                width="20"
-                                                height="14"
-                                                x="2"
-                                                y="3"
-                                                rx="2"
-                                            />
-                                            <line
-                                                x1="8"
-                                                x2="16"
-                                                y1="21"
-                                                y2="21"
-                                            />
-                                            <line
-                                                x1="12"
-                                                x2="12"
-                                                y1="17"
-                                                y2="21"
-                                            />
+                                            <rect width="20" height="14" x="2" y="3" rx="2" />
+                                            <line x1="8" x2="16" y1="21" y2="21" />
+                                            <line x1="12" x2="12" y1="17" y2="21" />
                                         </svg>
                                     </span>
                                 </div>
                                 <div className="uiverse-content">
-                                    <span className="uiverse-title">
-                                        {item.title}
-                                    </span>
+                                    <span className="uiverse-title">{item.title}</span>
+                                    <span className="uiverse-text">{item.description}</span>
                                 </div>
                                 <div className="uiverse-bottom">
                                     <div className="uiverse-view-more">
                                         <button
                                             className="uiverse-view-more-button"
-                                            onClick={(e) =>
-                                                openProjectLink(e, item.link)
-                                            }
+                                            onClick={(e) => openProjectLink(e, item.link)}
                                         >
                                             View Project
                                         </button>
                                     </div>
                                 </div>
-                                <div
-                                    style={{
-                                        position: "absolute",
-                                        top: 0,
-                                        left: 0,
-                                        width: "100%",
-                                        height: "50%",
-                                        borderTopLeftRadius: "50px",
-                                        borderTopRightRadius: "50px",
-                                        overflow: "hidden",
-                                        zIndex: 1,
-                                        padding: 0,
-                                        margin: 0,
-                                    }}
-                                >
+                                <div className="uiverse-image-wrap">
                                     <Image
                                         src={item.image}
                                         alt={item.title}
                                         fill
                                         sizes="(max-width: 768px) 100vw, 50vw"
-                                        style={{
-                                            objectFit: "cover",
-                                        }}
+                                        style={{ objectFit: "cover" }}
                                         loading="lazy"
                                     />
                                 </div>

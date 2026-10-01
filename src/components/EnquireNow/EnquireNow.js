@@ -8,6 +8,7 @@ import { IoClose } from "react-icons/io5";
 import { FiSend } from "react-icons/fi";
 import { FaSpinner } from "react-icons/fa";
 import { BsStars } from "react-icons/bs";
+import { useEnquireNow } from "../../context/EnquireNowContext";
 import "./EnquireNow.css";
 
 const SERVICES = [
@@ -27,10 +28,17 @@ const INITIAL = {
 
 export default function EnquireNow() {
     const router = useRouter();
-    const [open, setOpen] = useState(false);
+    const { open, presetService, openEnquiry, closeEnquiry } = useEnquireNow();
     const [form, setForm] = useState(INITIAL);
     const [errors, setErrors] = useState({});
     const [submitting, setSubmitting] = useState(false);
+
+    // Pick up whatever service a card CTA elsewhere on the page pre-selected
+    useEffect(() => {
+        if (open) {
+            setForm((prev) => ({ ...prev, service: presetService || prev.service }));
+        }
+    }, [open, presetService]);
 
     // Lock body scroll when modal is open
     useEffect(() => {
@@ -48,10 +56,10 @@ export default function EnquireNow() {
     const handleKeyDown = useCallback(
         (e) => {
             if (e.key === "Escape" && open) {
-                setOpen(false);
+                closeEnquiry();
             }
         },
-        [open]
+        [open, closeEnquiry]
     );
 
     useEffect(() => {
@@ -103,7 +111,7 @@ export default function EnquireNow() {
                 service: form.service,
                 city: form.city.trim(),
             });
-            setOpen(false);
+            closeEnquiry();
             setForm(INITIAL);
             setErrors({});
             router.push("/thank-you");
@@ -117,7 +125,7 @@ export default function EnquireNow() {
 
     const handleOverlayClick = (e) => {
         if (e.target === e.currentTarget) {
-            setOpen(false);
+            closeEnquiry();
         }
     };
 
@@ -126,8 +134,9 @@ export default function EnquireNow() {
             {/* ── Sticky Enquire Now Button ── */}
             <button
                 className="enquire-btn"
-                onClick={() => setOpen(true)}
+                onClick={() => openEnquiry()}
                 aria-label="Open enquiry form"
+                data-cursor="Enquire"
                 type="button"
             >
                 <MdMailOutline className="enquire-btn__icon" aria-hidden="true" />
@@ -148,7 +157,7 @@ export default function EnquireNow() {
                         {/* Close button */}
                         <button
                             className="enquire-modal__close"
-                            onClick={() => setOpen(false)}
+                            onClick={closeEnquiry}
                             aria-label="Close enquiry form"
                             type="button"
                         >

@@ -1,6 +1,5 @@
-import { Inter, Poppins } from "next/font/google";
+import { Inter, Poppins, Space_Grotesk } from "next/font/google";
 import "./globals.css";
-import AnimationProvider from "../components/AnimationProvider";
 import Script from "next/script";
 
 const inter = Inter({
@@ -16,20 +15,41 @@ const poppins = Poppins({
     variable: "--font-poppins",
 });
 
+const spaceGrotesk = Space_Grotesk({
+    subsets: ["latin"],
+    weight: ["500", "600", "700"],
+    display: "swap",
+    variable: "--font-space-grotesk",
+});
+
 export const metadata = {
-    title: "Crown Edge Technologies",
+    title: "Crown Edge Technologies — Web & Mobile App Development",
     description:
         "Web development and mobile app development company in Raipur, Chhattisgarh. Custom website development, web applications, ecommerce solutions, and Android/iOS app development.",
     icons: {
         icon: "/c-favicon.gif",
+    },
+    openGraph: {
+        title: "Crown Edge Technologies",
+        description:
+            "Web development and mobile app development company in Raipur, Chhattisgarh. Website development starts at ₹9,999.",
+        siteName: "Crown Edge Technologies",
+        locale: "en_IN",
+        type: "website",
+    },
+    twitter: {
+        card: "summary",
+        title: "Crown Edge Technologies",
+        description:
+            "Web development and mobile app development company in Raipur, Chhattisgarh.",
     },
 };
 
 export default function RootLayout({ children }) {
     return (
         <html lang="en">
-            <body className={`${inter.variable} ${poppins.variable}`}>
-                <AnimationProvider>{children}</AnimationProvider>
+            <body className={`${inter.variable} ${poppins.variable} ${spaceGrotesk.variable}`}>
+                {children}
                 <Script id="responsive-init" strategy="afterInteractive">
                     {`
                         // Initialize responsive utilities after page load
@@ -41,14 +61,14 @@ export default function RootLayout({ children }) {
                                 if (width >= 1200) breakpoint = 'lg';
                                 else if (width >= 1024) breakpoint = 'md';
                                 else if (width >= 768) breakpoint = 'sm';
-                                
+
                                 document.body.className = document.body.className.replace(/breakpoint-\\w+/g, '');
                                 document.body.classList.add('breakpoint-' + breakpoint);
                             }
-                            
+
                             updateBreakpoint();
                             window.addEventListener('resize', updateBreakpoint, { passive: true });
-                            
+
                             // Add touch device detection
                             if ('ontouchstart' in window) {
                                 document.body.classList.add('touch-device');

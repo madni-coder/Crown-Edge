@@ -1,6 +1,5 @@
-/* Animation utilities and keyframes */
+/* Shared keyframes used by GSAP/Framer-driven components and CSS-only fallbacks */
 
-/* Keyframe definitions */
 @keyframes fadeIn {
     from {
         opacity: 0;
@@ -9,151 +8,6 @@
     to {
         opacity: 1;
     }
-}
-
-@keyframes slideUp {
-    from {
-        opacity: 0;
-        transform: translateY(50px);
-    }
-
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
-}
-
-@keyframes slideInLeft {
-    from {
-        opacity: 0;
-        transform: translateX(-50px);
-    }
-
-    to {
-        opacity: 1;
-        transform: translateX(0);
-    }
-}
-
-@keyframes slideInRight {
-    from {
-        opacity: 0;
-        transform: translateX(50px);
-    }
-
-    to {
-        opacity: 1;
-        transform: translateX(0);
-    }
-}
-
-@keyframes scaleIn {
-    from {
-        opacity: 0;
-        transform: scale(0.8);
-    }
-
-    to {
-        opacity: 1;
-        transform: scale(1);
-    }
-}
-
-@keyframes pulse {
-
-    0%,
-    100% {
-        transform: scale(1);
-    }
-
-    50% {
-        transform: scale(1.05);
-    }
-}
-
-/* Animation classes */
-.animate-fade-in {
-    animation: fadeIn var(--transition-slow) ease-out forwards;
-}
-
-.animate-slide-up {
-    animation: slideUp var(--transition-slow) ease-out forwards;
-}
-
-.animate-slide-in-left {
-    animation: slideInLeft var(--transition-slow) ease-out forwards;
-}
-
-.animate-slide-in-right {
-    animation: slideInRight var(--transition-slow) ease-out forwards;
-}
-
-.animate-scale-in {
-    animation: scaleIn var(--transition-slow) ease-out forwards;
-}
-
-.animate-pulse {
-    animation: pulse 2s infinite;
-}
-
-/* Animation delays for staggered effects */
-.animate-delay-100 {
-    animation-delay: 0.1s;
-}
-
-.animate-delay-200 {
-    animation-delay: 0.2s;
-}
-
-.animate-delay-300 {
-    animation-delay: 0.3s;
-}
-
-.animate-delay-400 {
-    animation-delay: 0.4s;
-}
-
-.animate-delay-500 {
-    animation-delay: 0.5s;
-}
-
-/* Initial states for animations */
-.animate-on-scroll {
-    opacity: 0;
-    transform: translateY(30px);
-    transition: opacity var(--transition-slow) ease-out, transform var(--transition-slow) ease-out;
-}
-
-.animate-on-scroll.animate {
-    opacity: 1;
-    transform: translateY(0);
-}
-
-/* Hover animations */
-.hover-lift {
-    transition: transform var(--transition-normal) ease-out;
-}
-
-.hover-lift:hover {
-    transform: translateY(-5px);
-}
-
-.hover-scale {
-    transition: transform var(--transition-normal) ease-out;
-}
-
-.hover-scale:hover {
-    transform: scale(1.05);
-}
-
-/* Loading animations */
-.loading-spinner {
-    width: 20px;
-    height: 20px;
-    border: 2px solid var(--text-secondary);
-    border-top: 2px solid var(--accent);
-    border-radius: 50%;
-    animation: spin 1s linear infinite;
 }
 
 @keyframes spin {
@@ -166,29 +20,53 @@
     }
 }
 
-/* Performance optimizations */
-.will-animate {
-    will-change: transform, opacity;
-}
+@keyframes pulse-glow {
 
-/* Reduced motion support */
-@media (prefers-reduced-motion: reduce) {
-
-    .animate-fade-in,
-    .animate-slide-up,
-    .animate-slide-in-left,
-    .animate-slide-in-right,
-    .animate-scale-in,
-    .animate-pulse,
-    .animate-on-scroll,
-    .hover-lift,
-    .hover-scale {
-        animation: none !important;
-        transition: none !important;
+    0%,
+    100% {
+        opacity: 0.5;
+        transform: scale(1);
     }
 
-    .animate-on-scroll {
+    50% {
         opacity: 1;
-        transform: none;
+        transform: scale(1.08);
+    }
+}
+
+@keyframes float-y {
+
+    0%,
+    100% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-14px);
+    }
+}
+
+@keyframes gradient-sweep {
+    0% {
+        background-position: 0% 50%;
+    }
+
+    100% {
+        background-position: 200% 50%;
+    }
+}
+
+.loading-spinner {
+    width: 20px;
+    height: 20px;
+    border: 2px solid var(--text-secondary);
+    border-top: 2px solid var(--accent);
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+}
+
+@media (prefers-reduced-motion: reduce) {
+    * {
+        animation: none !important;
     }
 }

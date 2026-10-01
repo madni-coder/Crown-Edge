@@ -1,122 +1,112 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useEffect, useRef, useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
+import { AnimatePresence, motion } from "framer-motion";
+import { gsap } from "../../lib/gsap";
 import { smoothScrollTo } from "../../utils/animations";
+import { useEnquireNow } from "../../context/EnquireNowContext";
+import { useMagnetic } from "../../hooks/useMagnetic";
 import "./Header.css";
+
+const navItems = [
+    { id: "home", label: "Home", href: "/" },
+    { id: "services", label: "Services", href: "/services" },
+    { id: "portfolio", label: "Work", href: "/portfolio" },
+    { id: "about", label: "About", href: "/about" },
+    { id: "contact", label: "Contact", href: "/contact" },
+];
+
+const menuVariants = {
+    hidden: { opacity: 0 },
+    visible: { opacity: 1, transition: { duration: 0.3 } },
+};
+
+const listVariants = {
+    hidden: {},
+    visible: { transition: { staggerChildren: 0.07, delayChildren: 0.1 } },
+};
+
+const itemVariants = {
+    hidden: { opacity: 0, y: 24 },
+    visible: { opacity: 1, y: 0, transition: { duration: 0.5, ease: [0.16, 1, 0.3, 1] } },
+};
 
 const Header = () => {
     const [isMenuOpen, setIsMenuOpen] = useState(false);
     const [isScrolled, setIsScrolled] = useState(false);
     const pathname = usePathname();
+    const logoRef = useRef(null);
+    const { openEnquiry } = useEnquireNow();
+    const magnetic = useMagnetic(0.3);
 
-    // Navigation items with proper routes
-    const navItems = [
-        { id: "home", label: "Home", href: "/" },
-        { id: "about", label: "About", href: "/about" },
-        { id: "services", label: "Services", href: "/services" },
-        { id: "portfolio", label: "Portfolio", href: "/portfolio" },
-        { id: "team", label: "Team", href: "/team" },
-        { id: "contact", label: "Contact", href: "/contact" },
-    ];
-
-    // Handle scroll effect
     useEffect(() => {
-        const handleScroll = () => {
-            setIsScrolled(window.scrollY > 50);
-        };
-
+        const handleScroll = () => setIsScrolled(window.scrollY > 40);
         window.addEventListener("scroll", handleScroll, { passive: true });
+        handleScroll();
         return () => window.removeEventListener("scroll", handleScroll);
     }, []);
 
-    // Toggle mobile menu
-    const toggleMenu = () => {
-        setIsMenuOpen(!isMenuOpen);
-    };
+    useEffect(() => {
+        if (!logoRef.current) return;
+        gsap.fromTo(
+            logoRef.current,
+            { opacity: 0, y: -16, scale: 0.9 },
+            { opacity: 1, y: 0, scale: 1, duration: 0.8, ease: "power3.out", delay: 0.1 }
+        );
+    }, []);
 
-    // Handle navigation click - scroll to section if on home page
+    const toggleMenu = () => setIsMenuOpen((prev) => !prev);
+
     const handleNavClick = (item, e) => {
-        // If we're on the home page, scroll to the section
         if (pathname === "/") {
             e.preventDefault();
-            const targetId = item.id;
-            smoothScrollTo(targetId, 80); // 80px offset for fixed header
+            smoothScrollTo(item.id, 88);
         }
-        // Otherwise, let the Link navigate to the route
-        setIsMenuOpen(false); // Close mobile menu
+        setIsMenuOpen(false);
     };
 
-    // Close menu when clicking outside
     useEffect(() => {
-        const handleClickOutside = (event) => {
-            if (isMenuOpen && !event.target.closest(".header")) {
-                setIsMenuOpen(false);
-            }
-        };
-
-        document.addEventListener("click", handleClickOutside);
-        return () => document.removeEventListener("click", handleClickOutside);
-    }, [isMenuOpen]);
-
-    // Prevent body scroll when mobile menu is open
-    useEffect(() => {
-        if (isMenuOpen) {
-            document.body.style.overflow = "hidden";
-        } else {
-            document.body.style.overflow = "unset";
-        }
-
+        document.body.style.overflow = isMenuOpen ? "hidden" : "";
         return () => {
-            document.body.style.overflow = "unset";
+            document.body.style.overflow = "";
         };
     }, [isMenuOpen]);
 
     return (
         <header className={`header ${isScrolled ? "header--scrolled" : ""}`}>
             <div className="container">
-                <div className="header__content ">
-                    {/* Logo on the left */}
+                <div className="header__content">
                     <Link
                         href="/"
                         className="header__logo-link"
                         aria-label="Crown Edge Technologies Home"
+                        data-cursor="Home"
                     >
-                        <div className="header__logo-container">
+                        <div className="header__logo-container" ref={logoRef}>
                             <Image
                                 src="/companyLogo.webp"
                                 alt="Crown Edge Technologies Logo"
-                                width={40}
-                                height={40}
+                                width={38}
+                                height={38}
                                 style={{ objectFit: "contain" }}
                                 priority
                             />
-
-                            <span
-                                className="header__logo-text"
-                                style={{ marginLeft: "8px" }}
-                            >
-                                Crown Edge Technologies
-                            </span>
+                            <span className="header__logo-text">Crown Edge Technologies</span>
                         </div>
                     </Link>
 
-                    {/* Desktop Navigation */}
-                    <nav
-                        className="header__nav header__nav--desktop"
-                        aria-label="Main navigation"
-                    >
+                    <nav className="header__nav header__nav--desktop" aria-label="Main navigation">
                         <ul className="header__nav-list">
                             {navItems.map((item) => (
                                 <li key={item.id} className="header__nav-item">
                                     <Link
                                         href={item.href}
-                                        onClick={(e) =>
-                                            handleNavClick(item, e)
-                                        }
+                                        onClick={(e) => handleNavClick(item, e)}
                                         className="header__nav-link"
+                                        data-cursor="View"
                                     >
                                         {item.label}
                                     </Link>
@@ -125,54 +115,75 @@ const Header = () => {
                         </ul>
                     </nav>
 
-                    {/* Mobile Menu Button */}
                     <button
-                        className={`header__menu-toggle ${isMenuOpen ? "header__menu-toggle--active" : ""
-                            }`}
+                        ref={magnetic.ref}
+                        onMouseMove={magnetic.onMouseMove}
+                        onMouseLeave={magnetic.onMouseLeave}
+                        onClick={() => openEnquiry()}
+                        className="header__cta btn btn-primary header__nav--desktop-only"
+                        data-cursor="Go"
+                        type="button"
+                    >
+                        Start a Project
+                    </button>
+
+                    <button
+                        className={`header__menu-toggle ${isMenuOpen ? "header__menu-toggle--active" : ""}`}
                         onClick={toggleMenu}
                         aria-label={isMenuOpen ? "Close menu" : "Open menu"}
                         aria-expanded={isMenuOpen}
+                        type="button"
                     >
-                        <span className="header__menu-line"></span>
-                        <span className="header__menu-line"></span>
-                        <span className="header__menu-line"></span>
+                        <span className="header__menu-line" />
+                        <span className="header__menu-line" />
+                        <span className="header__menu-line" />
                     </button>
                 </div>
-
-                {/* Mobile Navigation */}
-                <nav
-                    className={`header__nav header__nav--mobile ${isMenuOpen ? "header__nav--mobile-open" : ""
-                        }`}
-                    aria-label="Mobile navigation"
-                >
-                    <ul className="header__nav-list header__nav-list--mobile">
-                        {navItems.map((item, index) => (
-                            <li
-                                key={item.id}
-                                className="header__nav-item header__nav-item--mobile"
-                                style={{ animationDelay: `${index * 0.1}s` }}
-                            >
-                                <Link
-                                    href={item.href}
-                                    onClick={(e) => handleNavClick(item, e)}
-                                    className="header__nav-link header__nav-link--mobile"
-                                >
-                                    {item.label}
-                                </Link>
-                            </li>
-                        ))}
-                    </ul>
-                </nav>
             </div>
 
-            {/* Mobile Menu Overlay */}
-            {isMenuOpen && (
-                <div
-                    className="header__overlay"
-                    onClick={() => setIsMenuOpen(false)}
-                    aria-hidden="true"
-                />
-            )}
+            <AnimatePresence>
+                {isMenuOpen && (
+                    <motion.nav
+                        className="header__mobile-menu"
+                        aria-label="Mobile navigation"
+                        initial="hidden"
+                        animate="visible"
+                        exit="hidden"
+                        variants={menuVariants}
+                    >
+                        <motion.ul
+                            className="header__mobile-list"
+                            variants={listVariants}
+                            initial="hidden"
+                            animate="visible"
+                        >
+                            {navItems.map((item) => (
+                                <motion.li key={item.id} variants={itemVariants}>
+                                    <Link
+                                        href={item.href}
+                                        onClick={(e) => handleNavClick(item, e)}
+                                        className="header__mobile-link"
+                                    >
+                                        {item.label}
+                                    </Link>
+                                </motion.li>
+                            ))}
+                            <motion.li variants={itemVariants}>
+                                <button
+                                    className="btn btn-primary header__mobile-cta"
+                                    type="button"
+                                    onClick={() => {
+                                        setIsMenuOpen(false);
+                                        openEnquiry();
+                                    }}
+                                >
+                                    Start a Project
+                                </button>
+                            </motion.li>
+                        </motion.ul>
+                    </motion.nav>
+                )}
+            </AnimatePresence>
         </header>
     );
 };
