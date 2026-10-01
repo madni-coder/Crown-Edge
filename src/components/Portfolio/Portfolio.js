@@ -17,6 +17,14 @@ const portfolioData = [
         link: "https://saubhagya-one.vercel.app/",
     },
     {
+        id: 9,
+        title: "Real Estate Website",
+        category: "Website",
+        image: "/sim.png",
+        technologies: ["React", "Next.js", "Tailwind CSS"],
+        link: "https://www.simnaniestates.com/",
+    },
+    {
         id: 3,
         title: "Al Aziz Education",
         category: "Website",
@@ -34,7 +42,7 @@ const portfolioData = [
         link: "https://ambtionperfumes.vercel.app/",
     },
     {
-        id: 2,
+        id: 5,
         title: "Food Sport",
         category: "Website",
         image: "/food.webp",
@@ -42,10 +50,10 @@ const portfolioData = [
         technologies: ["React", "Node.js", "MongoDB", "Stripe"],
         link: "https://foodsport-dev.vercel.app/",
     },
- 
-   
+
+
     {
-        id: 4,
+        id: 6,
         title: "Sunshine Hospitals",
         category: "Website",
         image: "/sun.webp",
@@ -53,7 +61,7 @@ const portfolioData = [
         link: "https://sunshine-hospital-rose.vercel.app",
     },
     {
-        id: 3,
+        id: 7,
         title: "Choice Center Website",
         category: "Web Site",
         image: "/ss.webp",
@@ -62,7 +70,7 @@ const portfolioData = [
         link: "https://shahjahan-cc.vercel.app/",
     },
     {
-        id: 3,
+        id: 8,
         title: "Islamic Prayer Times",
         category: "Mobile App",
         image: "/pra.webp",
