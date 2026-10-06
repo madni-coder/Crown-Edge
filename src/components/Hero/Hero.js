@@ -15,7 +15,7 @@ const HeroCanvas = dynamic(() => import("./HeroCanvas"), {
 });
 
 const HEADLINE_WORDS = [
-    "We", "Build", "Digital", "Experiences", "That", "Move", "You.",
+    "We", "Build", "Websites", "&", "Apps", "That", "Move", "You.",
 ];
 
 const Hero = () => {
@@ -96,7 +96,7 @@ const Hero = () => {
             <div className="container hero__container">
                 <div className="hero__content">
                     <span className="hero__reveal hero__eyebrow section-eyebrow">
-                        Empowering You with a Royal Edge
+                        Website & Mobile App Development Company in India
                     </span>
 
                     <h1 className="hero__title" ref={headlineRef} aria-label={HEADLINE_WORDS.join(" ")}>
@@ -112,8 +112,10 @@ const Hero = () => {
                     </h1>
 
                     <p className="hero__reveal hero__subtitle">
-                        From stunning websites to powerful mobile apps, we turn
-                        ambitious ideas into extraordinary digital products.
+                        Crown Edge Technologies builds custom websites, web
+                        applications and Android &amp; iOS apps for businesses across
+                        India — from Raipur to every metro, shipped fast and built to
+                        rank.
                     </p>
 
                     <div className="hero__reveal hero__cta-row">

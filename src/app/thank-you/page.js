@@ -8,9 +8,11 @@ import { RiCustomerService2Fill } from "react-icons/ri";
 import "./thank-you.css";
 
 export const metadata = {
-    title: "Thank You — Crown Edge Technologies",
+    title: "Thank You",
     description:
         "Thank you for your enquiry. We will revert to you within 24 hours.",
+    robots: { index: false, follow: false },
+    alternates: { canonical: "/thank-you" },
 };
 
 export default function ThankYouPage() {

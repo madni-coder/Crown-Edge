@@ -3,74 +3,8 @@
 import { useEffect, useRef } from "react";
 import Image from "next/image";
 import { gsap } from "../../lib/gsap";
+import { portfolioData } from "../../data/portfolio";
 import "./Portfolio.css";
-
-const portfolioData = [
-    {
-        id: 1,
-        title: "Saubhagya Weddings",
-        category: "Website",
-        description: "A wedding-planning brand site with elegant galleries and a simple booking enquiry flow.",
-        image: "/sau.webp",
-        link: "https://saubhagya-one.vercel.app/",
-    },
-    {
-        id: 9,
-        title: "Simnani Estates",
-        category: "Website",
-        description: "Property listings and lead-capture built for a growing real-estate brand.",
-        image: "/sim.png",
-        link: "https://www.simnaniestates.com/",
-    },
-    {
-        id: 3,
-        title: "Al Aziz Education",
-        category: "Website",
-        description: "An education platform with program information and an admissions enquiry funnel.",
-        image: "/al-aziz.webp",
-        link: "https://www.alazizedu.org/",
-    },
-    {
-        id: 4,
-        title: "Ambition Perfumes",
-        category: "Website",
-        description: "A fragrance brand showcase with a premium, minimal product catalog feel.",
-        image: "/amss.webp",
-        link: "https://ambtionperfumes.vercel.app/",
-    },
-    {
-        id: 5,
-        title: "Food Sport",
-        category: "Website",
-        description: "A food ordering experience built for speed, clarity, and repeat customers.",
-        image: "/food.webp",
-        link: "https://foodsport-dev.vercel.app/",
-    },
-    {
-        id: 6,
-        title: "Sunshine Hospitals",
-        category: "Website",
-        description: "A healthcare website focused on trust, clarity, and easy appointment enquiries.",
-        image: "/sun.webp",
-        link: "https://sunshine-hospital-rose.vercel.app",
-    },
-    {
-        id: 7,
-        title: "Choice Center",
-        category: "Website",
-        description: "An institutional site built for clear information architecture and easy navigation.",
-        image: "/ss.webp",
-        link: "https://shahjahan-cc.vercel.app/",
-    },
-    {
-        id: 8,
-        title: "Islamic Prayer Times",
-        category: "Mobile App",
-        description: "A prayer-times companion app with accurate, location-aware schedules.",
-        image: "/pra.webp",
-        link: "https://raahehidayat.vercel.app/",
-    },
-];
 
 export default function Portfolio() {
     const sectionRef = useRef(null);

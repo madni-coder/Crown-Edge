@@ -2,9 +2,11 @@ import Link from "next/link";
 import "../../app/terms/terms.css";
 
 export const metadata = {
-    title: "Privacy Policy | Crown Edge Technologies",
+    title: "Privacy Policy",
     description:
-        "Learn how Crown Edge Technologies collects, uses, and protects your personal data. Our Privacy Policy follows industry standards for software development companies.",
+        "How Crown Edge Technologies collects, uses and protects your personal data, including cookies, third-party services and your rights under GDPR and Indian data law.",
+    alternates: { canonical: "/privacy" },
+    openGraph: { url: "/privacy", title: "Privacy Policy", type: "website" },
 };
 
 export default function PrivacyPage() {

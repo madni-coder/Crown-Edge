@@ -1,12 +1,34 @@
 "use client";
 
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 import { MdCall, MdLocationOn, MdEmail, MdArrowUpward } from "react-icons/md";
 import { smoothScrollTo } from "../../utils/animations";
 import "./Footer.css";
 
+const quickLinks = [
+    { id: "home", label: "Home", href: "/" },
+    { id: "about", label: "About Us", href: "/about" },
+    { id: "services", label: "Services", href: "/services" },
+    { id: "portfolio", label: "Portfolio", href: "/portfolio" },
+    { id: "contact", label: "Contact", href: "/contact" },
+];
+
+const serviceLinks = [
+    { label: "Website Development", hash: "website-development" },
+    { label: "Web App Development", hash: "web-application-development" },
+    { label: "E-commerce Development", hash: "ecommerce-development" },
+    { label: "Android App Development", hash: "android-app-development" },
+    { label: "iOS App Development", hash: "ios-app-development" },
+    { label: "UI/UX Design", hash: "ui-ux-design" },
+];
+
 export default function Footer() {
+    const pathname = usePathname();
+
+    // On the one-page home route the links still scroll; elsewhere they navigate.
     const handleNavClick = (e, targetId) => {
+        if (pathname !== "/" || targetId === "home") return;
         e.preventDefault();
         smoothScrollTo(targetId, 80);
     };
@@ -33,11 +55,13 @@ export default function Footer() {
                     <div className="footer-section">
                         <h4 className="footer-title">Quick Links</h4>
                         <ul className="footer-links">
-                            <li><a href="#home" onClick={(e) => handleNavClick(e, "home")}>Home</a></li>
-                            <li><a href="#about" onClick={(e) => handleNavClick(e, "about")}>About</a></li>
-                            <li><a href="#services" onClick={(e) => handleNavClick(e, "services")}>Services</a></li>
-                            <li><a href="#portfolio" onClick={(e) => handleNavClick(e, "portfolio")}>Portfolio</a></li>
-                            <li><a href="#contact" onClick={(e) => handleNavClick(e, "contact")}>Contact</a></li>
+                            {quickLinks.map((item) => (
+                                <li key={item.id}>
+                                    <Link href={item.href} onClick={(e) => handleNavClick(e, item.id)}>
+                                        {item.label}
+                                    </Link>
+                                </li>
+                            ))}
                             <li><Link href="/terms">Terms &amp; Conditions</Link></li>
                             <li><Link href="/privacy">Privacy Policy</Link></li>
                         </ul>
@@ -46,11 +70,11 @@ export default function Footer() {
                     <div className="footer-section">
                         <h4 className="footer-title">Services</h4>
                         <ul className="footer-links">
-                            <li><a href="#services">Web Development</a></li>
-                            <li><a href="#services">E-commerce Development</a></li>
-                            <li><a href="#services">Mobile App Development</a></li>
-                            <li><a href="#services">UI/UX Design</a></li>
-                            <li><a href="#services">Automation &amp; AI Solutions</a></li>
+                            {serviceLinks.map((item) => (
+                                <li key={item.hash}>
+                                    <Link href={`/services#${item.hash}`}>{item.label}</Link>
+                                </li>
+                            ))}
                         </ul>
                     </div>
 
@@ -63,11 +87,11 @@ export default function Footer() {
                             </div>
                             <div className="contact-item">
                                 <MdCall className="contact-icon" aria-hidden="true" />
-                                <span>9993457671</span>
+                                <a href="tel:+919993457671">+91 99934 57671</a>
                             </div>
                             <div className="contact-item">
                                 <MdLocationOn className="contact-icon" aria-hidden="true" />
-                                <span>Office No 357, Sanjay Nagar, Raipur Chhattisgarh</span>
+                                <address>Office No 357, Sanjay Nagar, Raipur, Chhattisgarh, India</address>
                             </div>
                         </div>
                     </div>

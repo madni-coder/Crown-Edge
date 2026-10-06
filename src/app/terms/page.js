@@ -2,9 +2,11 @@ import Link from "next/link";
 import "./terms.css";
 
 export const metadata = {
-    title: "Terms & Conditions | Crown Edge Technologies",
+    title: "Terms & Conditions",
     description:
-        "Read the Terms & Conditions for web development services provided by Crown Edge Technologies.",
+        "Terms & Conditions for website and mobile app development services provided by Crown Edge Technologies — project scope, payment stages, revisions and ownership.",
+    alternates: { canonical: "/terms" },
+    openGraph: { url: "/terms", title: "Terms & Conditions", type: "website" },
 };
 
 export default function TermsPage() {
