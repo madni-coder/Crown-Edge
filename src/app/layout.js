@@ -27,7 +27,7 @@ export const metadata = {
     description:
         "Web development and mobile app development company in Raipur, Chhattisgarh. Custom website development, web applications, ecommerce solutions, and Android/iOS app development.",
     icons: {
-        icon: "/c-favicon.gif",
+        icon: "/favicon.png",
     },
     openGraph: {
         title: "Crown Edge Technologies",

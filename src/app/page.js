@@ -10,7 +10,6 @@ import Footer from "../components/Footer";
 import ResponsiveWrapper from "../components/ResponsiveWrapper";
 import SectionScroller from "../components/SectionScroller";
 import EnquireNow from "../components/EnquireNow";
-import CustomCursor from "../components/Cursor/CustomCursor";
 import { EnquireNowProvider } from "../context/EnquireNowContext";
 
 export default function Home() {
@@ -18,7 +17,6 @@ export default function Home() {
         <EnquireNowProvider>
             <ResponsiveWrapper>
                 <SectionScroller />
-                <CustomCursor />
                 <Header />
                 <EnquireNow />
                 <Hero />

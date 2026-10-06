@@ -87,14 +87,13 @@ const Header = () => {
                     >
                         <div className="header__logo-container" ref={logoRef}>
                             <Image
-                                src="/companyLogo.webp"
+                                src="/companyLogo.png"
                                 alt="Crown Edge Technologies Logo"
-                                width={38}
-                                height={38}
-                                style={{ objectFit: "contain" }}
+                                width={160}
+                                height={62}
+                                style={{ objectFit: "contain", height: "72px", width: "auto" }}
                                 priority
                             />
-                            <span className="header__logo-text">Crown Edge Technologies</span>
                         </div>
                     </Link>
 
